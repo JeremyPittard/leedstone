@@ -1,9 +1,39 @@
 ---
+import { getCollection } from "astro:content";
+
 const { value } = Astro.props;
 
 const title = value;
+
+const allFAQs = await getCollection("faqs");
+
+type faq = {
+  id: string;
+  collection: string;
+  data: {
+    question: string;
+    answer: string;
+  };
+};
+
+console.log(allFAQs);
 ---
 
 <section class="faq border-2">
   <h2>{title}</h2>
+  <ul>
+    {
+      allFAQs
+        ? allFAQs.map((singleFAQ: faq) => {
+            const { question, answer } = singleFAQ.data;
+            return (
+              <li>
+                <h3>{question}</h3>
+                <p>{answer}</p>
+              </li>
+            );
+          })
+        : null
+    }
+  </ul>
 </section>

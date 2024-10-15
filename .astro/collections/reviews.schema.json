@@ -1,0 +1,233 @@
+{
+  "$ref": "#/definitions/reviews",
+  "definitions": {
+    "reviews": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "discriminant": {
+                "type": "string"
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "blockquote": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "blockquote"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {},
+                  {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "image": {
+                        "type": "string"
+                      },
+                      "cta": {
+                        "type": "array",
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "link": {
+                                  "type": "string"
+                                },
+                                "linkText": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "link",
+                                "linkText"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "link": {
+                                  "type": "string"
+                                },
+                                "linkText": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "link",
+                                "linkText"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "image"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "image": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "description",
+                      "image"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "cta": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/reviews/properties/content/items/properties/value/anyOf/2/properties/cta/items"
+                        }
+                      },
+                      "imageSide": {
+                        "type": "string",
+                        "enum": [
+                          "left",
+                          "right"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "description",
+                      "imageSide"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "link": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/definitions/reviews/properties/content/items/properties/value/anyOf/2/properties/cta/items"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  {},
+                  {},
+                  {},
+                  {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "cta": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/reviews/properties/content/items/properties/value/anyOf/2/properties/cta/items"
+                        }
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "description"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "cta": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/reviews/properties/content/items/properties/value/anyOf/2/properties/cta/items"
+                        }
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "description",
+                      "cta"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "discriminant"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "content"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

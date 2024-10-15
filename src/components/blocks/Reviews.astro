@@ -1,9 +1,38 @@
 ---
+import { getCollection, getEntries } from "astro:content";
+
 const { value } = Astro.props;
 
 const title = value;
+const allReviews = await getCollection("reviews");
+
+type Review = {
+  id: string;
+  collection: string;
+  data: {
+    pullQuote: string;
+    review: string;
+    rating: number;
+    platform: string;
+    image: string;
+  };
+};
 ---
 
 <section class="reviews border-2">
   <h2>{title}</h2>
+  {
+    allReviews.map((singleReview: Review) => {
+      const { pullQuote, review, rating, platform, image } = singleReview.data;
+      return (
+        <div>
+          <h3>{pullQuote}</h3>
+          <p>{review}</p>
+          <p>{rating}</p>
+          <p>{platform}</p>
+          {image ? <img src={image} alt="" width="400" /> : null}
+        </div>
+      );
+    })
+  }
 </section>
