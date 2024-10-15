@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import { getEntry } from "astro:content";
+import type { PageBlock } from "../types/blocks";
+import TheComponent from "../components/TheComponent.astro";
 
 // Generate static pages
 export async function getStaticPaths() {
@@ -17,14 +19,16 @@ export async function getStaticPaths() {
 
 const { title } = Astro.params;
 const { page } = Astro.props;
+
+const blocks = page.data.content as PageBlock[];
 ---
 
 <Layout title={title}>
   <h1>{page.data.title}</h1>
   <ul>
     {
-      page.data.content.map((item, index) => {
-        return <li>{index}</li>;
+      blocks.map((block) => {
+        return <TheComponent block={block} />;
       })
     }
   </ul>

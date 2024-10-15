@@ -1,8 +1,8 @@
-title: Home
+title: all the things
 content:
   - discriminant: hero
     value:
-      image: /images/hero/home/content/0/value/image.jpg
+      image: /images/hero/all-the-things/content/0/value/image.jpg
       title: A Hero
       description: A Description for hero
       cta:
@@ -14,6 +14,11 @@ content:
           value:
             link: https://www.google.com
             linkText: an external link
+  - discriminant: pageHeader
+    value:
+      image: /images/header/all-the-things/content/1/value/image.jpg
+      title: Page Header
+      description: when a hero is just too much
   - discriminant: textWithImage
     value:
       title: Problem
@@ -48,7 +53,6 @@ content:
     value: Faq's
   - discriminant: cta
     value:
-      image: /images/hero/home/content/7/value/image.jpg
       title: CTA HERE
       description: maybe do a calendly thingo
       cta:
@@ -56,3 +60,9 @@ content:
           value:
             link: about-us
             linkText: internal link
+  - discriminant: BlogList
+    value: recent blog posts
+  - discriminant: blockquote
+    value:
+      quote: block quote
+      cite: some guy

@@ -1,1 +1,12 @@
-<h1>Page Header</h1>
+---
+const { value } = Astro.props;
+
+const { image, title, description } = value;
+console.log(image);
+---
+
+<section class="hero border-2">
+  <h1>{title}</h1>
+  <img src={image} alt="#" width="400" />
+  <p>{description}</p>
+</section>

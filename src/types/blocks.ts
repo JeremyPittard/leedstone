@@ -1,5 +1,16 @@
-type InternalLink = any; //TODO ammend this when I know what the object is
-type ExternalLink = any; //TODO ammend this when I know what the object is
+type InternalLink = {
+  link: string;
+  linkText: string;
+};
+type ExternalLink = {
+  link: string;
+  linkText: string;
+};
+
+export type CTALink = {
+  discriminant: string;
+  value: InternalLink | ExternalLink;
+};
 type ImageGrid = {
   image?: string;
   title?: string;

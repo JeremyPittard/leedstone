@@ -22,18 +22,23 @@ export const pages = collection({
               {
                 internalLink: {
                   label: "Internal Link",
-                  schema: fields.relationship({
-                    label: "Internal Link",
-                    description: "Select a page on this site",
-                    collection: "pages",
+                  schema: fields.object({
+                    link: fields.relationship({
+                      label: "Internal Link",
+                      description: "Select a page on this site",
+                      collection: "pages",
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
                 externalLink: {
                   label: "External Link",
-                  schema: fields.url({
-                    label: "External Link",
-                    description:
-                      "paste a link to an external site (this will open in a new tab.)",
+                  schema: fields.object({
+                    link: fields.url({
+                      label: "External Link",
+                      description: "Select a page on this site",
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
               },
@@ -45,7 +50,11 @@ export const pages = collection({
           label: "Page Header",
           schema: fields.object(
             {
-              image: fields.image({ label: "Image" }),
+              image: fields.image({
+                label: "Image",
+                directory: "public/images/header/",
+                publicPath: "/images/header/",
+              }),
               title: fields.text({ label: "Title" }),
               description: fields.text({ label: "Description" }),
             },
@@ -55,25 +64,34 @@ export const pages = collection({
         textWithImage: {
           label: "Text With Image",
           schema: fields.object({
-            image: fields.image({ label: "Image" }),
+            image: fields.image({
+              label: "Image",
+              directory: "public/images/content/",
+              publicPath: "/images/content/",
+            }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description" }),
             cta: fields.blocks(
               {
                 internalLink: {
                   label: "Internal Link",
-                  schema: fields.relationship({
-                    label: "Internal Link",
-                    description: "Select a page on this site",
-                    collection: "pages",
+                  schema: fields.object({
+                    link: fields.relationship({
+                      label: "Internal Link",
+                      description: "Select a page on this site",
+                      collection: "pages",
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
                 externalLink: {
                   label: "External Link",
-                  schema: fields.url({
-                    label: "External Link",
-                    description:
-                      "paste a link to an external site (this will open in a new tab.)",
+                  schema: fields.object({
+                    link: fields.url({
+                      label: "External Link",
+                      description: "Select a page on this site",
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
               },
@@ -91,35 +109,57 @@ export const pages = collection({
         },
         imageGrid: {
           label: "Image Grid",
-          schema: fields.array(
-            fields.object({
-              image: fields.image({ label: "Image" }),
-              title: fields.text({ label: "Title" }),
-              description: fields.text({ label: "Description" }),
-              link: fields.blocks(
-                {
-                  internalLink: {
-                    label: "Internal Link",
-                    schema: fields.relationship({
+          schema: fields.object({
+            title: fields.text({ label: "Title" }),
+            items: fields.array(
+              fields.object({
+                image: fields.image({
+                  label: "Image",
+                  directory: "public/images/content/",
+                  publicPath: "/images/content/",
+                }),
+                title: fields.text({ label: "Title" }),
+                description: fields.text({ label: "Description" }),
+                link: fields.blocks(
+                  {
+                    internalLink: {
                       label: "Internal Link",
-                      description: "Select a page on this site",
-                      collection: "pages",
-                    }),
-                  },
-                  externalLink: {
-                    label: "External Link",
-                    schema: fields.url({
+                      schema: fields.relationship({
+                        label: "Internal Link",
+                        description: "Select a page on this site",
+                        collection: "pages",
+                      }),
+                    },
+                    externalLink: {
                       label: "External Link",
-                      description:
-                        "paste a link to an external site (this will open in a new tab.)",
-                    }),
+                      schema: fields.url({
+                        label: "External Link",
+                        description:
+                          "paste a link to an external site (this will open in a new tab.)",
+                      }),
+                    },
                   },
-                },
-                { label: "CTA", validation: { length: { max: 1 } } }
-              ),
-            }),
-            { validation: { length: { min: 1, max: 6 } } }
-          ),
+                  { label: "CTA", validation: { length: { max: 1 } } }
+                ),
+              }),
+              { validation: { length: { min: 1, max: 6 } } }
+            ),
+          }),
+        },
+        timeline: {
+          label: "Timeline",
+          schema: fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description" }),
+            items: fields.array(
+              fields.object({
+                title: fields.text({ label: "Title" }),
+                description: fields.text({ label: "Description" }),
+                image: fields.image({ label: "Image" }),
+              }),
+              { validation: { length: { min: 1 } } }
+            ),
+          }),
         },
         faqBlock: {
           label: "FAQ's",
@@ -133,69 +173,84 @@ export const pages = collection({
           label: "Recent Blog Posts",
           schema: fields.text({ label: "Title" }),
         },
+
         cta: {
           label: "CTA",
           schema: fields.object({
+            image: fields.image({
+              label: "Image",
+              directory: "public/images/cta/",
+              publicPath: "/images/cta/",
+            }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description" }),
             cta: fields.blocks(
               {
                 internalLink: {
                   label: "Internal Link",
-                  schema: fields.relationship({
-                    label: "Internal Link",
-                    description: "Select a page on this site",
-                    collection: "pages",
+                  schema: fields.object({
+                    link: fields.relationship({
+                      label: "Internal Link",
+                      description: "Select a page on this site",
+                      collection: "pages",
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
                 externalLink: {
                   label: "External Link",
-                  schema: fields.url({
-                    label: "External Link",
-                    description:
-                      "paste a link to an external site (this will open in a new tab.)",
+                  schema: fields.object({
+                    link: fields.url({
+                      label: "External Link",
+                      description: "Select a page on this site",
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 1 } } }
             ),
           }),
         },
-        breakout: {
-          label: "Breakout",
-          schema: fields.object({
-            title: fields.text({ label: "Title" }),
-            description: fields.text({ label: "Description" }),
-            cta: fields.blocks(
-              {
-                internalLink: {
-                  label: "Internal Link",
-                  schema: fields.relationship({
-                    label: "Internal Link",
-                    description: "Select a page on this site",
-                    collection: "pages",
-                  }),
-                },
-                externalLink: {
-                  label: "External Link",
-                  schema: fields.url({
-                    label: "External Link",
-                    description:
-                      "paste a link to an external site (this will open in a new tab.)",
-                  }),
-                },
-              },
-              { label: "CTA", validation: { length: { max: 2 } } }
-            ),
-          }),
-        },
+        // breakout: {
+        //   label: "Breakout",
+        //   schema: fields.object({
+        //     title: fields.text({ label: "Title" }),
+        //     description: fields.text({ label: "Description" }),
+        //     cta: fields.blocks(
+        //       {
+        //         internalLink: {
+        //           label: "Internal Link",
+        //           schema: fields.object({
+        //             link: fields.relationship({
+        //               label: "Internal Link",
+        //               description: "Select a page on this site",
+        //               collection: "pages",
+        //             }),
+        //             linkText: fields.text({ label: "Link Text" }),
+        //           }),
+        //         },
+        //         externalLink: {
+        //           label: "External Link",
+        //           schema: fields.object({
+        //             link: fields.url({
+        //               label: "External Link",
+        //               description: "Select a page on this site",
+        //             }),
+        //             linkText: fields.text({ label: "Link Text" }),
+        //           }),
+        //         },
+        //       },
+        //       { label: "CTA", validation: { length: { max: 2 } } }
+        //     ),
+        //   }),
+        // },
         blockquote: {
           label: "Blockquote",
-          schema: fields.text({ label: "Blockquote" }),
-        },
-        richText: {
-          label: "Rich Text",
-          schema: fields.markdoc({ label: "Rich Text" }),
+          schema: fields.object({
+            quote: fields.text({ label: "quote" }),
+            cite: fields.text({ label: "cite" }),
+          }),
         },
       },
       { label: "Content" }

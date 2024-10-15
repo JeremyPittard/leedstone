@@ -1,5 +1,6 @@
 // @ts-ignore
 import { defineCollection, z } from "astro:content";
+import { PageBlock } from "../types/content";
 
 const posts = defineCollection({
   // Type-check frontmatter using a schema
@@ -14,7 +15,7 @@ const pages = defineCollection({
   type: "data",
   schema: z.object({
     title: z.string(),
-    content: z.array(z.any()),
+    content: z.array(PageBlock),
   }),
 });
 

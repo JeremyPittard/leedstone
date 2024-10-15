@@ -1,1 +1,20 @@
-<h1>content section</h1>
+---
+import type { CTALink } from "../../types/blocks";
+
+const { value } = Astro.props;
+
+const { image, title, description, cta, imageSide } = value;
+---
+
+<section class="text-image border-2">
+  <h2>{title} {imageSide}</h2>
+  {description ? <p>{description}</p> : null}
+  {
+    cta
+      ? cta.map((link: CTALink) => (
+          <a href={link.value.link}>{link.value.linkText}</a>
+        ))
+      : null
+  }
+  {image ? <img src={image} alt="" width="400" /> : null}
+</section>

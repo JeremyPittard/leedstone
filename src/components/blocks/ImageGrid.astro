@@ -1,0 +1,20 @@
+---
+const { value } = Astro.props;
+const { title, items } = value;
+
+type ImageGridItem = {
+    title: string;
+    description: string;
+    image: string;
+};
+---
+
+<section class="image-grid border-2">
+  <h2>{title} </h2>
+  
+  {items ? items.map((item:ImageGridItem) => (
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+      <img src={item.image} width="400" alt="" />
+  )) : <p>no items</p>}
+</section>

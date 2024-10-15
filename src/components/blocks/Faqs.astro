@@ -1,1 +1,9 @@
-<h1>faqs</h1>
+---
+const { value } = Astro.props;
+
+const title = value;
+---
+
+<section class="faq border-2">
+  <h2>{title}</h2>
+</section>

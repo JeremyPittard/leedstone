@@ -175,6 +175,11 @@ declare module 'astro:content' {
   collection: "pages";
   data: InferEntrySchema<"pages">
 };
+"all-the-things": {
+	id: "all-the-things";
+  collection: "pages";
+  data: InferEntrySchema<"pages">
+};
 "home": {
 	id: "home";
   collection: "pages";
