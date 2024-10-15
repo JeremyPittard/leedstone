@@ -9,21 +9,6 @@ import BlogListBlock from "./blocks/BlogList.astro";
 import CTA from "./blocks/CTA.astro";
 import Breakout from "./blocks/Breakout.astro";
 import BlockQuote from "./blocks/BlockQuote.astro";
-// import RichText from './blocks/RichText.astro';
-
-import type {
-  HeroProps,
-  pageHeader,
-  TextWithImageProps,
-  ImageGridProps,
-  FAQBlockProps,
-  ReviewsBlockProps,
-  BlogListBlockProps,
-  CTAProps,
-  BreakoutProps,
-  BlockQuoteProps,
-  RichTextPros,
-} from "../types/blocks";
 
 export interface Props {
   block: {
@@ -49,7 +34,6 @@ const componentMap: ComponentMap = {
   cta: CTA,
   breakout: Breakout,
   blockquote: BlockQuote,
-  //   richText: RichText,
 };
 
 const Component = componentMap[block.discriminant];
