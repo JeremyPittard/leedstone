@@ -1,57 +1,108 @@
 # The Blank Theme
 
-this is a blank canvas for Astro with Tailwind 4 and Keystatic.
+The Blank Theme is a starter template for building modern websites using Astro, Tailwind CSS 4.0, and Keystatic CMS. It provides a flexible and scalable foundation for developers to create dynamic and visually appealing web applications.
 
 ## Features
 
-- uses Tailwind 4.0 for quick scaffolding of styles and design tokens
-- Keystatic with pagebuilder pre configured
-- Astro because Astro rocks
+- **Astro Framework**: Leverage the power of Astro for building fast and optimized websites.
+- **Tailwind CSS 4.0**: Quickly scaffold styles and design tokens with the latest version of Tailwind CSS.
+- **Keystatic CMS**: A highly customizable, Git-based CMS with pre-configured page builder functionality.
+- **Hybrid ITCSS Approach**: Combines ITCSS principles with Tailwind CSS for organized and maintainable styling.
+- **Pre-configured Blocks**: Includes a variety of reusable blocks for building pages dynamically.
 
-## About the styling
+## Project Structure
 
-Using Tailwind 4 this theme takes a hybrid ITCSS approach where certain layers are handled by Tailwind.
-Specifically.
+The project follows a well-organized structure:
 
-- settings
-- generic
-- trumps/utilities
+```
+astro.config.mjs
+src/
+  components/
+    blocks/
+      BlockQuote.astro
+      BlogList.astro
+      ...
+    navigation/
+      Footer.astro
+      Header.astro
+  content/
+    pages/
+      home.yaml
+      about-us.yaml
+    posts/
+      first-post.mdoc
+      new-post.mdoc
+  layouts/
+    Layout.astro
+  pages/
+    index.astro
+    posts/
+      [slug].astro
+  styles/
+    1-settings/
+      colors.css
+      theme.css
+    ...
+public/
+  images/
+  fonts/
+```
 
-## Frameworks
+## Styling
 
-- [tailwind 4.0](https://tailwindcss.com/blog/tailwindcss-v4-alpha)
-- [Astro](https://astro.build)
+The Blank Theme uses Tailwind CSS 4.0 and adopts a hybrid ITCSS approach. Key layers include:
 
-## CMS
+- **Settings**: Design tokens and global variables.
+- **Generic**: Base styles and resets.
+- **Utilities**: Tailwind utility classes for rapid styling.
 
-This template uses Keystatic, a highly customisable git based CMS. It starts off configured to run locally for a quick dev experience but in prod you should use either 'github' or 'cloud' for authentication. Consider paying for the pro tier of cloud if your project is large enough, it comes with features that this template does not use.
+## CMS Integration
 
-- [keystatic docs](https://keystatic.com/docs/introduction)
+This template integrates Keystatic CMS for content management. It supports local development and production configurations with GitHub or cloud-based authentication. For large projects, consider upgrading to the pro tier for additional features.
 
-### The Component
+### Adding New Blocks
 
-this template allows users to build pages inside the cms using keystatic 'blocks'. Each page is then passed through <TheComponent /> which renders the appropriate astro component. If you wish to add more blocks you will need to
+To add new blocks to the page builder:
 
-1. Add new component to src/components/blocks.
-2. Add new component to field.blocks src/keystatic-collections/pages. [check out the keystatic doc on blocks here](https://keystatic.com/docs/fields/blocks).
-3. Add the new component key and component to the componentMap object in src/components/TheComponent.astro
+1. Create a new component in `src/components/blocks/`.
+2. Add the block to `field.blocks` in `src/keystatic-collections/pages.ts`.
+3. Update the `componentMap` in `src/components/TheComponent.astro` to include the new block.
 
-## Spin up
+## Getting Started
 
-This template comes with the homepage prepopulated with basic dummy data and with a structure that has been a proven winner (if marketing youtubers are anything to go by...) for service based businesses. As well as a page populated with all blocks rendering.
+### Installation
 
-To setup:
+Install dependencies using pnpm:
 
 ```bash
 pnpm install
 ```
 
-To run:
+### Development
 
-```
+Start the development server:
+
+```bash
 pnpm dev
 ```
 
-Admin UI: [http://127.0.0.1:4321/keystatic](http://127.0.0.1:4321/keystatic)
+- Admin UI: [http://127.0.0.1:4321/keystatic](http://127.0.0.1:4321/keystatic)
+- Homepage: [http://localhost:4321](http://localhost:4321)
 
-Homepage: [http://localhost:4321](http://localhost:4321)
+### Build
+
+Build the project for production:
+
+```bash
+pnpm build
+```
+
+## Frameworks and Tools
+
+- [Astro](https://astro.build): Modern static site generator.
+- [Tailwind CSS 4.0](https://tailwindcss.com/blog/tailwindcss-v4-alpha): Utility-first CSS framework.
+- [Keystatic CMS](https://keystatic.com/docs/introduction): Git-based CMS for content management.
+
+## License
+
+This project is licensed under the MIT License.
