@@ -10,15 +10,24 @@ content:
           value:
             link: about-us
             linkText: internal link
-        - discriminant: externalLink
+        - discriminant: internalLink
           value:
-            link: https://www.google.com
-            linkText: an external link
+            link: home
+            linkText: dsadsadsa
   - discriminant: textWithImage
     value:
+      image: /images/content/home/content/1/value/image.jpg
       title: Problem
       description: Describe the problem your business aims to solve
-      cta: []
+      cta:
+        - discriminant: internalLink
+          value:
+            link: about-us
+            linkText: about us
+        - discriminant: internalLink
+          value:
+            link: all-the-things
+            linkText: something
       imageSide: right
   - discriminant: textWithImage
     value:
@@ -48,7 +57,6 @@ content:
     value: Faq's
   - discriminant: cta
     value:
-      image: /images/hero/home/content/7/value/image.jpg
       title: CTA HERE
       description: maybe do a calendly thingo
       cta:

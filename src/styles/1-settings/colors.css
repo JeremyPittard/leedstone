@@ -1,4 +1,10 @@
 @theme {
-  --color-neon-pink: oklch(71.7% 0.25 360);
-  --color-badass: #bada55;
+  --color-white: #ffffff;
+  --color-neutral-lightest: #eeeeee;
+  --color-neutral-lighter: #cccccc;
+  --color-neutral-light: #aaaaaa;
+  --color-neutral: #666666;
+  --color-neutral-dark: #444444;
+  --color-neutral-darker: #222222;
+  --color-neutral-darkest: #000000;
 }

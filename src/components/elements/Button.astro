@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import type { HtmlHTMLAttributes } from "react";
+
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+type IconType = string | "icon-only";
+
+interface BaseProps {
+  variant: ButtonVariant;
+  icon?: IconType;
+  iconSide?: "left" | "right";
+}
+
+type LinkButtonProps = BaseProps & {
+  buttonType: "link";
+} & HTMLAttributes<"a">;
+
+type ActionButtonProps = BaseProps & {
+  buttonType: "action";
+} & HtmlHTMLAttributes<"button">;
+
+type Props = LinkButtonProps | ActionButtonProps;
+
+const { variant = "primary", icon, iconSide, buttonType } = Astro.props;
+---

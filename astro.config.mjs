@@ -5,9 +5,10 @@ import keystatic from "@keystatic/astro";
 import tailwindcss from "@tailwindcss/vite";
 
 import icon from "astro-icon";
+import alpinejs from "@astrojs/alpinejs";
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), markdoc(), keystatic(), icon()],
+  integrations: [react(), markdoc(), keystatic(), icon(), alpinejs()],
   legacy: {
     collections: true,
   },
