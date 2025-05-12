@@ -4,22 +4,44 @@ import type { HtmlHTMLAttributes } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 type IconType = string | "icon-only";
-
-interface BaseProps {
-  variant: ButtonVariant;
-  icon?: IconType;
-  iconSide?: "left" | "right";
+interface LinkProps extends HTMLAttributes<"a"> {
+  buttonType: "link";
 }
 
-type LinkButtonProps = BaseProps & {
-  buttonType: "link";
-} & HTMLAttributes<"a">;
+interface ButtonProps extends HTMLAttributes<"button"> {
+  buttonType: "button";
+}
 
-type ActionButtonProps = BaseProps & {
-  buttonType: "action";
-} & HtmlHTMLAttributes<"button">;
+type Props = {
+  variant: ButtonVariant;
+} & (LinkProps | ButtonProps);
+const props: Props = Astro.props;
 
-type Props = LinkButtonProps | ActionButtonProps;
+const bgColorMap = {
+  primary: "bg-neutral-darkest",
+  secondary: "bg-neutral-lightest",
+  ghost: "bg-none",
+  outline: "bg-none",
+};
 
-const { variant = "primary", icon, iconSide, buttonType } = Astro.props;
+const textColorMap = {
+  primary: "text-white",
+  secondary: "text-neutral-darkest",
+  ghost: "text-neutral-darkest",
+  outline: "text-neutral-darkest",
+};
+
+const buttonClasses: string = `${bgColorMap[props.variant]} ${textColorMap[props.variant]} px-6 py-3`;
 ---
+
+{
+  props.buttonType === "link" ? (
+    <a class:list={buttonClasses} href={props.href} target={props.target}>
+      <slot />
+    </a>
+  ) : (
+    <button class={buttonClasses}>
+      <slot />
+    </button>
+  )
+}
