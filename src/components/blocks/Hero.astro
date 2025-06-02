@@ -1,14 +1,22 @@
 ---
 import type { CTALink } from "../../types/blocks";
 import Button from "../elements/Button.astro";
+import PageSection from "../objects/PageSection.astro";
+
+import { Icon } from "astro-icon/components";
 
 const { value } = Astro.props;
 
 const { image, title, description, cta } = value;
 ---
 
-<section class="Hero bg-white">
-  <div class="container px-6 py-16 mx-auto text-center">
+<PageSection class="hero">
+  <h1>it's a me a hero</h1>
+  <Icon name="ri:twitter-x-line" />
+  <Icon name="tabler:brand-threads" />
+</PageSection>
+<section class="Hero">
+  <div class="">
     <div class="max-w-lg mx-auto">
       <h1 class="text-tiny">
         {title}

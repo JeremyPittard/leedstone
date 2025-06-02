@@ -14,7 +14,7 @@ export default config({
     navigation: {
       Content: ["pages", "posts", "---", "reviews", "faqs"],
       Settings: ["siteSettings", "navigationSettings"],
-      "Built by 'THE' themes": [],
+      "made with": [],
     },
   },
   storage: {

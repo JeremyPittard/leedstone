@@ -1,6 +1,5 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import type { HtmlHTMLAttributes } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 type IconType = string | "icon-only";
@@ -40,7 +39,7 @@ const buttonClasses: string = `${bgColorMap[props.variant]} ${textColorMap[props
       <slot />
     </a>
   ) : (
-    <button class={buttonClasses}>
+    <button class={buttonClasses} type={props.type}>
       <slot />
     </button>
   )

@@ -1,1 +1,21 @@
 homePage: home
+navigationLinks:
+  - discriminant: page
+    value:
+      link: about-us
+  - discriminant: page
+    value:
+      link: all-the-things
+  - discriminant: url
+    value:
+      link: https://www.google.com
+      label: the googles
+  - discriminant: page
+    value:
+      link: about-us
+      label: About
+ctaLinks:
+  - discriminant: page
+    value:
+      link: about-us
+      label: afasdas

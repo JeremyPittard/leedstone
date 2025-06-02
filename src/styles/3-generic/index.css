@@ -3,3 +3,10 @@
     definition, etc. This is the first layer 
     which generates actual CSS. 
 */
+
+@layer base {
+  header {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}

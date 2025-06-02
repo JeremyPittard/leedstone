@@ -7,7 +7,29 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), markdoc(), keystatic(), icon()],
+  integrations: [
+    react(),
+    markdoc(),
+    keystatic(),
+    icon({
+      include: {
+        mdi: [
+          "facebook",
+          "linkedin",
+          "reddit",
+          "twitter",
+          "discord",
+          "youtube",
+          "spotify",
+          "github",
+          "gitlab",
+          "mastodon",
+        ],
+        tabler: ["brand-threads"],
+        ri: ["twitter-x-line", "bluesky-fill"],
+      },
+    }),
+  ],
   legacy: {
     collections: true,
   },
