@@ -1,3 +1,4 @@
+// additional blocks I would like to add in the future
 import { fields, collection } from "@keystatic/core";
 
 export const pages = collection({
@@ -74,7 +75,6 @@ export const pages = collection({
             }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
-            tagline: fields.text({ label: "Tagline" }),
             cta: fields.blocks(
               {
                 internalLink: {
@@ -111,59 +111,45 @@ export const pages = collection({
             }),
           }),
         },
-        featureBlock: {
-          label: "Features",
+        imageGrid: {
+          label: "Image Grid",
           schema: fields.object({
             title: fields.text({ label: "Title" }),
-            description: fields.text({ label: "Description", multiline: true }),
-            tagline: fields.text({ label: "Tagline" }),
-            cta: fields.blocks(
-              {
-                internalLink: {
-                  label: "Internal Link",
-                  schema: fields.object({
-                    link: fields.relationship({
-                      label: "Internal Link",
-                      description: "Select a page on this site",
-                      collection: "pages",
-                    }),
-                    linkText: fields.text({ label: "Link Text" }),
-                  }),
-                },
-                externalLink: {
-                  label: "External Link",
-                  schema: fields.object({
-                    link: fields.url({
-                      label: "External Link",
-                      description: "Select a page on this site",
-                    }),
-                    linkText: fields.text({ label: "Link Text" }),
-                  }),
-                },
-              },
-              { label: "CTA", validation: { length: { max: 2 } } }
-            ),
-            feature: fields.array(
+            items: fields.array(
               fields.object({
                 image: fields.image({
                   label: "Image",
                   directory: "public/images/content/",
                   publicPath: "/images/content/",
                 }),
-                title: fields.text({
-                  label: "Title",
-                  validation: { isRequired: true },
-                }),
+                title: fields.text({ label: "Title" }),
                 description: fields.text({
-                  label: "description",
+                  label: "Description",
                   multiline: true,
                 }),
+                link: fields.blocks(
+                  {
+                    internalLink: {
+                      label: "Internal Link",
+                      schema: fields.relationship({
+                        label: "Internal Link",
+                        description: "Select a page on this site",
+                        collection: "pages",
+                      }),
+                    },
+                    externalLink: {
+                      label: "External Link",
+                      schema: fields.url({
+                        label: "External Link",
+                        description:
+                          "paste a link to an external site (this will open in a new tab.)",
+                      }),
+                    },
+                  },
+                  { label: "CTA", validation: { length: { max: 1 } } }
+                ),
               }),
-              {
-                label: "Feature List",
-                itemLabel: (props) => props.fields.title.value,
-                validation: { length: { min: 1, max: 3 } },
-              }
+              { validation: { length: { min: 1, max: 6 } } }
             ),
           }),
         },
@@ -172,7 +158,42 @@ export const pages = collection({
           schema: fields.object({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
-            tagline: fields.text({ label: "Tagline" }),
+            items: fields.array(
+              fields.object({
+                title: fields.text({ label: "Title" }),
+                description: fields.text({
+                  label: "Description",
+                  multiline: true,
+                }),
+                image: fields.image({ label: "Image" }),
+              }),
+              { validation: { length: { min: 1 } } }
+            ),
+          }),
+        },
+        faqBlock: {
+          label: "FAQ's",
+          schema: fields.text({ label: "Title" }),
+        },
+        reviews: {
+          label: "Reviews",
+          schema: fields.text({ label: "Title" }),
+        },
+        BlogList: {
+          label: "Recent Blog Posts",
+          schema: fields.text({ label: "Title" }),
+        },
+
+        cta: {
+          label: "CTA",
+          schema: fields.object({
+            image: fields.image({
+              label: "Image",
+              directory: "public/images/cta/",
+              publicPath: "/images/cta/",
+            }),
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
             cta: fields.blocks(
               {
                 internalLink: {
@@ -199,40 +220,10 @@ export const pages = collection({
               },
               { label: "CTA", validation: { length: { max: 1 } } }
             ),
-            items: fields.array(
-              fields.object({
-                title: fields.text({ label: "Title" }),
-                description: fields.text({
-                  label: "Description",
-                  multiline: true,
-                }),
-                image: fields.image({ label: "Image" }),
-              }),
-              { validation: { length: { min: 1 } } }
-            ),
           }),
         },
-        faqBlock: {
-          label: "FAQ's",
-          schema: fields.object({
-            title: fields.text({ label: "Title" }),
-            description: fields.text({ label: "Description", multiline: true }),
-          }),
-        },
-        reviews: {
-          label: "Reviews",
-          schema: fields.object({
-            title: fields.text({ label: "Title" }),
-            description: fields.text({ label: "Description", multiline: true }),
-          }),
-        },
-        BlogList: {
-          label: "Recent Blog Posts",
-          schema: fields.text({ label: "Title" }),
-        },
-
-        cta: {
-          label: "CTA",
+        breakout: {
+          label: "Breakout",
           schema: fields.object({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),

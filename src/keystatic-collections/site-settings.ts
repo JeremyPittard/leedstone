@@ -5,7 +5,8 @@ export const siteSettings = singleton({
   path: "src/content/site-settings/site-details",
   schema: {
     title: fields.text({ label: "Site Title" }),
-    logo: fields.image({ label: "Site Logo" }),
+    businessName: fields.text({ label: "Site Title" }),
+    logo: fields.image({ label: "Site Logo", directory: "public/images/logo" }),
     sitewideBanner: fields.text({ label: "Sitewide Banner" }),
     sitewideBannerLink: fields.url({
       label: "CTA for banner",

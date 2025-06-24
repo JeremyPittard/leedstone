@@ -2,13 +2,12 @@
 import Hero from "./blocks/Hero.astro";
 import PageHeader from "./blocks/PageHeader.astro";
 import TextWithImage from "./blocks/TextWithImage.astro";
-import ImageGrid from "./blocks/ImageGrid.astro";
 import FAQBlock from "./blocks/Faqs.astro";
 import ReviewsBlock from "./blocks/Reviews.astro";
 import BlogListBlock from "./blocks/BlogList.astro";
 import CTA from "./blocks/CTA.astro";
-import Breakout from "./blocks/Breakout.astro";
 import BlockQuote from "./blocks/BlockQuote.astro";
+import FeaturesBlock from "./blocks/FeaturesBlock.astro";
 
 export interface Props {
   block: {
@@ -27,13 +26,12 @@ const componentMap: ComponentMap = {
   hero: Hero,
   pageHeader: PageHeader,
   textWithImage: TextWithImage,
-  imageGrid: ImageGrid,
   faqBlock: FAQBlock,
   reviews: ReviewsBlock,
   BlogList: BlogListBlock,
   cta: CTA,
-  breakout: Breakout,
   blockquote: BlockQuote,
+  featuresBlock: FeaturesBlock,
 };
 
 const Component = componentMap[block.discriminant];

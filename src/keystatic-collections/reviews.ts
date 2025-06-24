@@ -4,6 +4,7 @@ export const reviews = collection({
   label: "Reviews",
   slugField: "pullQuote",
   path: "src/content/reviews/*",
+  columns: ["name", "location", "rating"],
   schema: {
     pullQuote: fields.slug({
       name: {
@@ -12,13 +13,11 @@ export const reviews = collection({
       },
     }),
     review: fields.text({ label: "Review" }),
+    name: fields.text({ label: "Reviewers Name" }),
+    location: fields.text({ label: "Job Location" }),
     rating: fields.number({
       label: "Star Rating",
       validation: { min: 1, max: 5 },
-    }),
-    platform: fields.text({
-      label: "Platform",
-      description: "The platform the review was left on",
     }),
     image: fields.image({
       label: "Image",

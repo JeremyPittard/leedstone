@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Banner from "./Banner.astro";
 
 import { getEntry } from "astro:content";
@@ -22,12 +23,29 @@ const ctaLinks: NavigationLink[] = await getEntry(
   "site-settings",
   "navigation"
 ).then((entry) => entry.data.ctaLinks);
+
+const logo: any = await getEntry("site-settings", "site-details").then(
+  (entry) => entry.data.logo
+);
+
+console.log("logo", logo);
 ---
 
 <header>
   <Banner />
   <nav>
     <ul>
+      <!-- logo -->
+      <li>
+        <a href="/">
+          <Image
+            src={`/images/logo/${logo}`}
+            height={40}
+            width={132}
+            alt="Logo for lsl"
+          />
+        </a>
+      </li>
       {
         navigationLinks.map((link) => {
           return (
