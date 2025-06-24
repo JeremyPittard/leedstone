@@ -13,8 +13,7 @@ export const pages = collection({
           schema: fields.object({
             image: fields.image({
               label: "Image",
-              directory: "public/images/hero/",
-              publicPath: "/images/hero/",
+              directory: "src/assets/images/hero",
             }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),

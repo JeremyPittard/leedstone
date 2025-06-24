@@ -7,12 +7,15 @@ interface LinkProps extends HTMLAttributes<"a"> {
   buttonType: "link";
 }
 
+type iconPosition = "leading" | "trailing";
+
 interface ButtonProps extends HTMLAttributes<"button"> {
   buttonType: "button";
 }
 
 type Props = {
   variant: ButtonVariant;
+  size?: "small" | "regular";
 } & (LinkProps | ButtonProps);
 const props: Props = Astro.props;
 
@@ -30,17 +33,40 @@ const textColorMap = {
   outline: "text-neutral-darkest",
 };
 
-const buttonClasses: string = `${bgColorMap[props.variant]} ${textColorMap[props.variant]} px-6 py-3`;
+const borderColorMap = {
+  primary: "border-transparent",
+  secondary: "border-transparent", //this will need to match primary color when set
+  ghost: "border-transparent",
+  outline: "border-neutral-darkest",
+};
+
+const buttonSizeMap = {
+  small: "px-5 py-2",
+  regular: "px-6 py-3",
+};
+
+const buttonClasses: string = `${props.class?.includes("block") ? "" : "inline-block"} ${props.size ? buttonSizeMap[props.size] : buttonSizeMap.regular} ${bgColorMap[props.variant]} ${textColorMap[props.variant]} border ${borderColorMap[props.variant]} `;
 ---
 
 {
   props.buttonType === "link" ? (
-    <a class:list={buttonClasses} href={props.href} target={props.target}>
+    <a
+      class:list={buttonClasses}
+      class={props.class}
+      href={props.href}
+      target={props.target}
+    >
       <slot />
     </a>
   ) : (
-    <button class={buttonClasses} type={props.type}>
+    <button class:list={buttonClasses} class={props.class} type={props.type}>
       <slot />
     </button>
   )
 }
+
+<style>
+  .button {
+    line-height: 1.4;
+  }
+</style>

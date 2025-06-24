@@ -37,6 +37,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   image: {
+    responsiveStyles: true,
     layout: "constrained",
   },
   experimental: {
