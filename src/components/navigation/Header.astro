@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Banner from "./Banner.astro";
+import Button from "../elements/Button.astro";
 
 import { getEntry } from "astro:content";
 
@@ -33,44 +34,50 @@ console.log("logo", logo);
 
 <header>
   <Banner />
-  <nav>
-    <ul>
-      <!-- logo -->
-      <li>
-        <a href="/">
-          <Image
-            src={`/images/logo/${logo}`}
-            height={40}
-            width={132}
-            alt="Logo for lsl"
-          />
-        </a>
-      </li>
-      {
-        navigationLinks.map((link) => {
-          return (
-            <li>
-              <a href={link.value.link}>
-                {link.value.label ? link.value.label : link.value.link}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-    <!-- cta -->
-    <ul>
-      {
-        ctaLinks.map((link) => {
-          return (
-            <li>
-              <a href={link.value.link}>
-                {link.value.label ? link.value.label : link.value.link}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </nav>
+  <div class="content-container px-16 py-4">
+    <nav>
+      <ul class="flex items-baseline gap-8">
+        <!-- logo -->
+        <li class="mr-auto">
+          <a href="/">
+            <Image
+              src={`/images/logo/${logo}`}
+              height={40}
+              width={132}
+              alt="Logo for lsl"
+            />
+          </a>
+        </li>
+        {
+          navigationLinks.map((link) => {
+            return (
+              <li>
+                <a href={link.value.link}>
+                  {link.value.label ? link.value.label : link.value.link}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <!-- cta -->
+      <ul>
+        {
+          ctaLinks.map((link) => {
+            return (
+              <li>
+                <Button
+                  buttonType="link"
+                  href={link.value.link}
+                  variant="outline"
+                >
+                  {link.value.label ? link.value.label : link.value.link}
+                </Button>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
 </header>

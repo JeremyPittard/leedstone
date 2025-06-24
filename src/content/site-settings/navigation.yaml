@@ -2,20 +2,26 @@ homePage: home
 navigationLinks:
   - discriminant: page
     value:
-      link: about-us
-  - discriminant: page
-    value:
-      link: all-the-things
-  - discriminant: url
-    value:
-      link: https://www.google.com
-      label: the googles
+      link: home
+      label: Services
   - discriminant: page
     value:
       link: about-us
-      label: About
+      label: Link Two
+  - discriminant: page
+    value:
+      link: home
+      label: Link Three
 ctaLinks:
   - discriminant: page
     value:
       link: about-us
-      label: afasdas
+      label: Contact Us
+  - discriminant: page
+    value:
+      link: home
+      label: Book a demo
+footerNavigationLinks: []
+footerCta:
+  schema:
+    ctaLinks: []

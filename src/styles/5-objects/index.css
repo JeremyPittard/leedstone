@@ -2,3 +2,8 @@
     class-based selectors which define undecorated design patterns, 
     for example the media object known from OOCSS 
 */
+
+.content-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}

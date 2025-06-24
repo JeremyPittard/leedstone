@@ -30,7 +30,14 @@ const textColorMap = {
   outline: "text-neutral-darkest",
 };
 
-const buttonClasses: string = `${bgColorMap[props.variant]} ${textColorMap[props.variant]} px-6 py-3`;
+const borderColorMap = {
+  primary: "border-none",
+  secondary: "border-neutral-darkest", //this will need to match primary color when set
+  ghost: "border-none",
+  outline: "border-neutral-darkest border",
+};
+
+const buttonClasses: string = `inline-block ${bgColorMap[props.variant]} ${textColorMap[props.variant]} ${borderColorMap[props.variant]} px-6 py-3`;
 ---
 
 {
