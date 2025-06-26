@@ -1,6 +1,8 @@
 ---
 import { Font } from "astro:assets";
 
+import { SkipLink } from "accessible-astro-components";
+
 import Header from "../components/navigation/Header.astro";
 import Footer from "../components/navigation/Footer.astro";
 import "../styles.css";
@@ -24,8 +26,11 @@ const { title } = Astro.props;
     <Font cssVariable="--font-roboto" preload />
   </head>
   <body>
+    <SkipLink />
     <Header />
-    <slot />
+    <main id="main-content">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
