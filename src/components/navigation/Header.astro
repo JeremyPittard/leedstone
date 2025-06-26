@@ -75,18 +75,18 @@ console.log("logo", logo);
             );
           })
         }
-        <li class="">
-          <button>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span class="sr-only">menu</span>
-          </button>
-        </li>
       </ul>
     </nav>
   </div>
 </header>
+<button popovertarget="mobile-menu">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span class="sr-only">menu</span>
+</button>
+<nav popover id="mobile-menu" class="mobile-menu">Greetings, one and all!</nav>
+
 <style>
   button {
     display: flex;
@@ -99,6 +99,22 @@ console.log("logo", logo);
       width: 24px;
       border-radius: 2px;
       background-color: var(--color-neutral-darkest);
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+    opacity: 0;
+    transition: all 2s ease-in;
+    transition-behavior: allow-discrete;
+
+    &:popover-open {
+      display: block;
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
     }
   }
 </style>
