@@ -7,6 +7,8 @@ interface LinkProps extends HTMLAttributes<"a"> {
   buttonType: "link";
 }
 
+type iconPosition = "leading" | "trailing";
+
 interface ButtonProps extends HTMLAttributes<"button"> {
   buttonType: "button";
 }
@@ -31,13 +33,13 @@ const textColorMap = {
 };
 
 const borderColorMap = {
-  primary: "border-none",
-  secondary: "border-neutral-darkest", //this will need to match primary color when set
-  ghost: "border-none",
-  outline: "border-neutral-darkest border",
+  primary: "border-transparent",
+  secondary: "border-transparent", //this will need to match primary color when set
+  ghost: "border-transparent",
+  outline: "border-neutral-darkest",
 };
 
-const buttonClasses: string = `inline-block ${bgColorMap[props.variant]} ${textColorMap[props.variant]} ${borderColorMap[props.variant]} px-6 py-3`;
+const buttonClasses: string = `inline-block ${bgColorMap[props.variant]} ${textColorMap[props.variant]} border ${borderColorMap[props.variant]} px-6 py-3`;
 ---
 
 {
@@ -51,3 +53,9 @@ const buttonClasses: string = `inline-block ${bgColorMap[props.variant]} ${textC
     </button>
   )
 }
+
+<style>
+  .button {
+    line-height: 1.4;
+  }
+</style>

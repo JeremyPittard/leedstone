@@ -59,17 +59,15 @@ console.log("logo", logo);
             );
           })
         }
-      </ul>
-      <!-- cta -->
-      <ul>
+        <!-- cta -->
         {
-          ctaLinks.map((link) => {
+          ctaLinks.map((link, index) => {
             return (
               <li>
                 <Button
                   buttonType="link"
                   href={link.value.link}
-                  variant="outline"
+                  variant={index === 0 ? "outline" : "primary"}
                 >
                   {link.value.label ? link.value.label : link.value.link}
                 </Button>
@@ -77,7 +75,30 @@ console.log("logo", logo);
             );
           })
         }
+        <li class="">
+          <button>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="sr-only">menu</span>
+          </button>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
+<style>
+  button {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    cursor: pointer;
+    span {
+      height: 3px;
+      width: 24px;
+      border-radius: 2px;
+      background-color: var(--color-neutral-darkest);
+    }
+  }
+</style>
