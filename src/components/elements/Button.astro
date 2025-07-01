@@ -39,12 +39,17 @@ const borderColorMap = {
   outline: "border-neutral-darkest",
 };
 
-const buttonClasses: string = `inline-block ${bgColorMap[props.variant]} ${textColorMap[props.variant]} border ${borderColorMap[props.variant]} px-6 py-3`;
+const buttonClasses: string = `${props.class?.includes("block") ? "" : "inline-block"} ${bgColorMap[props.variant]} ${textColorMap[props.variant]} border ${borderColorMap[props.variant]} px-6 py-3`;
 ---
 
 {
   props.buttonType === "link" ? (
-    <a class:list={buttonClasses} href={props.href} target={props.target}>
+    <a
+      class:list={buttonClasses}
+      class={props.class}
+      href={props.href}
+      target={props.target}
+    >
       <slot />
     </a>
   ) : (
