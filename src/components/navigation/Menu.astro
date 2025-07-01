@@ -81,7 +81,7 @@ const logo: any = await getEntry("site-settings", "site-details").then(
       alt="Logo for lsl"
     />
   </a>
-  <button popovertarget="mobile-menu">
+  <button class="menu-toggle p-6">
     <span></span>
     <span></span>
     <span></span>
@@ -163,20 +163,23 @@ const logo: any = await getEntry("site-settings", "site-details").then(
       display: block;
       opacity: 1;
       transform: none;
-      /* TODO figure out var */
       margin-top: 94px;
 
       @starting-style {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-3px);
       }
     }
   }
 </style>
 <script is:inline>
-  const btn = document.querySelector("button[popovertarget='mobile-menu']");
+  const btn = document.querySelector(".menu-toggle");
+  const popover = document.getElementById("mobile-menu");
 
   btn.addEventListener("click", () => {
+    btn.classList.contains("popover-open")
+      ? popover.hidePopover()
+      : popover.showPopover();
     btn.classList.toggle("popover-open");
   });
 </script>
