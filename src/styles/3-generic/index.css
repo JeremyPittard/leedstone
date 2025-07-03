@@ -5,8 +5,7 @@
 */
 
 @layer base {
-  header {
-    max-width: 1440px;
-    margin: 0 auto;
+  button {
+    cursor: pointer;
   }
 }

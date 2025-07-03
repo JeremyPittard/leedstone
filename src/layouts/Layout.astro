@@ -1,5 +1,6 @@
 ---
 import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
 
 import { SkipLink } from "accessible-astro-components";
 
@@ -15,7 +16,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:name="root" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -24,11 +25,12 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <Font cssVariable="--font-roboto" preload />
+    <ClientRouter />
   </head>
   <body>
     <SkipLink />
     <Header />
-    <main id="main-content">
+    <main id="main-content" transition:animate="fade">
       <slot />
     </main>
     <Footer />

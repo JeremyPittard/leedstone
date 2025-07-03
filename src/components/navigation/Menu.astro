@@ -30,7 +30,7 @@ const logo: any = await getEntry("site-settings", "site-details").then(
 ---
 
 <nav class="hidden lg:block">
-  <ul class="flex items-baseline gap-8">
+  <ul class="flex items-center gap-8">
     <li class="mr-auto">
       <a href="/">
         <Image
@@ -42,27 +42,28 @@ const logo: any = await getEntry("site-settings", "site-details").then(
       </a>
     </li>
     {
-      navigationLinks.map((link) => {
+      navigationLinks.map((navLink) => {
+        const { link, label } = navLink.value;
         return (
           <li>
-            <a href={link.value.link}>
-              {link.value.label ? link.value.label : link.value.link}
-            </a>
+            <a href={link === "home" ? "/" : link}>{label ? label : link}</a>
           </li>
         );
       })
     }
     <!-- cta -->
     {
-      ctaLinks.map((link, index) => {
+      ctaLinks.map((navLink, index) => {
+        const { link, label } = navLink.value;
+
         return (
           <li>
             <Button
               buttonType="link"
-              href={link.value.link}
+              href={link === "home" ? "/" : link}
               variant={index === 0 ? "outline" : "primary"}
             >
-              {link.value.label ? link.value.label : link.value.link}
+              {label ? label : link}
             </Button>
           </li>
         );
@@ -90,28 +91,28 @@ const logo: any = await getEntry("site-settings", "site-details").then(
   <nav popover id="mobile-menu" class="mobile-menu w-full">
     <ul class="flex items-baseline gap-8 flex-col w-full py-4 px-5">
       {
-        navigationLinks.map((link) => {
+        navigationLinks.map((navLink) => {
+          const { link, label } = navLink.value;
           return (
             <li>
-              <a href={link.value.link}>
-                {link.value.label ? link.value.label : link.value.link}
-              </a>
+              <a href={link === "home" ? "/" : link}>{label ? label : link}</a>
             </li>
           );
         })
       }
       <!-- cta -->
       {
-        ctaLinks.map((link, index) => {
+        ctaLinks.map((navLink, index) => {
+          const { link, label } = navLink.value;
           return (
             <li class="w-full">
               <Button
                 buttonType="link"
-                href={link.value.link}
+                href={link === "home" ? "/" : link}
                 variant={index === 0 ? "outline" : "primary"}
                 class={`block w-full text-center`}
               >
-                {link.value.label ? link.value.label : link.value.link}
+                {label ? label : link}
               </Button>
             </li>
           );
@@ -126,7 +127,6 @@ const logo: any = await getEntry("site-settings", "site-details").then(
     flex-direction: column;
     gap: 2px;
     align-items: center;
-    cursor: pointer;
     span {
       --transition-speed: 150ms;
       height: 3px;
@@ -173,13 +173,17 @@ const logo: any = await getEntry("site-settings", "site-details").then(
   }
 </style>
 <script is:inline>
-  const btn = document.querySelector(".menu-toggle");
-  const popover = document.getElementById("mobile-menu");
+  const setupMenu = () => {
+    const btn = document.querySelector(".menu-toggle");
+    const popover = document.getElementById("mobile-menu");
 
-  btn.addEventListener("click", () => {
-    btn.classList.contains("popover-open")
-      ? popover.hidePopover()
-      : popover.showPopover();
-    btn.classList.toggle("popover-open");
-  });
+    btn.addEventListener("click", () => {
+      btn.classList.contains("popover-open")
+        ? popover.hidePopover()
+        : popover.showPopover();
+      btn.classList.toggle("popover-open");
+    });
+  };
+
+  document.addEventListener("astro:page-load", setupMenu);
 </script>
