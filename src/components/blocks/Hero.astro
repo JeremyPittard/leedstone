@@ -15,18 +15,15 @@ const { image, title, description, cta } = value;
     <p>{description}</p>
   </div>
   <div class="">
-    <p>{image}</p>
     {
       cta
         ? cta.map((link: CTALink, index: number) => (
             <Button
               buttonType="link"
-              variant="primary"
               href={link.value.link}
               variant={index === 0 ? "primary" : "outline"}
             >
               {link.value.linkText}
-              {link.value.link}
             </Button>
           ))
         : null

@@ -23,7 +23,7 @@ const imageSrc = src.replace("src/assets", "../../assets");
 if (!images[imageSrc]) throw new Error(`"${imageSrc}" does not exist in glob`);
 ---
 
-<div class="bg-red-500">
+<div class="bg-gray-100">
   <Image
     src={images[imageSrc]()}
     alt={alt}
