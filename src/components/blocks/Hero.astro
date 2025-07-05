@@ -10,10 +10,12 @@ const { image, title, description, cta } = value;
 ---
 
 <PageSection class="hero content-container">
-  <div class="flex space-between gap-20 mb-20">
+  <div
+    class="flex flex-col lg:flex-row lg:space-between gap-5 lg:gap-20 mb-12 lg:mb-20"
+  >
     <h1>{title}</h1>
     <div>
-      <p class="mb-8">{description}</p>
+      <p class="mb-6 lg:mb-8">{description}</p>
       {
         (
           <div class="flex gap-4">
