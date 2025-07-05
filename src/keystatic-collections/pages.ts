@@ -14,6 +14,7 @@ export const pages = collection({
             image: fields.image({
               label: "Image",
               directory: "src/assets/images/hero",
+              publicPath: "src/assets/images/hero",
             }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),

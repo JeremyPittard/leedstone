@@ -8,6 +8,6 @@ interface Props extends HTMLAttributes<"section"> {
 const props: Props = Astro.props;
 ---
 
-<section class:list={["px-5 lg:px-16", props.class]}>
+<section class:list={["px-5 py-16 lg:px-16 lg:py-28", props.class]}>
   <slot />
 </section>
