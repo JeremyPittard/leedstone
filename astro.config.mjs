@@ -24,6 +24,7 @@ export default defineConfig({
           "github",
           "gitlab",
           "mastodon",
+          "navigate-next",
         ],
         tabler: ["brand-threads"],
         ri: ["twitter-x-line", "bluesky-fill"],
