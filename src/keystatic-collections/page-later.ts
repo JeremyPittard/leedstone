@@ -100,6 +100,12 @@ export const pages = collection({
                     link: fields.text({
                       label: "External Link",
                       description: "must start with https://",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
@@ -148,6 +154,12 @@ export const pages = collection({
                       schema: fields.text({
                         label: "External Link",
                         description: "must start with https://",
+                        validation: {
+                          pattern: {
+                            regex: /^https:\/\/.+/,
+                            message: "Must start with https://",
+                          },
+                        },
                       }),
                     },
                   },
