@@ -28,8 +28,15 @@ export const reviews = collection({
     }),
     platform: fields.text({
       label: "Platform",
-      description: "url to where the review was originally posted",
-      validation: { isRequired: false, pattern: { regex: /^https?:\/\/.+/ } },
+      description:
+        "url to where the review was originally posted (must start with https://)",
+      validation: {
+        isRequired: false,
+        pattern: {
+          regex: /^https:\/\/.+/,
+          message: "Must start with https://",
+        },
+      },
     }),
   },
 });

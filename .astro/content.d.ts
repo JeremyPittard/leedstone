@@ -188,6 +188,26 @@ declare module 'astro:content' {
 
 	type DataEntryMap = {
 		"faqs": {
+"question-text-goes-here": {
+	id: "question-text-goes-here";
+  collection: "faqs";
+  data: any
+};
+"question-text-goes-here-copy": {
+	id: "question-text-goes-here-copy";
+  collection: "faqs";
+  data: any
+};
+"question-text-goes-here-copy-copy": {
+	id: "question-text-goes-here-copy-copy";
+  collection: "faqs";
+  data: any
+};
+"question-text-goes-here-copy-copy-copy": {
+	id: "question-text-goes-here-copy-copy-copy";
+  collection: "faqs";
+  data: any
+};
 "wtf-is-this": {
 	id: "wtf-is-this";
   collection: "faqs";

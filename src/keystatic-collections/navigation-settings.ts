@@ -52,7 +52,16 @@ export const navigationSettings = singleton({
             return label;
           },
           schema: fields.object({
-            link: fields.url({ label: "URL" }),
+            link: fields.text({
+              label: "URL",
+              description: "must start with https://",
+              validation: {
+                pattern: {
+                  regex: /^https:\/\/.+/,
+                  message: "Must start with https://",
+                },
+              },
+            }),
             label: fields.text({
               label: "Label",
               description: "the text to display on your link",
@@ -64,7 +73,7 @@ export const navigationSettings = singleton({
         label: "Navigation Links",
         description: "Add links to your header navigation (max 4)",
         validation: { length: { max: 4 } },
-      }
+      },
     ),
     ctaLinks: fields.blocks(
       {
@@ -96,7 +105,16 @@ export const navigationSettings = singleton({
         url: {
           label: "External Page",
           schema: fields.object({
-            link: fields.url({ label: "URL" }),
+            link: fields.text({
+              label: "URL",
+              description: "must start with https://",
+              validation: {
+                pattern: {
+                  regex: /^https:\/\/.+/,
+                  message: "Must start with https://",
+                },
+              },
+            }),
             label: fields.text({ label: "Label" }),
           }),
         },
@@ -105,7 +123,7 @@ export const navigationSettings = singleton({
         label: "CTA Button Links",
         description: "Links to be used as CTA buttons in header (max 2)",
         validation: { length: { max: 2 } },
-      }
+      },
     ),
     footerNavigationLinks: fields.blocks(
       {
@@ -150,7 +168,16 @@ export const navigationSettings = singleton({
             return label;
           },
           schema: fields.object({
-            link: fields.url({ label: "URL" }),
+            link: fields.text({
+              label: "URL",
+              description: "must start with https://",
+              validation: {
+                pattern: {
+                  regex: /^https:\/\/.+/,
+                  message: "Must start with https://",
+                },
+              },
+            }),
             label: fields.text({
               label: "Label",
               description: "the text to display on your link",
@@ -162,7 +189,7 @@ export const navigationSettings = singleton({
         label: "Footer Links",
         description: "Add links to your footer navigation (max 15)",
         validation: { length: { max: 15 } },
-      }
+      },
     ),
     footerCta: fields.object({
       schema: fields.object({
@@ -197,7 +224,16 @@ export const navigationSettings = singleton({
             url: {
               label: "External Page",
               schema: fields.object({
-                link: fields.url({ label: "URL" }),
+                link: fields.text({
+                  label: "URL",
+                  description: "must start with https://",
+                  validation: {
+                    pattern: {
+                      regex: /^https:\/\/.+/,
+                      message: "Must start with https://",
+                    },
+                  },
+                }),
                 label: fields.text({ label: "Label" }),
               }),
             },
@@ -206,7 +242,7 @@ export const navigationSettings = singleton({
             label: "CTA Button Links",
             description: "Links to be used as CTA buttons in header (max 2)",
             validation: { length: { max: 2 } },
-          }
+          },
         ),
       }),
     }),

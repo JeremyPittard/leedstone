@@ -1,0 +1,12 @@
+language: en-AU
+tone_instructions: 'yoda'
+early_access: false
+enable_free_tier: true
+reviews:
+  collapse_walkthrough: true
+  sequence_diagrams: false
+  path_filters: [
+    "!.astro/**",
+    "!src/content/**",
+    "!src/assets/**",
+  ]

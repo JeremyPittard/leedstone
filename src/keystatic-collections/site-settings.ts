@@ -8,9 +8,16 @@ export const siteSettings = singleton({
     businessName: fields.text({ label: "Site Title" }),
     logo: fields.image({ label: "Site Logo", directory: "public/images/logo" }),
     sitewideBanner: fields.text({ label: "Sitewide Banner" }),
-    sitewideBannerLink: fields.url({
+    sitewideBannerLink: fields.text({
       label: "CTA for banner",
-      description: "paste in a url for a CTA in the banner",
+      description:
+        "paste in a url for a CTA in the banner (must start with https://)",
+      validation: {
+        pattern: {
+          regex: /^https:\/\/.+/,
+          message: "Must start with https://",
+        },
+      },
     }),
     sitewideBannerLinkLabel: fields.text({ label: "Label for CTA button" }),
     isSitewideBannerLinkExternal: fields.checkbox({
@@ -21,7 +28,16 @@ export const siteSettings = singleton({
         url: {
           label: "External Page",
           schema: fields.object({
-            link: fields.url({ label: "URL" }),
+            link: fields.text({
+              label: "URL",
+              description: "must start with https://",
+              validation: {
+                pattern: {
+                  regex: /^https:\/\/.+/,
+                  message: "Must start with https://",
+                },
+              },
+            }),
             label: fields.text({ label: "Label" }),
             icon: fields.select({
               label: "Icon",
@@ -89,7 +105,7 @@ export const siteSettings = singleton({
         label: "Social Media Links",
         description: "links to your social media profiles",
         validation: { length: { max: 2 } },
-      }
+      },
     ),
   },
 });
