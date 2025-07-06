@@ -24,6 +24,10 @@ export default defineConfig({
           "github",
           "gitlab",
           "mastodon",
+          "navigate-next",
+          "user-circle",
+          "star",
+          "star-half",
         ],
         tabler: ["brand-threads"],
         ri: ["twitter-x-line", "bluesky-fill"],
@@ -37,6 +41,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   image: {
+    responsiveStyles: true,
     layout: "constrained",
   },
   experimental: {

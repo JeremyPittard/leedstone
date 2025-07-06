@@ -1,4 +1,16 @@
 title: About
 content:
-  - discriminant: blockquote
-    value: Block quote baby
+  - discriminant: hero
+    value:
+      image: src/assets/images/hero/all-the-things/content/0/value/image.jpg
+      title: A Hero
+      description: A Description for hero
+      cta:
+        - discriminant: internalLink
+          value:
+            link: about-us
+            linkText: internal link
+        - discriminant: externalLink
+          value:
+            link: https://www.google.com
+            linkText: an external link

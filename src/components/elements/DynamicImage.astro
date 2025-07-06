@@ -1,0 +1,40 @@
+---
+// This is based on https://docs.astro.build/en/recipes/dynamically-importing-images/
+// needed to do some work around targeting src/assets
+
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"img"> {
+  src: string;
+  alt: string;
+  height?: number;
+  width?: number;
+  isHero?: boolean;
+}
+
+const { src, alt, height, width, isHero } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/images/**/**/*.{jpeg,jpg,png,gif}"
+);
+
+const imageSrc = src.replace("src/assets", "../../assets");
+
+if (!images[imageSrc])
+  throw new Error(
+    `Image "${src}" not found. Resolved path: "${imageSrc}". Available images: ${Object.keys(images).join(", ")}`
+  );
+---
+
+<div class="dynamic-image">
+  <Image
+    src={images[imageSrc]()}
+    alt={alt}
+    class={Astro.props.class}
+    height={height}
+    width={width}
+    priority={isHero}
+    fit="cover"
+  />
+</div>

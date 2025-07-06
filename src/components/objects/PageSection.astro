@@ -2,12 +2,12 @@
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"section"> {
-  fullWidth?: boolean;
+  // fullWidth?: boolean;
 }
 
 const props: Props = Astro.props;
 ---
 
-<section class:list={["px-5 lg:px-24", props.class]}>
+<section class:list={["px-5 py-16 lg:px-16 lg:py-28", props.class]}>
   <slot />
 </section>

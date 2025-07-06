@@ -217,6 +217,21 @@ declare module 'astro:content' {
   collection: "reviews";
   data: any
 };
+"better-than-steamed-hams-2": {
+	id: "better-than-steamed-hams-2";
+  collection: "reviews";
+  data: any
+};
+"better-than-steamed-hams-3": {
+	id: "better-than-steamed-hams-3";
+  collection: "reviews";
+  data: any
+};
+"better-than-steamed-hamses": {
+	id: "better-than-steamed-hamses";
+  collection: "reviews";
+  data: any
+};
 };
 "site-settings": {
 "navigation": {

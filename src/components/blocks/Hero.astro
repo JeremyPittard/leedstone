@@ -1,51 +1,43 @@
 ---
 import type { CTALink } from "../../types/blocks";
+import DynamicImage from "../elements/DynamicImage.astro";
 import Button from "../elements/Button.astro";
 import PageSection from "../objects/PageSection.astro";
 
-import { Icon } from "astro-icon/components";
-
-const { value } = Astro.props;
-
-const { image, title, description, cta } = value;
+const { image, title, description, cta } = Astro.props.value;
 ---
 
-<PageSection class="hero">
-  <h1>it's a me a hero</h1>
-  <Icon name="ri:twitter-x-line" />
-  <Icon name="tabler:brand-threads" />
-</PageSection>
-<section class="Hero">
-  <div class="">
-    <div class="max-w-lg mx-auto">
-      <h1 class="text-tiny">
-        {title}
-      </h1>
-      <p class="mt-6 text-gray-500">
-        {description}
-      </p>
-      <div class="flex gap-4 items-center justify-center">
-        {
-          cta
-            ? cta.map((link: CTALink) => (
-                <Button
-                  buttonType="link"
-                  variant="primary"
-                  href={link.value.link}
-                >
-                  {link.value.linkText}
-                  {link.value.link}
-                </Button>
-              ))
-            : null
-        }
-      </div>
-
-      <p class="mt-3 text-large text-gray-400">No credit card required</p>
-    </div>
-
-    <div class="flex justify-center mt-10">
-      <img class="object-cover w-full h-96 rounded-xl" src={image} />
+<PageSection class="hero content-container">
+  <div
+    class="flex flex-col lg:flex-row lg:space-between gap-5 lg:gap-20 mb-12 lg:mb-20"
+  >
+    <h1>{title}</h1>
+    <div>
+      <p class="mb-6 lg:mb-8">{description}</p>
+      {
+        cta ? (
+          <div class="flex gap-4">
+            {cta.map((link: CTALink, index: number) => (
+              <Button
+                buttonType="link"
+                href={link.value.link === "home" ? "/" : link.value.link}
+                variant={index === 0 ? "primary" : "outline"}
+                target={link.discriminant === "external" ? "_blank" : "_self"}
+              >
+                {link.value.linkText}
+              </Button>
+            ))}
+          </div>
+        ) : null
+      }
     </div>
   </div>
-</section>
+  <DynamicImage
+    src={`${image}`}
+    alt={""}
+    class="hero-image"
+    width={1312}
+    height={738}
+    isHero={true}
+  />
+</PageSection>

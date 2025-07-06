@@ -13,8 +13,8 @@ export const pages = collection({
           schema: fields.object({
             image: fields.image({
               label: "Image",
-              directory: "public/images/hero/",
-              publicPath: "/images/hero/",
+              directory: "src/assets/images/hero",
+              publicPath: "src/assets/images/hero",
             }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
@@ -42,7 +42,7 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
           }),
         },
@@ -52,8 +52,8 @@ export const pages = collection({
             {
               image: fields.image({
                 label: "Image",
-                directory: "public/images/header/",
-                publicPath: "/images/header/",
+                directory: "src/assets/images/header",
+                publicPath: "src/assets/images/header",
               }),
               title: fields.text({ label: "Title" }),
               description: fields.text({
@@ -61,7 +61,7 @@ export const pages = collection({
                 multiline: true,
               }),
             },
-            { description: "Use this if a hero is... too much." }
+            { description: "Use this if a hero is... too much." },
           ),
         },
         textWithImage: {
@@ -69,8 +69,8 @@ export const pages = collection({
           schema: fields.object({
             image: fields.image({
               label: "Image",
-              directory: "public/images/content/",
-              publicPath: "/images/content/",
+              directory: "src/assets/images",
+              publicPath: "src/assets/images",
             }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
@@ -99,11 +99,11 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
             imageSide: fields.select({
               label: "Image Side",
-              defaultValue: "left",
+              defaultValue: "right",
               options: [
                 { label: "Left Image", value: "left" },
                 { label: "Right Image", value: "right" },
@@ -111,7 +111,7 @@ export const pages = collection({
             }),
           }),
         },
-        featureBlock: {
+        featuresBlock: {
           label: "Features",
           schema: fields.object({
             title: fields.text({ label: "Title" }),
@@ -141,14 +141,14 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
             feature: fields.array(
               fields.object({
                 image: fields.image({
                   label: "Image",
-                  directory: "public/images/content/",
-                  publicPath: "/images/content/",
+                  directory: "src/assets/images/",
+                  publicPath: "src/assets/images/",
                 }),
                 title: fields.text({
                   label: "Title",
@@ -163,7 +163,7 @@ export const pages = collection({
                 label: "Feature List",
                 itemLabel: (props) => props.fields.title.value,
                 validation: { length: { min: 1, max: 3 } },
-              }
+              },
             ),
           }),
         },
@@ -197,7 +197,7 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 1 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
             items: fields.array(
               fields.object({
@@ -206,9 +206,13 @@ export const pages = collection({
                   label: "Description",
                   multiline: true,
                 }),
-                image: fields.image({ label: "Image" }),
+                image: fields.image({
+                  label: "Image",
+                  directory: "src/assets/images",
+                  publicPath: "src/assets/images",
+                }),
               }),
-              { validation: { length: { min: 1 } } }
+              { validation: { length: { min: 1, max: 3 } } },
             ),
           }),
         },
@@ -235,7 +239,7 @@ export const pages = collection({
           label: "CTA",
           schema: fields.object({
             title: fields.text({ label: "Title" }),
-            description: fields.text({ label: "Description", multiline: true }),
+            description: fields.text({ label: "Description" }),
             cta: fields.blocks(
               {
                 internalLink: {
@@ -260,7 +264,7 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
           }),
         },
@@ -272,7 +276,7 @@ export const pages = collection({
           }),
         },
       },
-      { label: "Content" }
+      { label: "Content" },
     ),
   },
 });

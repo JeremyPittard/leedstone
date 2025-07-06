@@ -12,7 +12,7 @@ export const reviews = collection({
         description: "3-4 words that sums up the review at a quick glance",
       },
     }),
-    review: fields.text({ label: "Review" }),
+    review: fields.text({ label: "Review", multiline: true }),
     name: fields.text({ label: "Reviewers Name" }),
     location: fields.text({ label: "Job Location" }),
     rating: fields.number({
@@ -23,8 +23,13 @@ export const reviews = collection({
       label: "Image",
       description:
         "if the client gives permission for you to use their photo, this is a great addition to add authority",
-      directory: "public/images/reviews/",
-      publicPath: "/images/reviews/",
+      directory: "src/assets/images/reviews",
+      publicPath: "src/assets/images/reviews",
+    }),
+    platform: fields.text({
+      label: "Platform",
+      description: "url to where the review was originally posted",
+      validation: { isRequired: false, pattern: { regex: /^https?:\/\/.+/ } },
     }),
   },
 });

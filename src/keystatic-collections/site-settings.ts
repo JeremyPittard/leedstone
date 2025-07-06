@@ -12,6 +12,7 @@ export const siteSettings = singleton({
       label: "CTA for banner",
       description: "paste in a url for a CTA in the banner",
     }),
+    sitewideBannerLinkLabel: fields.text({ label: "Label for CTA button" }),
     isSitewideBannerLinkExternal: fields.checkbox({
       label: "Does this link to an external website?",
     }),

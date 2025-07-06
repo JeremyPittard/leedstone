@@ -1,0 +1,189 @@
+---
+import { Image } from "astro:assets";
+import Button from "../elements/Button.astro";
+
+import { getEntry } from "astro:content";
+
+type Discriminant = "page" | "url";
+type PageLink = {
+  link: string;
+  label: string;
+};
+interface NavigationLink {
+  discriminant: Discriminant;
+  value: PageLink;
+}
+
+const navigationLinks: NavigationLink[] = await getEntry(
+  "site-settings",
+  "navigation"
+).then((entry) => entry.data.navigationLinks);
+
+const ctaLinks: NavigationLink[] = await getEntry(
+  "site-settings",
+  "navigation"
+).then((entry) => entry.data.ctaLinks);
+
+const logo: any = await getEntry("site-settings", "site-details").then(
+  (entry) => entry.data.logo
+);
+---
+
+<nav class="hidden lg:block">
+  <ul class="flex items-center gap-8">
+    <li class="mr-auto">
+      <a href="/">
+        <Image
+          src={`/images/logo/${logo}`}
+          height={40}
+          width={132}
+          alt="Logo for lsl"
+        />
+      </a>
+    </li>
+    {
+      navigationLinks.map((navLink) => {
+        const { link, label } = navLink.value;
+        return (
+          <li>
+            <a href={link === "home" ? "/" : link}>{label ? label : link}</a>
+          </li>
+        );
+      })
+    }
+    <!-- cta -->
+    {
+      ctaLinks.map((navLink, index) => {
+        const { link, label } = navLink.value;
+
+        return (
+          <li>
+            <Button
+              buttonType="link"
+              href={link === "home" ? "/" : link}
+              variant={index === 0 ? "outline" : "primary"}
+            >
+              {label ? label : link}
+            </Button>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+
+<!-- mobile -->
+<div class="mobile-menu lg:hidden flex justify-between items-center">
+  <a href="/">
+    <Image
+      src={`/images/logo/${logo}`}
+      height={40}
+      width={132}
+      alt="Logo for lsl"
+    />
+  </a>
+  <button class="menu-toggle p-6">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span class="sr-only">menu</span>
+  </button>
+  <nav popover id="mobile-menu" class="mobile-menu w-full">
+    <ul class="flex items-baseline gap-8 flex-col w-full py-4 px-5">
+      {
+        navigationLinks.map((navLink) => {
+          const { link, label } = navLink.value;
+          return (
+            <li>
+              <a href={link === "home" ? "/" : link}>{label ? label : link}</a>
+            </li>
+          );
+        })
+      }
+      <!-- cta -->
+      {
+        ctaLinks.map((navLink, index) => {
+          const { link, label } = navLink.value;
+          return (
+            <li class="w-full">
+              <Button
+                buttonType="link"
+                href={link === "home" ? "/" : link}
+                variant={index === 0 ? "outline" : "primary"}
+                class={`block w-full text-center`}
+              >
+                {label ? label : link}
+              </Button>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+</div>
+<style>
+  button {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    span {
+      --transition-speed: 150ms;
+      height: 3px;
+      width: 24px;
+      border-radius: 2px;
+      background-color: var(--color-neutral-darkest);
+      transition:
+        transform var(--transition-speed) linear,
+        rotate var(--transition-speed) ease-in-out var(--transition-speed),
+        opacity calc(var(--transition-speed) * 2) ease-in;
+    }
+
+    &.popover-open {
+      span:nth-child(1) {
+        transform: translateY(7px);
+        rotate: 45deg;
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        rotate: -45deg;
+        transform: translateY(-7px);
+      }
+    }
+  }
+
+  .mobile-menu {
+    transition: all 150ms ease-in;
+    transition-behavior: allow-discrete;
+    position: relative;
+
+    &:popover-open {
+      display: block;
+      opacity: 1;
+      transform: none;
+      margin-top: 94px;
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(-3px);
+      }
+    }
+  }
+</style>
+<script is:inline>
+  const setupMenu = () => {
+    const btn = document.querySelector(".menu-toggle");
+    const popover = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      btn.classList.contains("popover-open")
+        ? popover.hidePopover()
+        : popover.showPopover();
+      btn.classList.toggle("popover-open");
+    });
+  };
+
+  document.addEventListener("astro:page-load", setupMenu);
+</script>

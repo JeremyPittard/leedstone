@@ -10,7 +10,7 @@
 /* uncomment if needed tailwind handles most things */
 
 /* @import "./styles/2-tools/index.css"; */
-/* @import "./styles/3-generic/index.css"; */
+@import "./styles/3-generic/index.css";
 @import "./styles/4-elements/index.css";
 @import "./styles/5-objects/index.css";
 /* components are handled inside components */

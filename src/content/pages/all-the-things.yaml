@@ -2,7 +2,7 @@ title: all the things
 content:
   - discriminant: hero
     value:
-      image: /images/hero/all-the-things/content/0/value/image.jpg
+      image: src/assets/images/hero/all-the-things/content/0/value/image.jpg
       title: A Hero
       description: A Description for hero
       cta:
@@ -14,55 +14,3 @@ content:
           value:
             link: https://www.google.com
             linkText: an external link
-  - discriminant: pageHeader
-    value:
-      image: /images/header/all-the-things/content/1/value/image.jpg
-      title: Page Header
-      description: when a hero is just too much
-  - discriminant: textWithImage
-    value:
-      title: Problem
-      description: Describe the problem your business aims to solve
-      cta: []
-      imageSide: right
-  - discriminant: textWithImage
-    value:
-      title: Solution
-      description: Describe how your business solves that problem
-      cta: []
-      imageSide: left
-  - discriminant: imageGrid
-    value:
-      title: Benefits
-      items:
-        - title: Benny 1
-          link: []
-        - title: Benny 2
-          link: []
-        - title: Benny 3
-          link: []
-  - discriminant: timeline
-    value:
-      title: Your Process
-      items:
-        - title: step one
-          description: thius is the first step
-  - discriminant: reviews
-    value: Chuck your reviews here
-  - discriminant: faqBlock
-    value: Faq's
-  - discriminant: cta
-    value:
-      title: CTA HERE
-      description: maybe do a calendly thingo
-      cta:
-        - discriminant: internalLink
-          value:
-            link: about-us
-            linkText: internal link
-  - discriminant: BlogList
-    value: recent blog posts
-  - discriminant: blockquote
-    value:
-      quote: block quote
-      cite: some guy
