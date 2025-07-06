@@ -22,7 +22,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 const imageSrc = src.replace("src/assets", "../../assets");
 
 if (!images[imageSrc])
-  throw new Error(`"${imageSrc}" does not exist in glob ${src}`);
+  throw new Error(
+    `Image "${src}" not found. Resolved path: "${imageSrc}". Available images: ${Object.keys(images).join(", ")}`
+  );
 ---
 
 <div class="bg-gray-100">

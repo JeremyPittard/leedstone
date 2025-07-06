@@ -52,8 +52,8 @@ export const pages = collection({
             {
               image: fields.image({
                 label: "Image",
-                directory: "public/images/header/",
-                publicPath: "/images/header/",
+                directory: "src/assets/images/header",
+                publicPath: "src/assets/images/header",
               }),
               title: fields.text({ label: "Title" }),
               description: fields.text({
@@ -69,8 +69,8 @@ export const pages = collection({
           schema: fields.object({
             image: fields.image({
               label: "Image",
-              directory: "public/images/content/",
-              publicPath: "/images/content/",
+              directory: "src/assets/images",
+              publicPath: "src/assets/images",
             }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
@@ -147,8 +147,8 @@ export const pages = collection({
               fields.object({
                 image: fields.image({
                   label: "Image",
-                  directory: "public/images/content/",
-                  publicPath: "/images/content/",
+                  directory: "src/assets/images/content",
+                  publicPath: "src/assets/images/content",
                 }),
                 title: fields.text({
                   label: "Title",
