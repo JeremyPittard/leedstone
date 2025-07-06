@@ -4,9 +4,8 @@ import DynamicImage from "../elements/DynamicImage.astro";
 import PageSection from "../objects/PageSection.astro";
 import type { CTALink } from "../../types/blocks";
 
-const { value } = Astro.props;
-
-const { image, title, description, imageSide, cta, tagline } = value;
+const { image, title, description, imageSide, cta, tagline } =
+  Astro.props.value;
 
 const imageSideClasses =
   imageSide === "left" ? "lg:flex-row-reverse" : "lg:flex-row";
@@ -44,7 +43,6 @@ const imageSideClasses =
         class="hero-image"
         width={616}
         height={640}
-        isHero={true}
       />
     </div>
   </div>

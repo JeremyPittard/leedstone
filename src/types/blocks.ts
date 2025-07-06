@@ -11,6 +11,12 @@ export type CTALink = {
   discriminant: string;
   value: InternalLink | ExternalLink;
 };
+
+export type Feature = {
+  image?: string;
+  title: string;
+  description: string;
+};
 type ImageGrid = {
   image?: string;
   title?: string;

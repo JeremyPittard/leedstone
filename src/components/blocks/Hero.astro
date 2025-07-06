@@ -4,9 +4,7 @@ import DynamicImage from "../elements/DynamicImage.astro";
 import Button from "../elements/Button.astro";
 import PageSection from "../objects/PageSection.astro";
 
-const { value } = Astro.props;
-
-const { image, title, description, cta } = value;
+const { image, title, description, cta } = Astro.props.value;
 ---
 
 <PageSection class="hero content-container">

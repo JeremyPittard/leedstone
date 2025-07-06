@@ -50,3 +50,69 @@ content:
             link: all-the-things
             linkText: Learn more
       imageSide: left
+  - discriminant: featuresBlock
+    value:
+      title: Benefits of using leedstone (these are not services/features)
+      description: >-
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        varius enim in eros.
+      tagline: Taglines
+      cta:
+        - discriminant: internalLink
+          value:
+            link: all-the-things
+            linkText: Button
+        - discriminant: externalLink
+          value:
+            link: https://www.jpittard.net
+            linkText: Button
+      feature:
+        - image: src/assets/images/home/content/3/value/feature/0/image.jpg
+          title: Highlight feature one
+          description: >-
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla.
+        - image: src/assets/images/home/content/3/value/feature/1/image.jpg
+          title: Highlight feature two
+          description: >-
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla.
+        - image: src/assets/images/home/content/3/value/feature/2/image.jpg
+          title: Highlight feature three
+          description: >-
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla.
+  - discriminant: timeline
+    value:
+      title: The Process
+      description: >-
+        use this so that your customers are familiar with what steps they need
+        to ta ke, this eliminates tyre kickers
+      tagline: Tagline
+      cta:
+        - discriminant: internalLink
+          value:
+            link: all-the-things
+            linkText: Button
+        - discriminant: externalLink
+          value:
+            link: https://jpittard.net
+            linkText: Button
+      items:
+        - title: Step 1
+          description: >-
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique.
+          image: content/4/value/items/0/image.jpg
+        - title: Step 2
+          description: >-
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique.
+        - title: Step 3
+          description: >-
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique.
+          image: content/4/value/items/2/image.jpg

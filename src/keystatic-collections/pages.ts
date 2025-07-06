@@ -111,7 +111,7 @@ export const pages = collection({
             }),
           }),
         },
-        featureBlock: {
+        featuresBlock: {
           label: "Features",
           schema: fields.object({
             title: fields.text({ label: "Title" }),
@@ -147,8 +147,8 @@ export const pages = collection({
               fields.object({
                 image: fields.image({
                   label: "Image",
-                  directory: "src/assets/images/content",
-                  publicPath: "src/assets/images/content",
+                  directory: "src/assets/images/",
+                  publicPath: "src/assets/images/",
                 }),
                 title: fields.text({
                   label: "Title",
@@ -197,7 +197,7 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 1 } } },
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
             items: fields.array(
               fields.object({
