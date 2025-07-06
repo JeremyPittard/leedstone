@@ -13,10 +13,17 @@ export type CTALink = {
 };
 
 export type Feature = {
-  image?: string;
   title: string;
+  image?: string;
   description: string;
 };
+
+export type TimelineItem = {
+  title: string;
+  image?: string;
+  description: string;
+};
+
 type ImageGrid = {
   image?: string;
   title?: string;

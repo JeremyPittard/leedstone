@@ -1,10 +1,10 @@
 ---
-import type { CTALink } from "src/types/blocks";
+import type { CTALink, TimelineItem } from "src/types/blocks";
 import Button from "../elements/Button.astro";
 import PageSection from "../objects/PageSection.astro";
+import DynamicImage from "../elements/DynamicImage.astro";
 
 const { tagline, title, description, cta, items } = Astro.props.value;
-console.log(Astro.props.value);
 ---
 
 <PageSection class="timeline content-container">
@@ -24,6 +24,37 @@ console.log(Astro.props.value);
             {link.value.linkText}
           </Button>
         ))}
+      </div>
+    ) : null
+  }
+  {
+    items ? (
+      <div class="grid grid-cols-3 gap-0 mt-20">
+        {items.map((step: TimelineItem, index: number) => {
+          const { title, description, image } = step;
+          console.log(image);
+          return (
+            <article>
+              <div class="px-14">
+                {image ? (
+                  <DynamicImage
+                    src={`${image}`}
+                    alt={""}
+                    class="mb-8 mx-auto"
+                    height={256}
+                    width={256}
+                  />
+                ) : (
+                  <p class="text-8xl text-center">{index + 1}</p>
+                )}
+              </div>
+              <div class="px-8 text-center">
+                <h5 class="mb-6">{title}</h5>
+                <p>{description}</p>
+              </div>
+            </article>
+          );
+        })}
       </div>
     ) : null
   }

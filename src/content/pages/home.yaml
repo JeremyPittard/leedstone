@@ -106,7 +106,7 @@ content:
           description: >-
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
             varius enim in eros elementum tristique.
-          image: content/4/value/items/0/image.jpg
+          image: src/assets/images/home/content/4/value/items/0/image.jpg
         - title: Step 2
           description: >-
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
@@ -115,4 +115,3 @@ content:
           description: >-
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
             varius enim in eros elementum tristique.
-          image: content/4/value/items/2/image.jpg
