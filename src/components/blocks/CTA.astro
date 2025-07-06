@@ -1,3 +1,40 @@
-<section class="cta border-2">
-  <h2>cta</h2>
-</section>
+---
+import type { CTALink } from "src/types/blocks";
+import PageSection from "../objects/PageSection.astro";
+import Button from "../elements/Button.astro";
+
+const { title, description, cta } = Astro.props.value;
+---
+
+<PageSection class="content-container">
+  <div
+    class="flex flex-col items-center lg:flex-row lg:justify-between gap-5 lg:gap-20"
+  >
+    <div>
+      <div class="max-w-3xl">
+        <h2 class="mb-6">
+          {title}
+        </h2>
+        <p>{description}</p>
+      </div>
+    </div>
+    <div>
+      {
+        cta ? (
+          <div class="flex gap-4">
+            {cta.map((link: CTALink, index: number) => (
+              <Button
+                buttonType="link"
+                href={link.value.link === "home" ? "/" : link.value.link}
+                variant={index === 0 ? "primary" : "outline"}
+                target={link.discriminant === "external" ? "_blank" : "_self"}
+              >
+                {link.value.linkText}
+              </Button>
+            ))}
+          </div>
+        ) : null
+      }
+    </div>
+  </div>
+</PageSection>

@@ -90,7 +90,7 @@ content:
       title: The Process
       description: >-
         use this so that your customers are familiar with what steps they need
-        to ta ke, this eliminates tyre kickers
+        to take, this eliminates tyre kickers
       tagline: Tagline
       cta:
         - discriminant: internalLink
@@ -115,3 +115,16 @@ content:
           description: >-
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
             varius enim in eros elementum tristique.
+  - discriminant: reviews
+    value:
+      title: Customer testimonials
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  - discriminant: cta
+    value:
+      title: Call to action that invites visitor to book a demo
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+      cta:
+        - discriminant: internalLink
+          value:
+            link: home
+            linkText: Book a demo

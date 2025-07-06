@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  rating: number;
+}
+const props: Props = Astro.props;
+
+const valueMap = Array.from({ length: Math.floor(props.rating) });
+const isHalfStar = props.rating % 1 === 0.5;
+---
+
+<div class="star-map">
+  <div class="stars flex">
+    {valueMap.map((star) => <Icon name="mdi:star" />)}
+    {isHalfStar ? <Icon name="mdi:star-half" /> : null}
+  </div>
+</div>

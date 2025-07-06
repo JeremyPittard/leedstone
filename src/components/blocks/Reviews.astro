@@ -1,9 +1,12 @@
 ---
 import { getCollection, getEntries } from "astro:content";
+import PageSection from "../objects/PageSection.astro";
+import { Icon } from "astro-icon/components";
+import StarMap from "../elements/StarMap.astro";
+import Button from "../elements/Button.astro";
+import DynamicImage from "../elements/DynamicImage.astro";
 
-const { value } = Astro.props;
-
-const title = value;
+const { title, description } = Astro.props.value;
 const allReviews = await getCollection("reviews");
 
 type Review = {
@@ -14,25 +17,68 @@ type Review = {
     review: string;
     rating: number;
     platform: string;
-    image: string;
+    image?: string;
+    data: {
+      pullQuote: string;
+      review: string;
+      rating: number;
+      platform: string;
+      image?: string;
+      name: string;
+      location: string;
+    };
   };
 };
 ---
 
-<section class="reviews border-2">
-  <h2>{title}</h2>
-  {
-    allReviews.map((singleReview: Review) => {
-      const { pullQuote, review, rating, platform, image } = singleReview.data;
-      return (
-        <div>
-          <h3>{pullQuote}</h3>
-          <p>{review}</p>
-          <p>{rating}</p>
-          <p>{platform}</p>
-          {image ? <img src={image} alt="" width="400" /> : null}
-        </div>
-      );
-    })
-  }
-</section>
+<PageSection class="reviews content-container">
+  <div class="section-title flex flex-col space-between gap-6 mb-20">
+    <h2>{title}</h2>
+    <p>{description}</p>
+  </div>
+  <div class="flex flex-wrap gap-16">
+    {
+      allReviews.map((singleReview: Review, index: number) => {
+        const { pullQuote, review, rating, platform, image, name, location } =
+          singleReview.data;
+
+        return (
+          <article class="flex-1/3">
+            <div class="flex flex-col gap-2 mb-8 ">
+              <StarMap rating={rating} />
+              <p class="h6">{pullQuote}</p>
+            </div>
+            <p class="mb-8">{review}</p>
+            <div class="flex gap-4 items-start">
+              {image ? (
+                <DynamicImage
+                  src={image}
+                  alt={`portrait of ${name}`}
+                  height={56}
+                  width={56}
+                  class="rounded-full"
+                />
+              ) : (
+                <Icon name="mdi:user-circle" size={56} />
+              )}
+              <div>
+                <p class="font-semibold">{name}</p>
+                <p>{location}</p>
+              </div>
+              <Button
+                buttonType="link"
+                href={platform}
+                variant="outline"
+                size="small"
+                target="_blank"
+                class="ml-auto"
+              >
+                view
+              </Button>
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+</PageSection>

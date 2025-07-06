@@ -59,7 +59,10 @@ const buttonClasses: string = `${props.class?.includes("block") ? "" : "inline-b
     >
       <slot />
       {props.variant === "ghost" ? (
-        <Icon name="mdi:navigate-next" class="inline-block ml-2" />
+        <Icon
+          name="mdi:navigate-next"
+          class={`inline-block ${props.size === "small" ? "ml-1" : "ml-2"}`}
+        />
       ) : null}
     </a>
   ) : (

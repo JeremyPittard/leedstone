@@ -239,7 +239,7 @@ export const pages = collection({
           label: "CTA",
           schema: fields.object({
             title: fields.text({ label: "Title" }),
-            description: fields.text({ label: "Description", multiline: true }),
+            description: fields.text({ label: "Description" }),
             cta: fields.blocks(
               {
                 internalLink: {

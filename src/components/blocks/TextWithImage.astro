@@ -25,7 +25,7 @@ const imageSideClasses =
             {cta.map((link: CTALink, index: number) => (
               <Button
                 buttonType="link"
-                href={link.value.link}
+                href={link.value.link === "home" ? "/" : link.value.link}
                 variant={index === 0 ? "outline" : "ghost"}
                 target={link.discriminant === "external" ? "_blank" : "_self"}
               >

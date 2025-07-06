@@ -20,7 +20,7 @@ const { image, title, description, cta } = Astro.props.value;
             {cta.map((link: CTALink, index: number) => (
               <Button
                 buttonType="link"
-                href={link.value.link}
+                href={link.value.link === "home" ? "/" : link.value.link}
                 variant={index === 0 ? "primary" : "outline"}
                 target={link.discriminant === "external" ? "_blank" : "_self"}
               >
