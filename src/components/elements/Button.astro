@@ -52,8 +52,7 @@ const buttonClasses: string = `${props.class?.includes("block") ? "" : "inline-b
 {
   props.buttonType === "link" ? (
     <a
-      class:list={buttonClasses}
-      class={props.class}
+      class:list={[buttonClasses, props.class]}
       href={props.href}
       target={props.target}
     >
@@ -66,7 +65,7 @@ const buttonClasses: string = `${props.class?.includes("block") ? "" : "inline-b
       ) : null}
     </a>
   ) : (
-    <button class:list={buttonClasses} class={props.class} type={props.type}>
+    <button class:list={[buttonClasses, props.class]} type={props.type}>
       <slot />
     </button>
   )

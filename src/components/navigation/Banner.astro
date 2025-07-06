@@ -48,10 +48,10 @@ const banner = await getEntry("site-settings", "site-details").then((entry) => {
     const banner = document.querySelector(".alert-banner");
     const closeButton = document.querySelector(".close-button");
     const hideBanner = window.sessionStorage.getItem("hideBanner");
+    if (!banner) return;
     if (hideBanner) {
       banner?.classList.add("hidden");
     }
-    if (!banner) return;
     closeButton?.addEventListener("click", () => {
       window.sessionStorage.setItem("hideBanner", "true");
       banner?.classList.add("hidden");

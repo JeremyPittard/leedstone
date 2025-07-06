@@ -29,7 +29,7 @@ export const reviews = collection({
     platform: fields.text({
       label: "Platform",
       description: "url to where the review was originally posted",
-      validation: { isRequired: false },
+      validation: { isRequired: false, pattern: { regex: /^https?:\/\/.+/ } },
     }),
   },
 });
