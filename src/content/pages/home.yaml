@@ -16,3 +16,37 @@ content:
           value:
             link: home
             linkText: Book a demo
+  - discriminant: textWithImage
+    value:
+      image: src/assets/images/home/content/1/value/image.jpg
+      title: Describe the “problem” you aim to solve
+      description: >-
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        varius enim in eros elementum tristique. Duis cursus, mi quis viverra
+        ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+      tagline: Tagline
+      cta:
+        - discriminant: internalLink
+          value:
+            link: about-us
+            linkText: Learn more
+        - discriminant: internalLink
+          value:
+            link: all-the-things
+            linkText: Even more
+      imageSide: right
+  - discriminant: textWithImage
+    value:
+      image: src/assets/images/home/content/2/value/image.jpg
+      title: Describe the “problem” you aim to solve
+      description: >-
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        varius enim in eros elementum tristique. Duis cursus, mi quis viverra
+        ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+      tagline: Tagline
+      cta:
+        - discriminant: internalLink
+          value:
+            link: all-the-things
+            linkText: Learn more
+      imageSide: left

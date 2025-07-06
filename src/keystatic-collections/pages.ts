@@ -42,7 +42,7 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
           }),
         },
@@ -61,7 +61,7 @@ export const pages = collection({
                 multiline: true,
               }),
             },
-            { description: "Use this if a hero is... too much." }
+            { description: "Use this if a hero is... too much." },
           ),
         },
         textWithImage: {
@@ -99,11 +99,11 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
             imageSide: fields.select({
               label: "Image Side",
-              defaultValue: "left",
+              defaultValue: "right",
               options: [
                 { label: "Left Image", value: "left" },
                 { label: "Right Image", value: "right" },
@@ -141,7 +141,7 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
             feature: fields.array(
               fields.object({
@@ -163,7 +163,7 @@ export const pages = collection({
                 label: "Feature List",
                 itemLabel: (props) => props.fields.title.value,
                 validation: { length: { min: 1, max: 3 } },
-              }
+              },
             ),
           }),
         },
@@ -197,7 +197,7 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 1 } } }
+              { label: "CTA", validation: { length: { max: 1 } } },
             ),
             items: fields.array(
               fields.object({
@@ -208,7 +208,7 @@ export const pages = collection({
                 }),
                 image: fields.image({ label: "Image" }),
               }),
-              { validation: { length: { min: 1 } } }
+              { validation: { length: { min: 1 } } },
             ),
           }),
         },
@@ -260,7 +260,7 @@ export const pages = collection({
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
           }),
         },
@@ -272,7 +272,7 @@ export const pages = collection({
           }),
         },
       },
-      { label: "Content" }
+      { label: "Content" },
     ),
   },
 });
