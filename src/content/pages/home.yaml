@@ -119,6 +119,9 @@ content:
     value:
       title: Customer testimonials
       description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      reviews:
+        - better-than-steamed-hams
+        - better-than-steamed-hams-2
   - discriminant: cta
     value:
       title: Call to action that invites visitor to book a demo
@@ -128,3 +131,21 @@ content:
           value:
             link: home
             linkText: Book a demo
+  - discriminant: faqBlock
+    value:
+      title: Frequently asked questions
+      description: >-
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        varius enim in eros elementum tristique. 
+      faqs: []
+      followUpTitle: Still have a questions?
+      followUpDescription: Support details to capture customers that might be on the fence.
+      cta:
+        - discriminant: internalLink
+          value:
+            link: all-the-things
+            linkText: Contact
+        - discriminant: externalLink
+          value:
+            link: https://jpittard.net
+            linkText: button

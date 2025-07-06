@@ -35,15 +35,21 @@ export const pages = collection({
                 externalLink: {
                   label: "External Link",
                   schema: fields.object({
-                    link: fields.url({
+                    link: fields.text({
                       label: "External Link",
-                      description: "Select a page on this site",
+                      description: "paste a url (must start with https://)",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
           }),
         },
@@ -62,7 +68,7 @@ export const pages = collection({
                 multiline: true,
               }),
             },
-            { description: "Use this if a hero is... too much." }
+            { description: "Use this if a hero is... too much." },
           ),
         },
         textWithImage: {
@@ -91,15 +97,15 @@ export const pages = collection({
                 externalLink: {
                   label: "External Link",
                   schema: fields.object({
-                    link: fields.url({
+                    link: fields.text({
                       label: "External Link",
-                      description: "Select a page on this site",
+                      description: "must start with https://",
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
             imageSide: fields.select({
               label: "Image Side",
@@ -139,17 +145,16 @@ export const pages = collection({
                     },
                     externalLink: {
                       label: "External Link",
-                      schema: fields.url({
+                      schema: fields.text({
                         label: "External Link",
-                        description:
-                          "paste a link to an external site (this will open in a new tab.)",
+                        description: "must start with https://",
                       }),
                     },
                   },
-                  { label: "CTA", validation: { length: { max: 1 } } }
+                  { label: "CTA", validation: { length: { max: 1 } } },
                 ),
               }),
-              { validation: { length: { min: 1, max: 6 } } }
+              { validation: { length: { min: 1, max: 6 } } },
             ),
           }),
         },
@@ -167,7 +172,7 @@ export const pages = collection({
                 }),
                 image: fields.image({ label: "Image" }),
               }),
-              { validation: { length: { min: 1 } } }
+              { validation: { length: { min: 1 } } },
             ),
           }),
         },
@@ -210,15 +215,21 @@ export const pages = collection({
                 externalLink: {
                   label: "External Link",
                   schema: fields.object({
-                    link: fields.url({
+                    link: fields.text({
                       label: "External Link",
-                      description: "Select a page on this site",
+                      description: "must start with https://",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 1 } } }
+              { label: "CTA", validation: { length: { max: 1 } } },
             ),
           }),
         },
@@ -243,15 +254,21 @@ export const pages = collection({
                 externalLink: {
                   label: "External Link",
                   schema: fields.object({
-                    link: fields.url({
+                    link: fields.text({
                       label: "External Link",
-                      description: "Select a page on this site",
+                      description: "must start with https://",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
                 },
               },
-              { label: "CTA", validation: { length: { max: 2 } } }
+              { label: "CTA", validation: { length: { max: 2 } } },
             ),
           }),
         },
@@ -263,7 +280,7 @@ export const pages = collection({
           }),
         },
       },
-      { label: "Content" }
+      { label: "Content" },
     ),
   },
 });
