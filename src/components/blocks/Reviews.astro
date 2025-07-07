@@ -13,7 +13,7 @@ const allReviews = await getCollection("reviews");
 
 const selectedReviewsSet = new Set(reviews);
 
-const selectedReviews = reviews
+const selectedReviews = reviews.length
   ? allReviews.filter((item) => selectedReviewsSet.has(item.id))
   : allReviews;
 ---

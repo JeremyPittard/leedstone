@@ -1,11 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-
-const { value } = Astro.props;
-
-const title = value;
-
-const allFAQs = await getCollection("faqs");
+import PageSection from "../objects/PageSection.astro";
 
 type faq = {
   id: string;
@@ -15,23 +10,58 @@ type faq = {
     answer: string;
   };
 };
+
+const { title, description, faqs, followUpTitle, followUpDescription, cta } =
+  Astro.props.value;
+
+const someFaqs: [] = faqs;
+const allFaqs = await getCollection("faqs");
+
+const selectedFaqssSet = new Set(faqs);
+
+// shows only faqs selected in block, shows all if none selected
+
+const selectedFaqs = faqs.length
+  ? allFaqs.filter((item) => selectedFaqssSet.has(item.id))
+  : allFaqs;
+
+const qaArray = selectedFaqs.map((faq: faq) => ({
+  "@type": "Question",
+  name: faq.data.question,
+  acceptedAnswer: {
+    "@type": "Answer",
+    text: faq.data.answer,
+  },
+}));
+const faqRichData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: qaArray,
+};
 ---
 
-<section class="faq border-2">
-  <h2>{title}</h2>
+<PageSection class="Faqs content-container">
+  <div class="max-w-3xl mb-20">
+    <h2 class="mb-6">
+      {title}
+    </h2>
+    <p>{description}</p>
+  </div>
   <ul>
     {
-      allFAQs
-        ? allFAQs.map((singleFAQ: faq) => {
+      selectedFaqs
+        ? selectedFaqs.map((singleFAQ: faq) => {
             const { question, answer } = singleFAQ.data;
             return (
-              <li>
-                <h3>{question}</h3>
-                <p>{answer}</p>
+              <li class="border-t border-neutral-darkest pt-6 pb-12 flex gap-16 justify-between">
+                <h3 class="text-medium font-bold w-full">{question}</h3>
+                <p class="text-medium max-w-[748px]">{answer}</p>
               </li>
             );
           })
         : null
     }
   </ul>
-</section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqRichData)} />
+</PageSection>
