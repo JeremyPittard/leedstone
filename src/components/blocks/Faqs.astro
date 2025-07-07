@@ -17,12 +17,11 @@ const { title, description, faqs, followUpTitle, followUpDescription, cta } =
 const someFaqs: [] = faqs;
 const allFaqs = await getCollection("faqs");
 
-const selectedFaqssSet = new Set(faqs);
+const selectedFaqsSet = new Set(faqs);
 
 // shows only faqs selected in block, shows all if none selected
-
 const selectedFaqs = faqs.length
-  ? allFaqs.filter((item) => selectedFaqssSet.has(item.id))
+  ? allFaqs.filter((item) => selectedFaqsSet.has(item.id))
   : allFaqs;
 
 const qaArray = selectedFaqs.map((faq: faq) => ({

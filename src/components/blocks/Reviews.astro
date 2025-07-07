@@ -35,7 +35,9 @@ const selectedReviews = reviews.length
               <StarMap rating={rating} />
               <p class="h6">{pullQuote}</p>
             </div>
-            <p class="mb-8">"{review}"</p>
+            <blockquote class="mb-8">
+              <p>"{review}"</p>
+            </blockquote>
             <div class="flex gap-4 items-start">
               {image ? (
                 <DynamicImage
