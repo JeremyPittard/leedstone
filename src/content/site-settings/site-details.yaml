@@ -1,6 +1,27 @@
-title: Site Title
+title: have fun and do the things
+businessName: Business Name
 logo: logo.png
 sitewideBanner: another one
 sitewideBannerLink: https://www.jpittard.net
 isSitewideBannerLinkExternal: true
-socialMediaLinks: []
+socialMediaLinks:
+  - discriminant: url
+    value:
+      icon: facebook
+      link: https://jpittard.net
+  - discriminant: url
+    value:
+      icon: Instagram
+      link: https://jpittard.net
+  - discriminant: url
+    value:
+      icon: twitter
+      link: https://jpittard.net
+  - discriminant: url
+    value:
+      icon: linkedin
+      link: https://jpittard.net
+  - discriminant: url
+    value:
+      icon: youtube
+      link: https://jpittard.net

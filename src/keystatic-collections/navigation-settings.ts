@@ -129,7 +129,7 @@ export const navigationSettings = singleton({
       {
         // First block option is a link to an internal page
         page: {
-          label: "Page",
+          label: "Internal Page",
           itemLabel: (props) => {
             let label = "Page";
             if (props.fields.label.value) {
@@ -194,15 +194,16 @@ export const navigationSettings = singleton({
     footerCta: fields.object({
       schema: fields.object({
         title: fields.text({ label: "Footer CTA Title" }),
+        description: fields.text({ label: "Footer CTA Description" }),
         ctaLinks: fields.blocks(
           {
             // First block option is a link to an internal page
             page: {
-              label: "Page",
+              label: "Internal Page",
               itemLabel: (props) => {
                 let label = "Page";
-                if (props.fields.label.value) {
-                  label = props.fields.label.value;
+                if (props.fields.linkText.value) {
+                  label = props.fields.linkText.value;
                   return label;
                 }
 
@@ -214,10 +215,10 @@ export const navigationSettings = singleton({
               },
               schema: fields.object({
                 link: fields.relationship({
-                  label: "Page",
+                  label: "Internal Page",
                   collection: "pages",
                 }),
-                label: fields.text({ label: "Label" }),
+                linkText: fields.text({ label: "Label" }),
               }),
             },
             // Second block option is a link to a URL
@@ -234,7 +235,7 @@ export const navigationSettings = singleton({
                     },
                   },
                 }),
-                label: fields.text({ label: "Label" }),
+                linkText: fields.text({ label: "Label" }),
               }),
             },
           },

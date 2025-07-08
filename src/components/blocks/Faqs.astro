@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import PageSection from "../objects/PageSection.astro";
+import type { CTALink } from "src/types/blocks";
+import Button from "../elements/Button.astro";
 
 type faq = {
   id: string;
@@ -60,6 +62,31 @@ const faqRichData = {
         : null
     }
   </ul>
+  {
+    followUpTitle || followUpDescription ? (
+      <div class="max-w-3xl mt-20">
+        <h3 class="mb-4 h4">{followUpTitle}</h3>
+        <p>{followUpDescription}</p>
+      </div>
+    ) : null
+  }
+  {
+    cta ? (
+      <div class="flex gap-4">
+        {cta.map((link: CTALink, index: number) => (
+          <Button
+            buttonType="link"
+            href={link.value.link === "home" ? "/" : link.value.link}
+            variant={index === 0 ? "outline" : "ghost"}
+            target={link.discriminant === "external" ? "_blank" : "_self"}
+            class="mt-6"
+          >
+            {link.value.linkText}
+          </Button>
+        ))}
+      </div>
+    ) : null
+  }
 
   <script type="application/ld+json" set:html={JSON.stringify(faqRichData)} />
 </PageSection>

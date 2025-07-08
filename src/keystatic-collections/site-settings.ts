@@ -4,7 +4,7 @@ export const siteSettings = singleton({
   label: "Site Details",
   path: "src/content/site-settings/site-details",
   schema: {
-    title: fields.text({ label: "Site Title" }),
+    title: fields.text({ label: "SEO Page Title" }),
     businessName: fields.text({ label: "Site Title" }),
     logo: fields.image({ label: "Site Logo", directory: "public/images/logo" }),
     sitewideBanner: fields.text({ label: "Sitewide Banner" }),
@@ -26,19 +26,17 @@ export const siteSettings = singleton({
     socialMediaLinks: fields.blocks(
       {
         url: {
-          label: "External Page",
+          label: "Social Link",
+          itemLabel: (props) => {
+            let label = "Page";
+            if (props.fields.icon.value) {
+              label = props.fields.icon.value + " | " + props.fields.link.value;
+              return label;
+            }
+
+            return label;
+          },
           schema: fields.object({
-            link: fields.text({
-              label: "URL",
-              description: "must start with https://",
-              validation: {
-                pattern: {
-                  regex: /^https:\/\/.+/,
-                  message: "Must start with https://",
-                },
-              },
-            }),
-            label: fields.text({ label: "Label" }),
             icon: fields.select({
               label: "Icon",
               description: "Icon to show for social media link",
@@ -46,6 +44,10 @@ export const siteSettings = singleton({
                 {
                   label: "Facebook",
                   value: "facebook",
+                },
+                {
+                  label: "Instagram",
+                  value: "instagram",
                 },
                 {
                   label: "LinkedIn",
@@ -98,13 +100,23 @@ export const siteSettings = singleton({
               ],
               defaultValue: "facebook",
             }),
+            link: fields.text({
+              label: "URL",
+              description: "must start with https://",
+              validation: {
+                pattern: {
+                  regex: /^https:\/\/.+/,
+                  message: "Must start with https://",
+                },
+              },
+            }),
           }),
         },
       },
       {
         label: "Social Media Links",
         description: "links to your social media profiles",
-        validation: { length: { max: 2 } },
+        validation: { length: { max: 10 } },
       },
     ),
   },
