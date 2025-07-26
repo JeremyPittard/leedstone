@@ -2,6 +2,12 @@
 import { getEntry } from "astro:content";
 import Button from "../elements/Button.astro";
 
+interface Props {
+  isFooter?: boolean;
+}
+
+const { isFooter } = Astro.props;
+
 const banner = await getEntry("site-settings", "site-details").then((entry) => {
   const banner = {
     text: entry?.data.sitewideBanner,
