@@ -82,14 +82,14 @@ const year = date.getFullYear();
     </div>
 
     <ul
-      class="grid grid-rows-10 lg:grid-rows-5 grid-flow-col auto-cols-auto w-full max-w-44"
+      class="flex flex-col lg:grid grid-rows-10 lg:grid-rows-5 grid-flow-col auto-cols-auto w-full max-w-44 items-start h-max"
     >
       {
         footerNavigationLinks.map((navLink: NavigationLink, index: number) => {
           const { label, link } = navLink.value;
           return (
             <li
-              class={`lg:py-2 ${index === 5 ? "mt-10" : ""} text-sm font-semibold`}
+              class={`py-2 text-sm font-semibold ${index !== 0 && index % 5 == 0 ? "mt-10 lg:mt-0" : null}`}
             >
               <a href={link === "home" ? "/" : link}>{label}</a>
             </li>
@@ -98,28 +98,33 @@ const year = date.getFullYear();
       }
     </ul>
   </div>
-  <div>
-    <Image
-      src={`/images/logo/${logo}`}
-      height={40}
-      width={132}
-      alt="Logo for lsl"
-    />
+  <div class="mt-12 lg:mt-0">
+    <a href="/">
+      <Image
+        src={`/images/logo/${logo}`}
+        height={40}
+        width={132}
+        alt={`logo for $businessName`}
+      />
+    </a>
   </div>
-  <div class="border-t mt-8 mb-20 pt-8 flex justify-between">
+  <div
+    class="border-t mt-8 mb-20 py-6 lg:pt-8 flex flex-col-reverse lg:flex-row justify-between"
+  >
     <p>
       &copy; {year}
       {businessName} All Rights Reserved.
     </p>
     {
       socialMediaLinks ? (
-        <ul class="flex gap-3">
+        <ul class="flex gap-3 mb-4">
           {socialMediaLinks.map((slink: SocialMediaLink) => {
             const { icon, link } = slink.value;
             return (
               <li>
-                <a href={link} target="_blank">
-                  <Icon name={`mdi:${icon}`} class="text-lg" />
+                {/* tweak this til accessible button size on mobile */}
+                <a href={link} target="_blank" class="inline-block">
+                  <Icon name={`mdi:${icon}`} class="text-2xl" />
                   <span class="sr-only">{link}</span>
                 </a>
               </li>
