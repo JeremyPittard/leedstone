@@ -325,7 +325,6 @@ export const pages = collection({
           label: "Recent Blog Posts",
           schema: fields.text({ label: "Title" }),
         },
-
         cta: {
           label: "CTA",
           schema: fields.object({
@@ -375,5 +374,16 @@ export const pages = collection({
       },
       { label: "Content" },
     ),
+    richData: fields.text({
+      label: "Rich Data/ldjson",
+      description:
+        "use https://technicalseo.com/tools/schema-markup-generator/ to generator rich data to help with SEO",
+      multiline: true,
+    }),
+    seoTracking: fields.text({
+      label: "seo tracking snippet",
+      description: "add your SEO tracking snippet here. eg. Google Tag Manager",
+      multiline: true,
+    }),
   },
 });

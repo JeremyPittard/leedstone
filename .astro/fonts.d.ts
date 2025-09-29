@@ -1,4 +1,4 @@
 declare module 'astro:assets' {
 	/** @internal */
-	export type FontFamily = (["--font-roboto"])[number];
+	export type CssVariable = (["--font-roboto"])[number];
 }

@@ -1,1 +1,35 @@
-<h1>blocklist</h1>
+---
+import DynamicImage from "../elements/DynamicImage.astro";
+import PageSection from "../objects/PageSection.astro";
+
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+
+const latestPost = posts[0].data;
+---
+
+<PageSection class="text-with-image content-container">
+  <div
+    class={`flex flex-col lg:flex-row-reverse lg:space-between gap-5 lg:gap-20 mb-12 lg:mb-20 items-center`}
+  >
+    <div class="flex-1">
+      <p class="mb-3 lg:mb-2 font-semibold">Latest Post</p>
+      <h2 class="mb-2">{latestPost.title}</h2>
+      {
+        latestPost.description ? (
+          <p class="mb-2">{latestPost.description}</p>
+        ) : null
+      }
+    </div>
+    <div class="flex-1">
+      <DynamicImage
+        src={`${latestPost.image}`}
+        alt={""}
+        class="hero-image"
+        width={656}
+        height={500}
+      />
+    </div>
+  </div>
+</PageSection>

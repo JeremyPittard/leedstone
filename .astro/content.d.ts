@@ -168,19 +168,54 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"posts": {
+"first-post-copy-copy.mdoc": {
+	id: "first-post-copy-copy.mdoc";
+  slug: "first-post-copy-copy";
+  body: string;
+  collection: "posts";
+  data: any
+} & { render(): Render[".mdoc"] };
+"first-post-copy.mdoc": {
+	id: "first-post-copy.mdoc";
+  slug: "first-post-copy";
+  body: string;
+  collection: "posts";
+  data: any
+} & { render(): Render[".mdoc"] };
 "first-post.mdoc": {
 	id: "first-post.mdoc";
   slug: "first-post";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
+} & { render(): Render[".mdoc"] };
+"first-postdsaasdas-copy.mdoc": {
+	id: "first-postdsaasdas-copy.mdoc";
+  slug: "first-postdsaasdas-copy";
+  body: string;
+  collection: "posts";
+  data: any
+} & { render(): Render[".mdoc"] };
+"first-postdsaasdas.mdoc": {
+	id: "first-postdsaasdas.mdoc";
+  slug: "first-postdsaasdas";
+  body: string;
+  collection: "posts";
+  data: any
+} & { render(): Render[".mdoc"] };
+"first-postdsaasdasdsadsadas.mdoc": {
+	id: "first-postdsaasdasdsadsadas.mdoc";
+  slug: "first-postdsaasdasdsadsadas";
+  body: string;
+  collection: "posts";
+  data: any
 } & { render(): Render[".mdoc"] };
 "new-post.mdoc": {
 	id: "new-post.mdoc";
   slug: "new-post";
   body: string;
   collection: "posts";
-  data: InferEntrySchema<"posts">
+  data: any
 } & { render(): Render[".mdoc"] };
 };
 
@@ -218,17 +253,17 @@ declare module 'astro:content' {
 "about-us": {
 	id: "about-us";
   collection: "pages";
-  data: InferEntrySchema<"pages">
+  data: any
 };
 "all-the-things": {
 	id: "all-the-things";
   collection: "pages";
-  data: InferEntrySchema<"pages">
+  data: any
 };
 "home": {
 	id: "home";
   collection: "pages";
-  data: InferEntrySchema<"pages">
+  data: any
 };
 };
 "reviews": {
@@ -297,6 +332,6 @@ declare module 'astro:content' {
 		LiveContentConfig['collections'][C]['loader']
 	>;
 
-	export type ContentConfig = typeof import("./../src/content/config.js");
+	export type ContentConfig = never;
 	export type LiveContentConfig = never;
 }

@@ -218,6 +218,12 @@
             "additionalProperties": false
           }
         },
+        "richData": {
+          "type": "string"
+        },
+        "seoTracking": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }

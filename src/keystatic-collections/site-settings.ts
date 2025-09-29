@@ -6,11 +6,6 @@ export const siteSettings = singleton({
   schema: {
     title: fields.text({ label: "SEO Page Title" }),
     businessName: fields.text({ label: "Site Title" }),
-    siteUrl: fields.text({
-      label: "Site URL",
-      description:
-        "This is for SEO rich data, it will not affect your site's URL.",
-    }),
     logo: fields.image({ label: "Site Logo", directory: "public/images/logo" }),
     sitewideBanner: fields.text({ label: "Sitewide Banner" }),
     sitewideBannerLink: fields.text({

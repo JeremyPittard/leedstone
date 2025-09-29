@@ -7,6 +7,10 @@
         "title": {
           "type": "string"
         },
+        "image": {},
+        "description": {
+          "type": "string"
+        },
         "content": {},
         "$schema": {
           "type": "string"

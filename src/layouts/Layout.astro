@@ -7,14 +7,14 @@ import { SkipLink } from "accessible-astro-components";
 import Header from "../components/navigation/Header.astro";
 import Footer from "../components/navigation/Footer.astro";
 import "../styles.css";
-import LocalBusiness from "./LocalBusiness.astro";
 
 export interface Props {
   title: string;
-  isHomePage?: boolean;
+  richData?: any;
+  seoTracking?: any;
 }
 
-const { title, isHomePage } = Astro.props;
+const { title, richData, seoTracking } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,12 +24,16 @@ const { title, isHomePage } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <Font cssVariable="--font-roboto" preload />
-    <ClientRouter />
-    {isHomePage ? <LocalBusiness /> : null}
-  </head>
+    <meta name="generator" content={Astro.generator} /><title>
+      {title}
+    </title></head
+  >
+
+  <Font cssVariable="--font-roboto" preload />
+  <ClientRouter />
+  {richData ? <Fragment set:html={richData} /> : null}
+  {seoTracking ? <Fragment set:html={seoTracking} /> : null}
+
   <body>
     <SkipLink />
     <Header />
