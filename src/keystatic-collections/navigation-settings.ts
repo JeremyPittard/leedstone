@@ -68,6 +68,33 @@ export const navigationSettings = singleton({
             }),
           }),
         },
+        //third is blogposts
+        blogPosts: {
+          label: "Blog Posts",
+          itemLabel: (props) => {
+            if (props.fields.label.value) {
+              return props.fields.label.value;
+            }
+            if (props.fields.link.value) {
+              return props.fields.link.value;
+            }
+            return "Blog Posts";
+          },
+          schema: fields.object({
+            link: fields.text({
+              label: "Blog Posts Page",
+              defaultValue: "/posts",
+              description: "Must start with '/'",
+              validation: {
+                pattern: {
+                  regex: /^\/.+/,
+                  message: "Must start with '/'",
+                },
+              },
+            }),
+            label: fields.text({ label: "Label" }),
+          }),
+        },
       },
       {
         label: "Navigation Links",
@@ -104,6 +131,15 @@ export const navigationSettings = singleton({
         // Second block option is a link to a URL
         url: {
           label: "External Page",
+          itemLabel: (props) => {
+            if (props.fields.label.value) {
+              return props.fields.label.value;
+            }
+            if (props.fields.link.value) {
+              return props.fields.link.value;
+            }
+            return "External Page";
+          },
           schema: fields.object({
             link: fields.text({
               label: "URL",
@@ -114,6 +150,25 @@ export const navigationSettings = singleton({
                   message: "Must start with https://",
                 },
               },
+            }),
+            label: fields.text({ label: "Label" }),
+          }),
+        }, //third is blogposts
+        blogPosts: {
+          label: "Blog Posts",
+          itemLabel: (props) => {
+            if (props.fields.label.value) {
+              return props.fields.label.value;
+            }
+            if (props.fields.link.value) {
+              return props.fields.link.value;
+            }
+            return "Blog Posts";
+          },
+          schema: fields.object({
+            link: fields.text({
+              label: "Blog Posts Page",
+              defaultValue: "/posts",
             }),
             label: fields.text({ label: "Label" }),
           }),
@@ -184,6 +239,17 @@ export const navigationSettings = singleton({
             }),
           }),
         },
+        //third is blogposts
+        blogPosts: {
+          label: "Blog Posts",
+          schema: fields.object({
+            link: fields.text({
+              label: "Blog Posts Page",
+              defaultValue: "/posts",
+            }),
+            label: fields.text({ label: "Label" }),
+          }),
+        },
       },
       {
         label: "Footer Links",
@@ -224,6 +290,7 @@ export const navigationSettings = singleton({
             // Second block option is a link to a URL
             url: {
               label: "External Page",
+
               schema: fields.object({
                 link: fields.text({
                   label: "URL",
@@ -236,6 +303,17 @@ export const navigationSettings = singleton({
                   },
                 }),
                 linkText: fields.text({ label: "Label" }),
+              }),
+            },
+            //third is blogposts
+            blogPosts: {
+              label: "Blog Posts",
+              schema: fields.object({
+                link: fields.text({
+                  label: "Blog Posts Page",
+                  defaultValue: "/posts",
+                }),
+                label: fields.text({ label: "Label" }),
               }),
             },
           },

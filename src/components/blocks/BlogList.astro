@@ -1,12 +1,20 @@
 ---
+import type { Page } from "astro";
+import Button from "../elements/Button.astro";
 import DynamicImage from "../elements/DynamicImage.astro";
 import PageSection from "../objects/PageSection.astro";
+import { formatDate } from "src/utils/formatDate";
+import { shortenText } from "src/utils/shortenText";
 
-import { getCollection } from "astro:content";
+interface Props {
+  page: Page;
+}
+const { page } = Astro.props;
 
-const posts = await getCollection("posts");
+const { data } = page;
 
-const latestPost = posts[0].data;
+const latestPost = data[0];
+const posts = data;
 ---
 
 <PageSection class="text-with-image content-container">
@@ -14,17 +22,31 @@ const latestPost = posts[0].data;
     class={`flex flex-col lg:flex-row-reverse lg:space-between gap-5 lg:gap-20 mb-12 lg:mb-20 items-center`}
   >
     <div class="flex-1">
-      <p class="mb-3 lg:mb-2 font-semibold">Latest Post</p>
-      <h2 class="mb-2">{latestPost.title}</h2>
+      <p class="mb-3 lg:mb-2 font-semibold">
+        Latest Post: {
+          latestPost.data.publishDate
+            ? formatDate(latestPost.data.publishDate)
+            : null
+        }
+      </p>
+      <h2 class="mb-2">{latestPost.data.title}</h2>
       {
-        latestPost.description ? (
-          <p class="mb-2">{latestPost.description}</p>
+        latestPost.data.description ? (
+          <p class="mb-2">{shortenText(latestPost.data.description, 240)}</p>
         ) : null
       }
+      <Button
+        buttonType="link"
+        href={`/posts/${latestPost.slug}`}
+        variant="ghost"
+        target="_self"
+      >
+        read more
+      </Button>
     </div>
     <div class="flex-1">
       <DynamicImage
-        src={`${latestPost.image}`}
+        src={`${latestPost.data.image}`}
         alt={""}
         class="hero-image"
         width={656}
@@ -32,4 +54,61 @@ const latestPost = posts[0].data;
       />
     </div>
   </div>
+
+  {
+    posts ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
+        {posts.map((post) => {
+          const { image, title, description } = post.data;
+          return (
+            <article>
+              {image ? (
+                <DynamicImage
+                  src={`${image}`}
+                  alt={""}
+                  class="w-full mb-8"
+                  width={405}
+                  height={240}
+                />
+              ) : null}
+              <h3 class="h5 mb-6">{title}</h3>
+              {description ? <p>{shortenText(description, 144)}</p> : null}
+              <Button
+                buttonType="link"
+                href={`/posts/${post.slug}`}
+                variant="ghost"
+                target="_self"
+              >
+                read more
+              </Button>
+            </article>
+          );
+        })}
+      </div>
+    ) : null
+  }
+
+  {
+    page.lastPage > 1 && (
+      <nav class="flex justify-between items-center">
+        <Button
+          buttonType="link"
+          href={`${page.url.prev}`}
+          variant="outline"
+          target="_self"
+        >
+          Previous Page
+        </Button>
+        {/* TODO make this more stable (eg no next on final page) */}
+        <Button
+          buttonType="link"
+          href={`${page.url.next}`}
+          variant="outline"
+          target="_self"
+        >
+          Next Page
+        </Button>
+      </nav>
+    )
+  }
 </PageSection>

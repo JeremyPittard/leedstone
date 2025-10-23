@@ -8,10 +8,10 @@ navigationLinks:
     value:
       link: about-us
       label: Link Two
-  - discriminant: page
+  - discriminant: blogPosts
     value:
-      link: home
-      label: Link Three
+      link: /posts
+      label: Blogs
 ctaLinks:
   - discriminant: page
     value:

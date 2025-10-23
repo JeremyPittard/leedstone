@@ -2,7 +2,7 @@ title: Home
 content:
   - discriminant: hero
     value:
-      image: src/assets/images/hero/home/content/0/value/image.jpg
+      image: src/assets/images/hero/home/content/0/value/image.png
       title: Headline that highlights the Value Propositions
       description: >-
         Describe exactly what your product or service does and how it makes your

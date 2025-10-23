@@ -1,0 +1,29 @@
+---
+// this is the blog posts index page
+
+import BlogList from "src/components/blocks/BlogList.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const thoughts = await getCollection("posts");
+
+  const sortedThoughts = thoughts.toSorted((a, b) => {
+    return (
+      new Date(b.data.publishDate).getTime() -
+      new Date(a.data.publishDate).getTime()
+    );
+  });
+
+  return paginate(sortedThoughts, { pageSize: 6 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<Layout title="Posts">
+  <BlogList page={page} />
+</Layout>

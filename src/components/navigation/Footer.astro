@@ -80,23 +80,26 @@ const year = date.getFullYear();
         ) : null
       }
     </div>
-
-    <ul
-      class="flex flex-col lg:grid grid-rows-10 lg:grid-rows-5 grid-flow-col auto-cols-auto w-full max-w-44 items-start h-max"
-    >
-      {
-        footerNavigationLinks.map((navLink: NavigationLink, index: number) => {
-          const { label, link } = navLink.value;
-          return (
-            <li
-              class={`py-2 text-sm font-semibold ${index !== 0 && index % 5 == 0 ? "mt-10 lg:mt-0" : null}`}
-            >
-              <a href={link === "home" ? "/" : link}>{label}</a>
-            </li>
-          );
-        })
-      }
-    </ul>
+    <nav>
+      <ul
+        class="flex flex-col lg:grid grid-rows-10 lg:grid-rows-5 grid-flow-col auto-cols-auto w-full max-w-44 items-start h-max"
+      >
+        {
+          footerNavigationLinks.map(
+            (navLink: NavigationLink, index: number) => {
+              const { label, link } = navLink.value;
+              return (
+                <li
+                  class={`py-2 text-sm font-semibold ${index !== 0 && index % 5 == 0 ? "mt-10 lg:mt-0" : null}`}
+                >
+                  <a href={link === "home" ? "/" : link}>{label}</a>
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+    </nav>
   </div>
   <div class="mt-12 lg:mt-0">
     <a href="/">
@@ -104,7 +107,7 @@ const year = date.getFullYear();
         src={`/images/logo/${logo}`}
         height={40}
         width={132}
-        alt={`logo for $businessName`}
+        alt={`logo for ${businessName}`}
       />
     </a>
   </div>

@@ -168,54 +168,26 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"posts": {
-"first-post-copy-copy.mdoc": {
-	id: "first-post-copy-copy.mdoc";
-  slug: "first-post-copy-copy";
+"landscaping-in-perth-embracing-native-plants-and-naturalistic-design.mdoc": {
+	id: "landscaping-in-perth-embracing-native-plants-and-naturalistic-design.mdoc";
+  slug: "landscaping-in-perth-embracing-native-plants-and-naturalistic-design";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".mdoc"] };
-"first-post-copy.mdoc": {
-	id: "first-post-copy.mdoc";
-  slug: "first-post-copy";
+"mid-century-modern-meets-native-australian-designing-timeless-outdoor-spaces.mdoc": {
+	id: "mid-century-modern-meets-native-australian-designing-timeless-outdoor-spaces.mdoc";
+  slug: "mid-century-modern-meets-native-australian-designing-timeless-outdoor-spaces";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".mdoc"] };
-"first-post.mdoc": {
-	id: "first-post.mdoc";
-  slug: "first-post";
+"the-cooling-effect-of-greenspaces-how-urban-green-can-beat-summer-heat.mdoc": {
+	id: "the-cooling-effect-of-greenspaces-how-urban-green-can-beat-summer-heat.mdoc";
+  slug: "the-cooling-effect-of-greenspaces-how-urban-green-can-beat-summer-heat";
   body: string;
   collection: "posts";
-  data: any
-} & { render(): Render[".mdoc"] };
-"first-postdsaasdas-copy.mdoc": {
-	id: "first-postdsaasdas-copy.mdoc";
-  slug: "first-postdsaasdas-copy";
-  body: string;
-  collection: "posts";
-  data: any
-} & { render(): Render[".mdoc"] };
-"first-postdsaasdas.mdoc": {
-	id: "first-postdsaasdas.mdoc";
-  slug: "first-postdsaasdas";
-  body: string;
-  collection: "posts";
-  data: any
-} & { render(): Render[".mdoc"] };
-"first-postdsaasdasdsadsadas.mdoc": {
-	id: "first-postdsaasdasdsadsadas.mdoc";
-  slug: "first-postdsaasdasdsadsadas";
-  body: string;
-  collection: "posts";
-  data: any
-} & { render(): Render[".mdoc"] };
-"new-post.mdoc": {
-	id: "new-post.mdoc";
-  slug: "new-post";
-  body: string;
-  collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".mdoc"] };
 };
 
@@ -253,17 +225,17 @@ declare module 'astro:content' {
 "about-us": {
 	id: "about-us";
   collection: "pages";
-  data: any
+  data: InferEntrySchema<"pages">
 };
 "all-the-things": {
 	id: "all-the-things";
   collection: "pages";
-  data: any
+  data: InferEntrySchema<"pages">
 };
 "home": {
 	id: "home";
   collection: "pages";
-  data: any
+  data: InferEntrySchema<"pages">
 };
 };
 "reviews": {
@@ -332,6 +304,6 @@ declare module 'astro:content' {
 		LiveContentConfig['collections'][C]['loader']
 	>;
 
-	export type ContentConfig = never;
+	export type ContentConfig = typeof import("./../src/content/config.js");
 	export type LiveContentConfig = never;
 }

@@ -1,0 +1,53 @@
+---
+import DynamicImage from "../elements/DynamicImage.astro";
+import Button from "../elements/Button.astro";
+import PageSection from "../objects/PageSection.astro";
+import { formatDate } from "src/utils/formatDate";
+import ShareButton from "../elements/ShareButton.astro";
+
+interface Props {
+  image: string;
+  title: string;
+  date?: any;
+}
+
+const { image, title, date } = Astro.props;
+
+const formattedDate = formatDate(date);
+---
+
+<PageSection class="post-hero content-container">
+  <div class="flex flex-col lg:space-between gap-5 lg:gap-20 mb-12 lg:mb-20">
+    <Button
+      buttonType="link"
+      href={`/posts`}
+      variant="ghost"
+      target="_self"
+      iconPosition="leading"
+    >
+      All posts
+    </Button>
+    <h1>{title}</h1>
+  </div>
+  <DynamicImage
+    src={`${image}`}
+    alt={""}
+    class="hero-image"
+    width={1312}
+    height={600}
+    isHero={true}
+  />
+  {
+    date ? (
+      <div class="flex pt-8 pb-28 justify-between">
+        <div>
+          <p class="mb-2">published on</p>
+          <p class="font-semibold">{formattedDate}</p>
+        </div>
+        <div>
+          <ShareButton title={title} text={""} />
+        </div>
+      </div>
+    ) : null
+  }
+</PageSection>

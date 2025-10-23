@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon/components";
+
+// this is a share button
+// due to it nearly being baseline I am not bothering with a polyfill as most clients this site is built for don't actually want a blog.
+
+interface Props {
+  title: string;
+  text: string;
+}
+
+const { title, text } = Astro.props;
+---
+
+<button
+  id="share-button"
+  class="hidden"
+  data-title={title}
+  data-text={text}
+  data-url={Astro.url}
+>
+  share
+  <Icon name="mdi:share" size={24} />
+</button>
+<script is:inline>
+  const setupShareBtn = () => {
+    if (!navigator.share) return;
+    const shareBtn = document.getElementById("share-button");
+    const shareData = {
+      title: shareBtn?.dataset.title,
+      text: shareBtn?.dataset.text,
+      url: shareBtn?.dataset.url,
+    };
+
+    if (!shareBtn) return;
+    shareBtn.classList.remove("hidden");
+    shareBtn.addEventListener("click", () => {
+      navigator.share(shareData);
+    });
+  };
+
+  document.addEventListener("astro:page-load", setupShareBtn);
+</script>

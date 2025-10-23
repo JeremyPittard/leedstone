@@ -8,12 +8,11 @@ import Button from "../elements/Button.astro";
 import DynamicImage from "../elements/DynamicImage.astro";
 
 const { title, description, reviews } = Astro.props.value;
-
 const allReviews = await getCollection("reviews");
 
 const selectedReviewsSet = new Set(reviews);
 
-const selectedReviews = reviews.length
+const selectedReviews = reviews?.length
   ? allReviews.filter((item) => selectedReviewsSet.has(item.id))
   : allReviews;
 ---

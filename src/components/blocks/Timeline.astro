@@ -3,7 +3,6 @@ import type { CTALink, TimelineItem } from "src/types/blocks";
 import Button from "../elements/Button.astro";
 import PageSection from "../objects/PageSection.astro";
 import DynamicImage from "../elements/DynamicImage.astro";
-
 const { tagline, title, description, cta, items } = Astro.props.value;
 ---
 
@@ -30,12 +29,10 @@ const { tagline, title, description, cta, items } = Astro.props.value;
   {
     items ? (
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 mt-20">
-        <button id="prev">prev</button>
-        <button id="next">next</button>
         {items.map((step: TimelineItem, index: number) => {
           const { title, description, image } = step;
           return (
-            <article class={`${index > 0 ? "hidden" : "active"} lg:block`}>
+            <article>
               <div class="px-14">
                 {image ? (
                   <DynamicImage
