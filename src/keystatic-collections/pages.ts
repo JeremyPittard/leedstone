@@ -380,10 +380,5 @@ export const pages = collection({
         "use https://technicalseo.com/tools/schema-markup-generator/ to generator rich data to help with SEO",
       multiline: true,
     }),
-    seoTracking: fields.text({
-      label: "seo tracking snippet",
-      description: "add your SEO tracking snippet here. eg. Google Tag Manager",
-      multiline: true,
-    }),
   },
 });

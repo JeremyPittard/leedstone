@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 import { Icon } from "astro-icon/components";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "more";
 type IconType = string | "icon-only";
 interface LinkProps extends HTMLAttributes<"a"> {
   buttonType: "link";
@@ -35,6 +35,7 @@ const bgColorMap = {
   primary: "bg-neutral-darkest",
   secondary: "bg-neutral-lightest",
   ghost: "bg-none",
+  more: "bg-none",
   outline: "bg-none",
 };
 
@@ -42,6 +43,7 @@ const textColorMap = {
   primary: "text-white",
   secondary: "text-neutral-darkest",
   ghost: "text-neutral-darkest",
+  more: "text-neutral-darkest",
   outline: "text-neutral-darkest",
 };
 
@@ -49,6 +51,7 @@ const borderColorMap = {
   primary: "border-transparent",
   secondary: "border-transparent", //this will need to match primary color when set
   ghost: "border-transparent",
+  more: "border-transparent",
   outline: "border-neutral-darkest",
 };
 
@@ -57,7 +60,7 @@ const buttonSizeMap = {
   regular: "px-6 py-3",
 };
 
-const buttonClasses: string = `${className?.includes("block") ? "" : "inline-block"} ${props.size ? buttonSizeMap[props.size] : buttonSizeMap.regular} ${bgColorMap[props.variant]} ${textColorMap[props.variant]} border ${borderColorMap[props.variant]} `;
+const buttonClasses: string = `${className?.includes("block") ? "" : "inline-block"} ${props.size ? buttonSizeMap[props.size] : props.variant === "more" ? "px-0 py-2" : buttonSizeMap.regular} ${bgColorMap[props.variant]} ${textColorMap[props.variant]} border ${borderColorMap[props.variant]} `;
 ---
 
 {
@@ -75,7 +78,8 @@ const buttonClasses: string = `${className?.includes("block") ? "" : "inline-blo
         />
       ) : null}
       <slot />
-      {props.variant === "ghost" && props.iconPosition !== "leading" ? (
+      {(props.variant === "ghost" && props.iconPosition !== "leading") ||
+      props.variant === "more" ? (
         <Icon
           name="mdi:navigate-next"
           class={`inline-block ${props.size === "small" ? "ml-1" : "ml-2"}`}

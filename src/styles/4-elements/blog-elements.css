@@ -1,0 +1,12 @@
+.blog-container {
+  h1,
+  h2,
+  h3 {
+    margin-block: calc(var(--spacing) * 5);
+  }
+
+  p,
+  img {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+}

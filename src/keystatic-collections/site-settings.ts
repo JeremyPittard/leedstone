@@ -119,5 +119,10 @@ export const siteSettings = singleton({
         validation: { length: { max: 10 } },
       },
     ),
+    seoTracking: fields.text({
+      label: "seo tracking snippet",
+      description: "add your SEO tracking snippet here. eg. Google Tag Manager",
+      multiline: true,
+    }),
   },
 });
