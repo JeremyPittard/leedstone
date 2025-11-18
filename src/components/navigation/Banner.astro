@@ -58,5 +58,8 @@ const banner = await getEntry("site-settings", "site-details").then((entry) => {
     });
   };
 
+  document.addEventListener("astro:after-swap", (event) => {});
+
   document.addEventListener("astro:page-load", setupBanner);
+  document.addEventListener("astro:after-swap", setupBanner);
 </script>

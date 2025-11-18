@@ -1,0 +1,30 @@
+@supports (animation-range: entry) {
+  @media (prefers-reduced-motion: no-preference) {
+    .animate {
+      animation: fade-in 1s ease-in forwards;
+      animation-timeline: view(), none;
+      animation-range: entry 0;
+
+      &.fade-in {
+        animation-name: fade-in;
+        animation-timing-function: ease-in;
+      }
+
+      &.animated {
+        animation: none;
+      }
+    }
+  }
+}
+
+/* transform for demo purposes only, will tweak to suit in forks */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -51,6 +51,20 @@ export type TextWithImageProps = {
   imageSide: "left" | "right";
 };
 
+export type Review = {
+  id: string;
+  collection: string;
+  data: {
+    pullQuote: string;
+    review: string;
+    rating: number;
+    platform: string;
+    image?: string;
+    name: string;
+    location: string;
+  };
+};
+
 export type ImageGridProps = ImageGrid[];
 export type FAQBlockProps = any; //TODO ammend this when I know what the object is
 export type ReviewsBlockProps = any; //TODO ammend this when I know what the object is

@@ -168,16 +168,23 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"posts": {
-"first-post.mdoc": {
-	id: "first-post.mdoc";
-  slug: "first-post";
+"landscaping-in-perth-embracing-native-plants-and-naturalistic-design.mdoc": {
+	id: "landscaping-in-perth-embracing-native-plants-and-naturalistic-design.mdoc";
+  slug: "landscaping-in-perth-embracing-native-plants-and-naturalistic-design";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".mdoc"] };
-"new-post.mdoc": {
-	id: "new-post.mdoc";
-  slug: "new-post";
+"mid-century-modern-meets-native-australian-designing-timeless-outdoor-spaces.mdoc": {
+	id: "mid-century-modern-meets-native-australian-designing-timeless-outdoor-spaces.mdoc";
+  slug: "mid-century-modern-meets-native-australian-designing-timeless-outdoor-spaces";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".mdoc"] };
+"the-cooling-effect-of-greenspaces-how-urban-green-can-beat-summer-heat.mdoc": {
+	id: "the-cooling-effect-of-greenspaces-how-urban-green-can-beat-summer-heat.mdoc";
+  slug: "the-cooling-effect-of-greenspaces-how-urban-green-can-beat-summer-heat";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">
@@ -188,6 +195,26 @@ declare module 'astro:content' {
 
 	type DataEntryMap = {
 		"faqs": {
+"question-text-goes-here": {
+	id: "question-text-goes-here";
+  collection: "faqs";
+  data: any
+};
+"question-text-goes-here-copy": {
+	id: "question-text-goes-here-copy";
+  collection: "faqs";
+  data: any
+};
+"question-text-goes-here-copy-copy": {
+	id: "question-text-goes-here-copy-copy";
+  collection: "faqs";
+  data: any
+};
+"question-text-goes-here-copy-copy-copy": {
+	id: "question-text-goes-here-copy-copy-copy";
+  collection: "faqs";
+  data: any
+};
 "wtf-is-this": {
 	id: "wtf-is-this";
   collection: "faqs";

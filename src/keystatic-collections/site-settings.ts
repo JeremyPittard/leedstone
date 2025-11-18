@@ -4,13 +4,20 @@ export const siteSettings = singleton({
   label: "Site Details",
   path: "src/content/site-settings/site-details",
   schema: {
-    title: fields.text({ label: "Site Title" }),
+    title: fields.text({ label: "SEO Page Title" }),
     businessName: fields.text({ label: "Site Title" }),
     logo: fields.image({ label: "Site Logo", directory: "public/images/logo" }),
     sitewideBanner: fields.text({ label: "Sitewide Banner" }),
-    sitewideBannerLink: fields.url({
+    sitewideBannerLink: fields.text({
       label: "CTA for banner",
-      description: "paste in a url for a CTA in the banner",
+      description:
+        "paste in a url for a CTA in the banner (must start with https://)",
+      validation: {
+        pattern: {
+          regex: /^https:\/\/.+/,
+          message: "Must start with https://",
+        },
+      },
     }),
     sitewideBannerLinkLabel: fields.text({ label: "Label for CTA button" }),
     isSitewideBannerLinkExternal: fields.checkbox({
@@ -19,10 +26,17 @@ export const siteSettings = singleton({
     socialMediaLinks: fields.blocks(
       {
         url: {
-          label: "External Page",
+          label: "Social Link",
+          itemLabel: (props) => {
+            let label = "Page";
+            if (props.fields.icon.value) {
+              label = props.fields.icon.value + " | " + props.fields.link.value;
+              return label;
+            }
+
+            return label;
+          },
           schema: fields.object({
-            link: fields.url({ label: "URL" }),
-            label: fields.text({ label: "Label" }),
             icon: fields.select({
               label: "Icon",
               description: "Icon to show for social media link",
@@ -30,6 +44,10 @@ export const siteSettings = singleton({
                 {
                   label: "Facebook",
                   value: "facebook",
+                },
+                {
+                  label: "Instagram",
+                  value: "instagram",
                 },
                 {
                   label: "LinkedIn",
@@ -82,14 +100,29 @@ export const siteSettings = singleton({
               ],
               defaultValue: "facebook",
             }),
+            link: fields.text({
+              label: "URL",
+              description: "must start with https://",
+              validation: {
+                pattern: {
+                  regex: /^https:\/\/.+/,
+                  message: "Must start with https://",
+                },
+              },
+            }),
           }),
         },
       },
       {
         label: "Social Media Links",
         description: "links to your social media profiles",
-        validation: { length: { max: 2 } },
-      }
+        validation: { length: { max: 10 } },
+      },
     ),
+    seoTracking: fields.text({
+      label: "seo tracking snippet",
+      description: "add your SEO tracking snippet here. eg. Google Tag Manager",
+      multiline: true,
+    }),
   },
 });

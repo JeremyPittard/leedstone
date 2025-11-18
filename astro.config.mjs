@@ -28,6 +28,8 @@ export default defineConfig({
           "user-circle",
           "star",
           "star-half",
+          "instagram",
+          "share",
         ],
         tabler: ["brand-threads"],
         ri: ["twitter-x-line", "bluesky-fill"],

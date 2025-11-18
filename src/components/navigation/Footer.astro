@@ -1,1 +1,155 @@
-<footer>look a footer</footer>
+---
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+import type { CTALink } from "src/types/blocks";
+import Button from "../elements/Button.astro";
+import { Icon } from "astro-icon/components";
+
+type Discriminant = "page" | "url";
+type PageLink = {
+  link: string;
+  label: string;
+};
+interface NavigationLink {
+  discriminant: Discriminant;
+  value: PageLink;
+}
+
+interface FooterCtaSchema {
+  title: string;
+  description: string;
+  ctaLinks: CTALink[];
+}
+
+interface FooterCta {
+  schema: FooterCtaSchema;
+}
+
+interface SocialMediaLink {
+  value: {
+    icon: string;
+    link: string;
+  };
+}
+
+const navSettings: {
+  footerCta: FooterCta;
+  footerNavigationLinks: NavigationLink[];
+} = await getEntry("site-settings", "navigation").then(
+  (settings) => settings.data
+);
+
+const siteDetails = await getEntry("site-settings", "site-details").then(
+  (settings) => settings.data
+);
+
+const { footerCta, footerNavigationLinks } = navSettings;
+
+const { businessName, logo, socialMediaLinks } = siteDetails;
+
+const date = new Date();
+
+const year = date.getFullYear();
+---
+
+<footer class="px-5 py-16 lg:px-16 lg:py-20 content-container">
+  <div class="flex flex-col lg:flex-row lg:justify-between">
+    <div class="mb-20">
+      {
+        footerCta ? (
+          <div class="max-w-3xl animate fade-in">
+            <h3 class="mb-6 h1">{footerCta.schema.title}</h3>
+            <p>{footerCta.schema.description}</p>
+          </div>
+        ) : null
+      }
+      {
+        footerCta ? (
+          <div class="flex gap-4 mt-8">
+            {footerCta.schema.ctaLinks.map((link, index: number) => (
+              <Button
+                buttonType="link"
+                href={link.value.link === "home" ? "/" : link.value.link}
+                variant={index === 0 ? "primary" : "outline"}
+                target={link.discriminant === "external" ? "_blank" : "_self"}
+                rel={
+                  link.discriminant === "external"
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                aria-label={
+                  link.discriminant === "external"
+                    ? `${link.value.linkText} (opens in new tab)`
+                    : undefined
+                }
+              >
+                {link.value.linkText}
+              </Button>
+            ))}
+          </div>
+        ) : null
+      }
+    </div>
+    <nav>
+      <ul
+        class="flex flex-col lg:grid grid-rows-10 lg:grid-rows-5 grid-flow-col auto-cols-auto w-full max-w-44 items-start h-max"
+      >
+        {
+          footerNavigationLinks.map(
+            (navLink: NavigationLink, index: number) => {
+              const { label, link } = navLink.value;
+              return (
+                <li
+                  class={`py-2 text-sm font-semibold ${index !== 0 && index % 5 == 0 ? "mt-10 lg:mt-0" : null}`}
+                >
+                  <a href={link === "home" ? "/" : link}>{label}</a>
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+    </nav>
+  </div>
+  <div class="mt-12 lg:mt-0">
+    <a href="/">
+      <Image
+        src={`/images/logo/${logo}`}
+        height={40}
+        width={132}
+        alt={`logo for ${businessName}`}
+      />
+    </a>
+  </div>
+  <div
+    class="border-t mt-8 mb-20 py-6 lg:pt-8 flex flex-col-reverse lg:flex-row justify-between"
+  >
+    <p>
+      &copy; {year}
+      {businessName} All Rights Reserved.
+    </p>
+    {
+      socialMediaLinks ? (
+        <ul class="flex gap-3 mb-4">
+          {socialMediaLinks.map((slink: SocialMediaLink) => {
+            const { icon, link } = slink.value;
+            return (
+              <li>
+                {/* tweak this til accessible button size on mobile */}
+                <a
+                  href={link}
+                  target="_blank"
+                  class="inline-block"
+                  rel="noopener noreferrer"
+                >
+                  <Icon name={`mdi:${icon}`} class="text-2xl" />
+                  <span class="sr-only">{link}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      ) : null
+    }
+  </div>
+</footer>

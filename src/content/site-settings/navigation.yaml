@@ -8,10 +8,10 @@ navigationLinks:
     value:
       link: about-us
       label: Link Two
-  - discriminant: page
+  - discriminant: blogPosts
     value:
-      link: home
-      label: Link Three
+      link: /posts
+      label: Blogs
 ctaLinks:
   - discriminant: page
     value:
@@ -21,7 +21,59 @@ ctaLinks:
     value:
       link: home
       label: Book a demo
-footerNavigationLinks: []
+footerNavigationLinks:
+  - discriminant: page
+    value:
+      link: home
+      label: Link One
+  - discriminant: page
+    value:
+      link: home
+      label: Link Two
+  - discriminant: page
+    value:
+      link: about-us
+      label: Link Three
+  - discriminant: page
+    value:
+      link: all-the-things
+      label: Link Four
+  - discriminant: page
+    value:
+      link: home
+      label: Link Five
+  - discriminant: page
+    value:
+      link: all-the-things
+      label: Link Six
+  - discriminant: page
+    value:
+      link: all-the-things
+      label: Link Sept
+  - discriminant: page
+    value:
+      link: home
+      label: Link 8
+  - discriminant: page
+    value:
+      link: home
+      label: Link Nine
+  - discriminant: url
+    value:
+      link: https://jpittard.net
+      label: Link Ten
 footerCta:
   schema:
-    ctaLinks: []
+    title: Medium length footer heading goes here
+    description: >-
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+      varius enim in eros elementum tristique.
+    ctaLinks:
+      - discriminant: page
+        value:
+          link: home
+          linkText: Button
+      - discriminant: url
+        value:
+          link: https://jpittard.net
+          linkText: Button

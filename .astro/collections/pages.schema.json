@@ -7,6 +7,12 @@
         "title": {
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
+        "ogImage": {
+          "type": "string"
+        },
         "content": {
           "type": "array",
           "items": {
@@ -218,12 +224,19 @@
             "additionalProperties": false
           }
         },
+        "richData": {
+          "type": "string"
+        },
+        "seoTracking": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
         "title",
+        "description",
         "content"
       ],
       "additionalProperties": false

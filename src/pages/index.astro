@@ -14,7 +14,7 @@ const { data } = await entry;
 const blocks: PageBlock[] = data.content;
 ---
 
-<Layout title={data.title}>
+<Layout title={data.title} richData={data.richData}>
   {
     blocks.map((block) => {
       return <TheComponent block={block} />;

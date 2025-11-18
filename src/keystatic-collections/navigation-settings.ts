@@ -52,11 +52,47 @@ export const navigationSettings = singleton({
             return label;
           },
           schema: fields.object({
-            link: fields.url({ label: "URL" }),
+            link: fields.text({
+              label: "URL",
+              description: "must start with https://",
+              validation: {
+                pattern: {
+                  regex: /^https:\/\/.+/,
+                  message: "Must start with https://",
+                },
+              },
+            }),
             label: fields.text({
               label: "Label",
               description: "the text to display on your link",
             }),
+          }),
+        },
+        //third is blogposts
+        blogPosts: {
+          label: "Blog Posts",
+          itemLabel: (props) => {
+            if (props.fields.label.value) {
+              return props.fields.label.value;
+            }
+            if (props.fields.link.value) {
+              return props.fields.link.value;
+            }
+            return "Blog Posts";
+          },
+          schema: fields.object({
+            link: fields.text({
+              label: "Blog Posts Page",
+              defaultValue: "/posts",
+              description: "Must start with '/'",
+              validation: {
+                pattern: {
+                  regex: /^\/.+/,
+                  message: "Must start with '/'",
+                },
+              },
+            }),
+            label: fields.text({ label: "Label" }),
           }),
         },
       },
@@ -64,7 +100,7 @@ export const navigationSettings = singleton({
         label: "Navigation Links",
         description: "Add links to your header navigation (max 4)",
         validation: { length: { max: 4 } },
-      }
+      },
     ),
     ctaLinks: fields.blocks(
       {
@@ -95,8 +131,45 @@ export const navigationSettings = singleton({
         // Second block option is a link to a URL
         url: {
           label: "External Page",
+          itemLabel: (props) => {
+            if (props.fields.label.value) {
+              return props.fields.label.value;
+            }
+            if (props.fields.link.value) {
+              return props.fields.link.value;
+            }
+            return "External Page";
+          },
           schema: fields.object({
-            link: fields.url({ label: "URL" }),
+            link: fields.text({
+              label: "URL",
+              description: "must start with https://",
+              validation: {
+                pattern: {
+                  regex: /^https:\/\/.+/,
+                  message: "Must start with https://",
+                },
+              },
+            }),
+            label: fields.text({ label: "Label" }),
+          }),
+        }, //third is blogposts
+        blogPosts: {
+          label: "Blog Posts",
+          itemLabel: (props) => {
+            if (props.fields.label.value) {
+              return props.fields.label.value;
+            }
+            if (props.fields.link.value) {
+              return props.fields.link.value;
+            }
+            return "Blog Posts";
+          },
+          schema: fields.object({
+            link: fields.text({
+              label: "Blog Posts Page",
+              defaultValue: "/posts",
+            }),
             label: fields.text({ label: "Label" }),
           }),
         },
@@ -105,13 +178,13 @@ export const navigationSettings = singleton({
         label: "CTA Button Links",
         description: "Links to be used as CTA buttons in header (max 2)",
         validation: { length: { max: 2 } },
-      }
+      },
     ),
     footerNavigationLinks: fields.blocks(
       {
         // First block option is a link to an internal page
         page: {
-          label: "Page",
+          label: "Internal Page",
           itemLabel: (props) => {
             let label = "Page";
             if (props.fields.label.value) {
@@ -150,11 +223,31 @@ export const navigationSettings = singleton({
             return label;
           },
           schema: fields.object({
-            link: fields.url({ label: "URL" }),
+            link: fields.text({
+              label: "URL",
+              description: "must start with https://",
+              validation: {
+                pattern: {
+                  regex: /^https:\/\/.+/,
+                  message: "Must start with https://",
+                },
+              },
+            }),
             label: fields.text({
               label: "Label",
               description: "the text to display on your link",
             }),
+          }),
+        },
+        //third is blogposts
+        blogPosts: {
+          label: "Blog Posts",
+          schema: fields.object({
+            link: fields.text({
+              label: "Blog Posts Page",
+              defaultValue: "/posts",
+            }),
+            label: fields.text({ label: "Label" }),
           }),
         },
       },
@@ -162,20 +255,21 @@ export const navigationSettings = singleton({
         label: "Footer Links",
         description: "Add links to your footer navigation (max 15)",
         validation: { length: { max: 15 } },
-      }
+      },
     ),
     footerCta: fields.object({
       schema: fields.object({
         title: fields.text({ label: "Footer CTA Title" }),
+        description: fields.text({ label: "Footer CTA Description" }),
         ctaLinks: fields.blocks(
           {
             // First block option is a link to an internal page
             page: {
-              label: "Page",
+              label: "Internal Page",
               itemLabel: (props) => {
                 let label = "Page";
-                if (props.fields.label.value) {
-                  label = props.fields.label.value;
+                if (props.fields.linkText.value) {
+                  label = props.fields.linkText.value;
                   return label;
                 }
 
@@ -187,17 +281,38 @@ export const navigationSettings = singleton({
               },
               schema: fields.object({
                 link: fields.relationship({
-                  label: "Page",
+                  label: "Internal Page",
                   collection: "pages",
                 }),
-                label: fields.text({ label: "Label" }),
+                linkText: fields.text({ label: "Label" }),
               }),
             },
             // Second block option is a link to a URL
             url: {
               label: "External Page",
+
               schema: fields.object({
-                link: fields.url({ label: "URL" }),
+                link: fields.text({
+                  label: "URL",
+                  description: "must start with https://",
+                  validation: {
+                    pattern: {
+                      regex: /^https:\/\/.+/,
+                      message: "Must start with https://",
+                    },
+                  },
+                }),
+                linkText: fields.text({ label: "Label" }),
+              }),
+            },
+            //third is blogposts
+            blogPosts: {
+              label: "Blog Posts",
+              schema: fields.object({
+                link: fields.text({
+                  label: "Blog Posts Page",
+                  defaultValue: "/posts",
+                }),
                 label: fields.text({ label: "Label" }),
               }),
             },
@@ -206,7 +321,7 @@ export const navigationSettings = singleton({
             label: "CTA Button Links",
             description: "Links to be used as CTA buttons in header (max 2)",
             validation: { length: { max: 2 } },
-          }
+          },
         ),
       }),
     }),

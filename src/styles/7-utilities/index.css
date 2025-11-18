@@ -1,0 +1,6 @@
+/* 
+Tailwind handles most of the utility classes
+however you can add your own here. eg scroll animations. 
+ */
+
+@import "./scroll-animations.css";

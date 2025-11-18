@@ -7,13 +7,34 @@
         "title": {
           "type": "string"
         },
+        "image": {},
+        "description": {
+          "type": "string"
+        },
         "content": {},
+        "publishDate": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "title"
+        "title",
+        "publishDate"
       ],
       "additionalProperties": false
     }

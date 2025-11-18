@@ -6,6 +6,16 @@ export const pages = collection({
   path: "src/content/pages/*",
   schema: {
     title: fields.slug({ name: { label: "Title" } }),
+    description: fields.text({
+      label: "An SEO friendly description",
+      multiline: true,
+      validation: { isRequired: true },
+    }),
+    ogImage: fields.image({
+      label: "Image that displays when sharing the page",
+      directory: "src/assets/images/hero",
+      publicPath: "src/assets/images/hero",
+    }),
     content: fields.blocks(
       {
         hero: {
@@ -34,9 +44,15 @@ export const pages = collection({
                 externalLink: {
                   label: "External Link",
                   schema: fields.object({
-                    link: fields.url({
+                    link: fields.text({
                       label: "External Link",
-                      description: "Select a page on this site",
+                      description: "must start with https://",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
@@ -91,9 +107,15 @@ export const pages = collection({
                 externalLink: {
                   label: "External Link",
                   schema: fields.object({
-                    link: fields.url({
+                    link: fields.text({
                       label: "External Link",
-                      description: "Select a page on this site",
+                      description: "must start with https://",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
@@ -133,9 +155,15 @@ export const pages = collection({
                 externalLink: {
                   label: "External Link",
                   schema: fields.object({
-                    link: fields.url({
+                    link: fields.text({
                       label: "External Link",
-                      description: "Select a page on this site",
+                      description: "must start with https://",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
@@ -189,9 +217,15 @@ export const pages = collection({
                 externalLink: {
                   label: "External Link",
                   schema: fields.object({
-                    link: fields.url({
+                    link: fields.text({
                       label: "External Link",
-                      description: "Select a page on this site",
+                      description: "must start with https://",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
@@ -221,6 +255,60 @@ export const pages = collection({
           schema: fields.object({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
+            faqs: fields.array(
+              fields.relationship({
+                label: "FAQs",
+                description:
+                  "Select FAQs to display in block. If none are selected, all faqs will be shown.",
+                collection: "faqs",
+              }),
+              {
+                label: "FAQs List",
+                itemLabel: (props) =>
+                  props.value?.replaceAll("-", " ") ?? "FAQ",
+              },
+            ),
+            followUpTitle: fields.text({
+              label: "Follow up Title",
+              description:
+                "A heading after the faqs, something like 'Still have questions?'",
+            }),
+            followUpDescription: fields.text({
+              label: "Follow up Description",
+              multiline: true,
+            }),
+            cta: fields.blocks(
+              {
+                internalLink: {
+                  label: "Internal Link",
+                  schema: fields.object({
+                    link: fields.relationship({
+                      label: "Internal Link",
+                      description: "Select a page on this site",
+                      collection: "pages",
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
+                  }),
+                },
+                externalLink: {
+                  label: "External Link",
+                  schema: fields.object({
+                    link: fields.text({
+                      label: "External Link",
+                      description: "must start with https://",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
+                  }),
+                },
+              },
+              { label: "CTA", validation: { length: { max: 2 } } },
+            ),
           }),
         },
         reviews: {
@@ -228,13 +316,25 @@ export const pages = collection({
           schema: fields.object({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
+            reviews: fields.array(
+              fields.relationship({
+                label: "Reviews",
+                description:
+                  "Select reviews to display in block. If none are selected, all reviews will be shown.",
+                collection: "reviews",
+              }),
+              {
+                label: "Reviews List",
+                itemLabel: (props) =>
+                  props.value?.replaceAll("-", " ") ?? "review",
+              },
+            ),
           }),
         },
         BlogList: {
           label: "Recent Blog Posts",
           schema: fields.text({ label: "Title" }),
         },
-
         cta: {
           label: "CTA",
           schema: fields.object({
@@ -256,9 +356,15 @@ export const pages = collection({
                 externalLink: {
                   label: "External Link",
                   schema: fields.object({
-                    link: fields.url({
+                    link: fields.text({
                       label: "External Link",
-                      description: "Select a page on this site",
+                      description: "must start with https://",
+                      validation: {
+                        pattern: {
+                          regex: /^https:\/\/.+/,
+                          message: "Must start with https://",
+                        },
+                      },
                     }),
                     linkText: fields.text({ label: "Link Text" }),
                   }),
@@ -278,5 +384,11 @@ export const pages = collection({
       },
       { label: "Content" },
     ),
+    richData: fields.text({
+      label: "Rich Data/ldjson",
+      description:
+        "use https://technicalseo.com/tools/schema-markup-generator/ to generator rich data to help with SEO",
+      multiline: true,
+    }),
   },
 });
