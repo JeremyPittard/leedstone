@@ -1,4 +1,5 @@
 title: Home
+description: this is about us woop
 content:
   - discriminant: hero
     value:
@@ -125,7 +126,7 @@ content:
   - discriminant: cta
     value:
       title: Call to action that invites visitor to book a demo
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
       cta:
         - discriminant: internalLink
           value:
@@ -136,7 +137,7 @@ content:
       title: Frequently asked questions
       description: >-
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        varius enim in eros elementum tristique. 
+        varius enim in eros elementum tristique.
       faqs: []
       followUpTitle: Still have a questions?
       followUpDescription: Support details to capture customers that might be on the fence.
@@ -149,6 +150,15 @@ content:
           value:
             link: https://jpittard.net
             linkText: button
+  - discriminant: cta
+    value:
+      title: some cta
+      description: look a cta
+      cta:
+        - discriminant: internalLink
+          value:
+            link: about-us
+            linkText: about
 richData: |-
   <script type="application/ld+json">
   {

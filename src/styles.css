@@ -14,4 +14,5 @@
 @import "./styles/4-elements/index.css";
 @import "./styles/5-objects/index.css";
 /* components are handled inside components */
-/* all utils are handled by tailwind */
+/* most utils are handled by tailwind */
+@import "./styles/7-utilities/index.css";

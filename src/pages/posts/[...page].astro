@@ -18,12 +18,14 @@ export const getStaticPaths = (async ({ paginate }) => {
     );
   });
 
-  return paginate(sortedThoughts, { pageSize: 6 });
+  return paginate(sortedThoughts, { pageSize: 9 });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
 ---
 
-<Layout title="Posts">
-  <BlogList page={page} />
-</Layout>
+<Layout
+  title={page.currentPage === 1 ? "Posts" : `Posts - Page ${page.currentPage}`}
+>
+  <BlogList page={page} /></Layout
+>

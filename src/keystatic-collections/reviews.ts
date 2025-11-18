@@ -26,16 +26,12 @@ export const reviews = collection({
       directory: "src/assets/images/reviews",
       publicPath: "src/assets/images/reviews",
     }),
-    platform: fields.text({
+    platform: fields.url({
       label: "Platform",
       description:
         "url to where the review was originally posted (must start with https://)",
       validation: {
         isRequired: false,
-        pattern: {
-          regex: /^https:\/\/.+/,
-          message: "Must start with https://",
-        },
       },
     }),
   },

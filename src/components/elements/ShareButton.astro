@@ -14,13 +14,14 @@ const { title, text } = Astro.props;
 
 <button
   id="share-button"
-  class="flex items-center gap-1.5"
+  class="flex items-center gap-1.5 hidden"
   data-title={title}
   data-text={text}
-  data-url={Astro.url}
+  data-url={Astro.url.href}
+  aria-label="share this blog post"
 >
-  share
-  <Icon name="mdi:share" size={18} />
+  Share
+  <Icon name="mdi:share" size={18} aria-hidden="true" />
 </button>
 <script is:inline>
   const setupShareBtn = () => {

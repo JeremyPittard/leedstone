@@ -57,7 +57,7 @@ const year = date.getFullYear();
     <div class="mb-20">
       {
         footerCta ? (
-          <div class="max-w-3xl">
+          <div class="max-w-3xl animate fade-in">
             <h3 class="mb-6 h1">{footerCta.schema.title}</h3>
             <p>{footerCta.schema.description}</p>
           </div>
@@ -72,6 +72,16 @@ const year = date.getFullYear();
                 href={link.value.link === "home" ? "/" : link.value.link}
                 variant={index === 0 ? "primary" : "outline"}
                 target={link.discriminant === "external" ? "_blank" : "_self"}
+                rel={
+                  link.discriminant === "external"
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                aria-label={
+                  link.discriminant === "external"
+                    ? `${link.value.linkText} (opens in new tab)`
+                    : undefined
+                }
               >
                 {link.value.linkText}
               </Button>
@@ -126,7 +136,12 @@ const year = date.getFullYear();
             return (
               <li>
                 {/* tweak this til accessible button size on mobile */}
-                <a href={link} target="_blank" class="inline-block">
+                <a
+                  href={link}
+                  target="_blank"
+                  class="inline-block"
+                  rel="noopener noreferrer"
+                >
                   <Icon name={`mdi:${icon}`} class="text-2xl" />
                   <span class="sr-only">{link}</span>
                 </a>

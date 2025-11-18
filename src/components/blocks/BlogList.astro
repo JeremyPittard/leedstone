@@ -87,27 +87,29 @@ const posts = data;
       </div>
     ) : null
   }
-
   {
     page.lastPage > 1 && (
-      <nav class="flex justify-between items-center">
-        <Button
-          buttonType="link"
-          href={`${page.url.prev}`}
-          variant="outline"
-          target="_self"
-        >
-          Previous Page
-        </Button>
-        {/* TODO make this more stable (eg no next on final page) */}
-        <Button
-          buttonType="link"
-          href={`${page.url.next}`}
-          variant="outline"
-          target="_self"
-        >
-          Next Page
-        </Button>
+      <nav class="flex gap-4 items-center">
+        {page.currentPage > 1 && (
+          <Button
+            buttonType="link"
+            href={`${page.url.prev}`}
+            variant="outline"
+            target="_self"
+          >
+            Previous Page
+          </Button>
+        )}
+        {page.currentPage < page.lastPage && (
+          <Button
+            buttonType="link"
+            href={`${page.url.next}`}
+            variant="outline"
+            target="_self"
+          >
+            Next Page
+          </Button>
+        )}
       </nav>
     )
   }

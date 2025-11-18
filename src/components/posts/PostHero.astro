@@ -13,7 +13,7 @@ interface Props {
 
 const { image, title, date } = Astro.props;
 
-const formattedDate = formatDate(date);
+const formattedDate = date ? formatDate(date) : undefined;
 ---
 
 <PageSection class="post-hero content-container">

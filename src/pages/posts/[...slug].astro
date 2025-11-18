@@ -17,7 +17,11 @@ export async function getStaticPaths() {
 }
 ---
 
-<Layout title={post.data.title} ogImage={post.data.image}>
+<Layout
+  title={post.data.title}
+  ogImage={post.data.image}
+  pageDescription={post.data.description}
+>
   <PostHero
     image={post.data.image}
     title={post.data.title}

@@ -13,17 +13,17 @@ export interface Props {
   richData?: string | null;
   seoTracking?: string | null;
   ogImage?: string;
+  pageDescription?: string;
 }
 
-const { title, richData, seoTracking, ogImage } = Astro.props;
+const { title, richData, seoTracking, ogImage, pageDescription } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" transition:name="root" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
-    <!-- todo deal with description same with OGdesc... -->
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={pageDescription ?? title} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
@@ -31,38 +31,35 @@ const { title, richData, seoTracking, ogImage } = Astro.props;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:title" content={title} />
-    <!-- TODO figure out what to do for content -->
-    <meta property="og:description" content={""} />
+    <meta property="og:description" content={pageDescription ?? title} />
 
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
-
-    <meta property="og:title" content={title} />
-    <!-- TODO figure out what to do for content -->
-    <meta property="og:description" content={""} />
-    <meta property="og:image" content={ogImage} />
-    <Font cssVariable="--font-roboto" preload />
-    <ClientRouter />
-  </head>
-
-  <body>
-    {richData ? <Fragment set:html={richData} /> : null}
+    {ogImage ? <meta property="og:image" content={ogImage} /> : null}
     {seoTracking ? <Fragment set:html={seoTracking} /> : null}
     <SkipLink />
     <ClientRouter />
     {richData ? <Fragment set:html={richData} /> : null}
     {seoTracking ? <Fragment set:html={seoTracking} /> : null}
 
-    <body>
-      <SkipLink />
-      <Header />
-      <main id="main-content" transition:animate="fade">
-        <slot />
-      </main>
-      <Footer />
-    </body>
-  </body>
+    <SkipLink />
+    <Header />
+  </head><main id="main-content" transition:animate="fade">
+    <slot />
+  </main>
+  <Footer />
+  <script is:inline>
+    const setupAnimations = () => {
+      if (!CSS.supports("animation-range", "entry")) {
+        return;
+      }
+
+      const animationElements = document.querySelectorAll(".animate");
+      animationElements.forEach((element) => {
+        element.addEventListener("animationend", () => {
+          element.classList.add("animated");
+        });
+      });
+    };
+
+    document.addEventListener("astro:page-load", setupAnimations);
+  </script>
 </html>

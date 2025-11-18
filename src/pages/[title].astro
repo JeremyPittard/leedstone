@@ -23,7 +23,11 @@ const { page } = Astro.props;
 const blocks = page.data.content as PageBlock[];
 ---
 
-<Layout title={title}>
+<Layout
+  title={title}
+  richData={page.data.richData ?? null}
+  pageDescription={page.data.description}
+>
   <h1>{page.data.title}</h1>
   <ul>
     {

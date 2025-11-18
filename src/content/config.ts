@@ -17,6 +17,8 @@ const pages = defineCollection({
   type: "data",
   schema: z.object({
     title: z.string(),
+    description: z.string(),
+    ogImage: z.string().optional(),
     content: z.array(PageBlock),
     richData: z.string().optional(),
     seoTracking: z.string().optional(),

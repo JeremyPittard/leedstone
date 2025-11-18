@@ -7,6 +7,12 @@
         "title": {
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
+        "ogImage": {
+          "type": "string"
+        },
         "content": {
           "type": "array",
           "items": {
@@ -230,6 +236,7 @@
       },
       "required": [
         "title",
+        "description",
         "content"
       ],
       "additionalProperties": false

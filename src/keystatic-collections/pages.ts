@@ -6,6 +6,16 @@ export const pages = collection({
   path: "src/content/pages/*",
   schema: {
     title: fields.slug({ name: { label: "Title" } }),
+    description: fields.text({
+      label: "An SEO friendly description",
+      multiline: true,
+      validation: { isRequired: true },
+    }),
+    ogImage: fields.image({
+      label: "Image that displays when sharing the page",
+      directory: "src/assets/images/hero",
+      publicPath: "src/assets/images/hero",
+    }),
     content: fields.blocks(
       {
         hero: {
