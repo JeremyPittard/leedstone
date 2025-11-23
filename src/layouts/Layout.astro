@@ -42,24 +42,28 @@ const { title, richData, seoTracking, ogImage, pageDescription } = Astro.props;
 
     <SkipLink />
     <Header />
-  </head><main id="main-content" transition:animate="fade">
-    <slot />
-  </main>
-  <Footer />
-  <script is:inline>
-    const setupAnimations = () => {
-      if (!CSS.supports("animation-range", "entry")) {
-        return;
-      }
+  </head>
 
-      const animationElements = document.querySelectorAll(".animate");
-      animationElements.forEach((element) => {
-        element.addEventListener("animationend", () => {
-          element.classList.add("animated");
+  <body>
+    <main id="main-content" transition:animate="fade">
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline>
+      const setupAnimations = () => {
+        if (!CSS.supports("animation-range", "entry")) {
+          return;
+        }
+
+        const animationElements = document.querySelectorAll(".animate");
+        animationElements.forEach((element) => {
+          element.addEventListener("animationend", () => {
+            element.classList.add("animated");
+          });
         });
-      });
-    };
+      };
 
-    document.addEventListener("astro:page-load", setupAnimations);
-  </script>
+      document.addEventListener("astro:page-load", setupAnimations);
+    </script>
+  </body>
 </html>
