@@ -4,140 +4,118 @@ content:
   - discriminant: hero
     value:
       image: src/assets/images/hero/home/content/0/value/image.png
-      title: Headline that highlights the Value Propositions
+      title: Reclaim Your Weekend From Your Overgrown Garden
       description: >-
-        Describe exactly what your product or service does and how it makes your
-        customer's lives better. Avoid using verbose words or phrases.
+        Tired of spending every Sunday weeding, watering, and fixing old retic?
+        We transform tired Perth gardens and outdoor spaces into modern,
+        low-maintenance sanctuaries you can actually enjoy.
       cta:
         - discriminant: internalLink
           value:
             link: about-us
-            linkText: Book a demo
+            linkText: Book a Consultation
         - discriminant: internalLink
           value:
             link: home
-            linkText: Book a demo
+            linkText: See Before & Afters
   - discriminant: textWithImage
     value:
       image: src/assets/images/home/content/1/value/image.jpg
-      title: Describe the “problem” you aim to solve
+      title: Is your backyard a place you try to hide?
       description: >-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        varius enim in eros elementum tristique. Duis cursus, mi quis viverra
-        ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
-      tagline: Tagline
-      cta:
-        - discriminant: internalLink
-          value:
-            link: about-us
-            linkText: Learn more
-        - discriminant: internalLink
-          value:
-            link: all-the-things
-            linkText: Even more
+        You love your home, but the garden has gotten away from you. Maybe it’s
+        the cracked pavers, the thirsty lawn, or the "jungle" of weeds. You want
+        to entertain outside, but you’re embarrassed by the mess. You know it
+        needs a full overhaul, but the thought of doing it yourself is
+        overwhelming.
+      tagline: Tired of the Jungle?
+      cta: []
       imageSide: right
   - discriminant: textWithImage
     value:
       image: src/assets/images/home/content/2/value/image.jpg
-      title: Describe the “problem” you aim to solve
+      title: Garden transformation specialists who actually show up.
       description: >-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        varius enim in eros elementum tristique. Duis cursus, mi quis viverra
-        ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
-      tagline: Tagline
-      cta:
-        - discriminant: internalLink
-          value:
-            link: all-the-things
-            linkText: Learn more
+        Leedstone Landscaping was built to handle the jobs others put in the
+        "too hard" basket. While many landscapers chase easy new builds, we
+        specialize in complex garden rescues and makeovers. We handle the heavy
+        lifting, the demolition, and the project management so you don't have
+        to. We are the team that quotes, turns up, and gets it done.
+      tagline: Meet The Leedstone Landscaping Team
+      cta: []
       imageSide: left
   - discriminant: featuresBlock
     value:
-      title: Benefits of using leedstone (these are not services/features)
-      description: >-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        varius enim in eros.
-      tagline: Taglines
-      cta:
-        - discriminant: internalLink
-          value:
-            link: all-the-things
-            linkText: Button
-        - discriminant: externalLink
-          value:
-            link: https://www.jpittard.net
-            linkText: Button
+      title: Give your outdoor space a new lease on life
+      description: We turn high-maintenance burdens into assets.
+      tagline: 'The Smart Choice. '
+      cta: []
       feature:
         - image: src/assets/images/home/content/3/value/feature/0/image.jpg
-          title: Highlight feature one
+          title: We turn high-maintenance burdens into assets.
           description: >-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla.
+            We replace thirsty, outdated lawns with waterwise native options and
+            smart retic that thrive in the heat with minimal effort.
         - image: src/assets/images/home/content/3/value/feature/1/image.jpg
-          title: Highlight feature two
+          title: We Handle The Demolition
           description: >-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla.
+            Don't worry about hiring skips. We rip out the old roots, remove the
+            rubble, and clear the site completely before we start building.
         - image: src/assets/images/home/content/3/value/feature/2/image.jpg
-          title: Highlight feature three
+          title: Add Instant Value
           description: >-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla.
+            A tired garden drags down your property price. We design modern
+            alfresco spaces and limestone features that immediately boost curb
+            appeal.
   - discriminant: timeline
     value:
-      title: The Process
-      description: >-
-        use this so that your customers are familiar with what steps they need
-        to take, this eliminates tyre kickers
-      tagline: Tagline
+      title: The Transformation Process
+      description: From quote to cleanup in three simple steps.
+      tagline: How It Works.
       cta:
         - discriminant: internalLink
           value:
             link: all-the-things
-            linkText: Button
+            linkText: Book a consultation
         - discriminant: externalLink
           value:
             link: https://jpittard.net
-            linkText: Button
+            linkText: 'See our work. '
       items:
-        - title: Step 1
+        - title: The Assessment
           description: >-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique.
-          image: src/assets/images/home/content/4/value/items/0/image.jpg
-        - title: Step 2
+            We visit to check your soil, assess site access, and listen to what
+            you hate about the current space so we can design what you love.
+        - title: The Strip-Out
           description: >-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique.
-        - title: Step 3
+            The messy part. We arrive with the machinery to remove the old turf,
+            stumps, and debris. We keep the site as tidy as possible while we
+            work.
+        - title: The Makeover
           description: >-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique.
+            We install the new hardscaping, fresh soil, and plants, leaving you
+            with a finished, polished space ready for the weekend BBQ.
   - discriminant: reviews
     value:
-      title: Customer testimonials
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      title: Local Success Stories.
       reviews:
-        - better-than-steamed-hams
-        - better-than-steamed-hams-2
+        - our-backyard-was-a-20-year-old-jungle
+        - it-looks-like-a-brand-new-house
   - discriminant: cta
     value:
-      title: Call to action that invites visitor to book a demo
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+      title: Ready to love your garden again?
       cta:
         - discriminant: internalLink
           value:
             link: home
-            linkText: Book a demo
+            linkText: Get Your Transformation Quote
   - discriminant: faqBlock
     value:
       title: Frequently asked questions
       description: >-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        varius enim in eros elementum tristique.
+        We know a full garden overhaul feels like a big, disruptive job. Here is
+        how we handle the "hard stuff"—from narrow side gates to protecting your
+        driveway—so you don't have to stress.
       faqs: []
       followUpTitle: Still have a questions?
       followUpDescription: Support details to capture customers that might be on the fence.
@@ -150,15 +128,6 @@ content:
           value:
             link: https://jpittard.net
             linkText: button
-  - discriminant: cta
-    value:
-      title: some cta
-      description: look a cta
-      cta:
-        - discriminant: internalLink
-          value:
-            link: about-us
-            linkText: about
 richData: |-
   <script type="application/ld+json">
   {

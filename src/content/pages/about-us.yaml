@@ -1,17 +1,63 @@
 title: About
-description: this is about us woop
+description: >-
+  No ghosting. No vague quotes. Just hard work, clear communication, and gardens
+  that survive the Perth heat.
 content:
-  - discriminant: hero
+  - discriminant: pageHeader
     value:
-      image: src/assets/images/hero/about-us/content/0/value/image.jpg
-      title: A Hero
-      description: A Description for hero
-      cta:
-        - discriminant: internalLink
-          value:
-            link: about-us
-            linkText: internal link
-        - discriminant: externalLink
-          value:
-            link: https://www.google.com
-            linkText: an external link
+      title: We love the jobs others put in the "Too Hard" basket.
+      description: >-
+        While other landscapers chase the easy sandpit jobs, Leedstone
+        specializes in difficult transformations, site clear-outs, and complete
+        garden overhauls.
+  - discriminant: textWithImage
+    value:
+      image: src/assets/images/about-us/content/1/value/image.png
+      title: New builds are easy. Makeovers take skill.
+      description: >-
+        It’s easy to look good when you start with a blank canvas. It’s much
+        harder to walk into an overgrown, 20-year-old backyard in Alkimos or
+        Joondalup and see the potential.
+
+        We founded Leedstone Landscaping because we saw a gap in the market for
+        a team that isn't afraid of the "hard stuff." We handle the demolition,
+        the narrow access, the root removal, and the earthworks required to give
+        your home a fresh start.
+      cta: []
+      imageSide: right
+  - discriminant: featuresBlock
+    value:
+      title: The Leedstone Standard
+      cta: []
+      feature:
+        - title: Built for the Heat
+          description: >-
+            We don’t just plant what looks good in a catalogue. We understand
+            Perth’s sandy soil and harsh sun. We design waterwise gardens and
+            install commercial-grade retic so your investment survives the
+            summer.
+        - title: Zero Mess Policy
+          description: >-
+            A transformation shouldn't turn your life upside down. We use
+            protective mats for your driveway, sweep the verge daily, and ensure
+            the only thing we leave behind is a beautiful garden.
+        - title: Transparent Process
+          description: >-
+            No "back of the napkin" math. We provide detailed written quotes,
+            clear timelines, and we turn up when we say we will. We treat your
+            project with the project management it deserves.
+  - discriminant: textWithImage
+    value:
+      image: src/assets/images/about-us/content/3/value/image.png
+      title: Who is in your backyard?
+      description: >-
+        Inviting tradespeople into your home requires trust. The Leedstone team
+        is a tight-knit crew of locals. We are fully insured, police-cleared,
+        and experienced in operating heavy machinery in tight residential
+        spaces.
+
+
+        We don't sub-contract the hard work out to strangers. When you hire
+        Leedstone, you get the Leedstone team.
+      cta: []
+      imageSide: right

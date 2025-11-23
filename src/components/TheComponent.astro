@@ -9,6 +9,7 @@ import CTA from "./blocks/CTA.astro";
 import BlockQuote from "./blocks/BlockQuote.astro";
 import FeaturesBlock from "./blocks/FeaturesBlock.astro";
 import Timeline from "./blocks/Timeline.astro";
+import FullWidthImage from "./blocks/FullWidthImage.astro";
 
 export interface Props {
   block: {
@@ -34,6 +35,7 @@ const componentMap: ComponentMap = {
   blockquote: BlockQuote,
   featuresBlock: FeaturesBlock,
   timeline: Timeline,
+  fullWidthImage: FullWidthImage,
 };
 
 const Component = componentMap[block.discriminant];

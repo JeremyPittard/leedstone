@@ -53,16 +53,18 @@ const selectedReviews = reviews?.length
                 <p class="font-semibold">{name}</p>
                 <p>{location}</p>
               </div>
-              <Button
-                buttonType="link"
-                href={platform}
-                variant="outline"
-                size="small"
-                target="_blank"
-                class="ml-auto"
-              >
-                view
-              </Button>
+              {platform ? (
+                <Button
+                  buttonType="link"
+                  href={platform}
+                  variant="outline"
+                  size="small"
+                  target="_blank"
+                  class="ml-auto"
+                >
+                  view
+                </Button>
+              ) : null}
             </div>
           </article>
         );

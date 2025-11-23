@@ -13,8 +13,8 @@ export const pages = collection({
     }),
     ogImage: fields.image({
       label: "Image that displays when sharing the page",
-      directory: "src/assets/images/hero",
-      publicPath: "src/assets/images/hero",
+      directory: "src/assets/images/ogImage",
+      publicPath: "src/assets/images/ogImage",
     }),
     content: fields.blocks(
       {
@@ -66,11 +66,6 @@ export const pages = collection({
           label: "Page Header",
           schema: fields.object(
             {
-              image: fields.image({
-                label: "Image",
-                directory: "src/assets/images/header",
-                publicPath: "src/assets/images/header",
-              }),
               title: fields.text({ label: "Title" }),
               description: fields.text({
                 label: "Description",
@@ -331,10 +326,10 @@ export const pages = collection({
             ),
           }),
         },
-        BlogList: {
-          label: "Recent Blog Posts",
-          schema: fields.text({ label: "Title" }),
-        },
+        // BlogList: {
+        //   label: "Recent Blog Posts",
+        //   schema: fields.text({ label: "Title" }),
+        // },
         cta: {
           label: "CTA",
           schema: fields.object({
@@ -374,13 +369,21 @@ export const pages = collection({
             ),
           }),
         },
-        blockquote: {
-          label: "Blockquote",
-          schema: fields.object({
-            quote: fields.text({ label: "quote" }),
-            cite: fields.text({ label: "cite" }),
+        fullWidthImage: {
+          label: "Full Width Image",
+          schema: fields.image({
+            label: "Image",
+            directory: "src/assets/images/content",
+            publicPath: "src/assets/images/content",
           }),
         },
+        // blockquote: {
+        //   label: "Blockquote",
+        //   schema: fields.object({
+        //     quote: fields.text({ label: "quote" }),
+        //     cite: fields.text({ label: "cite" }),
+        //   }),
+        // },
       },
       { label: "Content" },
     ),

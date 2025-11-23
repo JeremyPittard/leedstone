@@ -195,28 +195,33 @@ declare module 'astro:content' {
 
 	type DataEntryMap = {
 		"faqs": {
-"question-text-goes-here": {
-	id: "question-text-goes-here";
+"can-you-keep-some-of-my-existing-trees-plants": {
+	id: "can-you-keep-some-of-my-existing-trees-plants";
   collection: "faqs";
   data: any
 };
-"question-text-goes-here-copy": {
-	id: "question-text-goes-here-copy";
+"do-you-fix-or-replace-old-reticulation": {
+	id: "do-you-fix-or-replace-old-reticulation";
   collection: "faqs";
   data: any
 };
-"question-text-goes-here-copy-copy": {
-	id: "question-text-goes-here-copy-copy";
+"my-garden-has-narrow-access-can-you-still-help": {
+	id: "my-garden-has-narrow-access-can-you-still-help";
   collection: "faqs";
   data: any
 };
-"question-text-goes-here-copy-copy-copy": {
-	id: "question-text-goes-here-copy-copy-copy";
+"what-sort-of-cost-am-i-looking-at": {
+	id: "what-sort-of-cost-am-i-looking-at";
   collection: "faqs";
   data: any
 };
-"wtf-is-this": {
-	id: "wtf-is-this";
+"will-the-demolition-damage-my-driveway": {
+	id: "will-the-demolition-damage-my-driveway";
+  collection: "faqs";
+  data: any
+};
+"will-the-demolition-damage-my-driveway-1": {
+	id: "will-the-demolition-damage-my-driveway-1";
   collection: "faqs";
   data: any
 };
@@ -227,8 +232,8 @@ declare module 'astro:content' {
   collection: "pages";
   data: InferEntrySchema<"pages">
 };
-"all-the-things": {
-	id: "all-the-things";
+"contact-us": {
+	id: "contact-us";
   collection: "pages";
   data: InferEntrySchema<"pages">
 };
@@ -237,25 +242,20 @@ declare module 'astro:content' {
   collection: "pages";
   data: InferEntrySchema<"pages">
 };
+"services": {
+	id: "services";
+  collection: "pages";
+  data: InferEntrySchema<"pages">
+};
 };
 "reviews": {
-"better-than-steamed-hams": {
-	id: "better-than-steamed-hams";
+"it-looks-like-a-brand-new-house": {
+	id: "it-looks-like-a-brand-new-house";
   collection: "reviews";
   data: any
 };
-"better-than-steamed-hams-2": {
-	id: "better-than-steamed-hams-2";
-  collection: "reviews";
-  data: any
-};
-"better-than-steamed-hams-3": {
-	id: "better-than-steamed-hams-3";
-  collection: "reviews";
-  data: any
-};
-"better-than-steamed-hamses": {
-	id: "better-than-steamed-hamses";
+"our-backyard-was-a-20-year-old-jungle": {
+	id: "our-backyard-was-a-20-year-old-jungle";
   collection: "reviews";
   data: any
 };

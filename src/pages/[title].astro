@@ -28,12 +28,9 @@ const blocks = page.data.content as PageBlock[];
   richData={page.data.richData ?? null}
   pageDescription={page.data.description}
 >
-  <h1>{page.data.title}</h1>
-  <ul>
-    {
-      blocks.map((block) => {
-        return <TheComponent block={block} />;
-      })
-    }
-  </ul>
+  {
+    blocks.map((block) => {
+      return <TheComponent block={block} />;
+    })
+  }
 </Layout>

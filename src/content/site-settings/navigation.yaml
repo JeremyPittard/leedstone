@@ -2,16 +2,16 @@ homePage: home
 navigationLinks:
   - discriminant: page
     value:
-      link: home
-      label: Services
-  - discriminant: page
-    value:
       link: about-us
-      label: Link Two
+      label: About Us
   - discriminant: blogPosts
     value:
       link: /posts
       label: Blogs
+  - discriminant: page
+    value:
+      link: contact-us
+      label: Contact
 ctaLinks:
   - discriminant: page
     value:
@@ -64,16 +64,12 @@ footerNavigationLinks:
       label: Link Ten
 footerCta:
   schema:
-    title: Medium length footer heading goes here
+    title: Ready to upgrade your outdoor lifestyle?
     description: >-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-      varius enim in eros elementum tristique.
+      Whether it's a rescue, a renovation, or a refresh, we’re the team that
+      turns up and gets it done. No stress, no ghosting, just a great garden.
     ctaLinks:
       - discriminant: page
         value:
           link: home
-          linkText: Button
-      - discriminant: url
-        value:
-          link: https://jpittard.net
-          linkText: Button
+          linkText: Book Your Free Site Visit

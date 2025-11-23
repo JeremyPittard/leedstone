@@ -52,9 +52,9 @@ const faqRichData = {
       selectedFaqs.map((singleFAQ: faq) => {
         const { question, answer } = singleFAQ.data;
         return (
-          <li class="border-t border-neutral-darkest pt-6 pb-12 flex gap-16 justify-between animate fade-in">
+          <li class="border-t border-neutral-darkest pt-6 pb-12 flex flex-wrap lg:flex-nowrap gap-16 justify-between animate fade-in">
             <h3 class="text-medium font-bold w-full">{question}</h3>
-            <p class="text-medium max-w-[748px]">{answer}</p>
+            <p class="text-medium w-full">{answer}</p>
           </li>
         );
       })

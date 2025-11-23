@@ -1,0 +1,14 @@
+---
+import DynamicImage from "../elements/DynamicImage.astro";
+import PageSection from "../objects/PageSection.astro";
+
+const { value } = Astro.props;
+
+const image = value;
+
+console.log(Astro.props, "imageey bois");
+---
+
+<PageSection class="full-width-image content-container">
+  <DynamicImage src={`${image}`} alt={""} class="" width={1312} height={738} />
+</PageSection>

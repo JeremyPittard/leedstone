@@ -1,9 +1,9 @@
-title: all the things
+title: Services
 description: this is about us woop
 content:
   - discriminant: hero
     value:
-      image: src/assets/images/hero/all-the-things/content/0/value/image.jpg
+      image: src/assets/images/hero/services/content/0/value/image.jpg
       title: A Hero
       description: A Description for hero
       cta:

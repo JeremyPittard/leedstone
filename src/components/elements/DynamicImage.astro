@@ -8,7 +8,7 @@ import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"img"> {
   src: string;
-  alt: string;
+  alt?: string;
   height?: number;
   width?: number;
   isHero?: boolean;
@@ -30,7 +30,7 @@ if (!images[imageSrc])
 <div class="dynamic-image">
   <Image
     src={images[imageSrc]()}
-    alt={alt}
+    alt={alt || ""}
     class={Astro.props.class}
     height={height}
     width={width}
