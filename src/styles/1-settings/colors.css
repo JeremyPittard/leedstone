@@ -1,14 +1,19 @@
 @theme {
-  --color-white: #ffffff;
+  --color-white: #faf8f1;
   --color-neutral-lightest: #eeeeee;
   --color-neutral-lighter: #cccccc;
   --color-neutral-light: #aaaaaa;
   --color-neutral: #666666;
   --color-neutral-dark: #444444;
   --color-neutral-darker: #222222;
-  --color-neutral-darkest: #000000;
+  --color-neutral-darkest: #3c3c3c;
 
   --color-brand-1: #495c40;
   --color-brand-2: #a3b638;
   --color-brand-3: #a7a6a4;
+
+  --color-background: var(--color-white);
+  --color-background-alt: var(--color-brand-1);
+  --color-text: var(--color-neutral-darkest);
+  --color-text-alt: var(--color-white);
 }

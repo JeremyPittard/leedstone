@@ -2,7 +2,14 @@
 import type { HTMLAttributes } from "astro/types";
 import { Icon } from "astro-icon/components";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "more";
+type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "outline"
+  | "ghost"
+  | "ghost-alt"
+  | "more"
+  | "alt";
 type IconType = string | "icon-only";
 interface LinkProps extends HTMLAttributes<"a"> {
   buttonType: "link";
@@ -35,24 +42,30 @@ const bgColorMap = {
   primary: "bg-brand-1",
   secondary: "bg-brand-3",
   ghost: "bg-none",
+  "ghost-alt": "bg-none",
   more: "bg-none",
   outline: "bg-none",
+  alt: "bg-background-alt",
 };
 
 const textColorMap = {
   primary: "text-white",
-  secondary: "text-neutral-darkest",
-  ghost: "text-neutral-darkest",
-  more: "text-neutral-darkest",
-  outline: "text-neutral-darkest",
+  secondary: "text-text",
+  ghost: "text-text",
+  "ghost-alt": "text-text-alt",
+  more: "text-text",
+  outline: "text-text",
+  alt: "text-text-alt",
 };
 
 const borderColorMap = {
   primary: "border-transparent",
   secondary: "border-transparent", //this will need to match primary color when set
   ghost: "border-transparent",
+  "ghost-alt": "border-transparent",
   more: "border-transparent",
   outline: "border-neutral-darkest",
+  alt: "border-text-alt",
 };
 
 const buttonSizeMap = {
