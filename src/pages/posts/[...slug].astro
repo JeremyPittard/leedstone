@@ -1,0 +1,35 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PostHero from "src/components/posts/PostHero.astro";
+
+const { slug } = Astro.params;
+if (!slug) throw new Error("Slug not found");
+const post = await getEntry("posts", slug);
+
+if (!post) throw new Error("No post found for this slug");
+const { Content } = await post.render();
+
+// Generate static pages
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post: { slug: any }) => ({ params: { slug: post.slug } }));
+}
+---
+
+<Layout
+  title={post.data.title}
+  ogImage={post.data.image}
+  pageDescription={post.data.description}
+>
+  <PostHero
+    image={post.data.image}
+    title={post.data.title}
+    date={post.data.publishDate}
+  />
+  <section
+    class="blog-container px-5 py-16 lg:px-16 lg:py-28 max-w-4xl mx-auto"
+  >
+    <Content />
+  </section>
+</Layout>

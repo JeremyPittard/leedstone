@@ -1,0 +1,5 @@
+/* the only 'css' that should be in the folder is variable definitions */
+
+@import "./colors.css";
+@import "./font.css";
+@import "./typography.css";

@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import type { PageBlock } from "../types/blocks";
+import TheComponent from "../components/TheComponent.astro";
+
+// Generate static pages
+export async function getStaticPaths() {
+  const settings = await getEntry("site-settings", "navigation");
+  const pages = await getCollection("pages", (page) => {
+    return page.id != settings.data.homePage;
+  });
+  return pages.map((page) => ({
+    params: { title: page.id },
+    props: { page },
+  }));
+}
+
+const { title } = Astro.params;
+const { page } = Astro.props;
+
+const blocks = page.data.content as PageBlock[];
+---
+
+<Layout
+  title={title}
+  richData={page.data.richData ?? null}
+  pageDescription={page.data.description}
+>
+  <h1>{page.data.title}</h1>
+  <ul>
+    {
+      blocks.map((block) => {
+        return <TheComponent block={block} />;
+      })
+    }
+  </ul>
+</Layout>

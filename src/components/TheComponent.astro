@@ -1,0 +1,42 @@
+---
+import Hero from "./blocks/Hero.astro";
+import PageHeader from "./blocks/PageHeader.astro";
+import TextWithImage from "./blocks/TextWithImage.astro";
+import FAQBlock from "./blocks/Faqs.astro";
+import ReviewsBlock from "./blocks/Reviews.astro";
+import BlogListBlock from "./blocks/BlogList.astro";
+import CTA from "./blocks/CTA.astro";
+import BlockQuote from "./blocks/BlockQuote.astro";
+import FeaturesBlock from "./blocks/FeaturesBlock.astro";
+import Timeline from "./blocks/Timeline.astro";
+
+export interface Props {
+  block: {
+    discriminant: string;
+    value: any;
+  };
+}
+
+const { block } = Astro.props;
+
+interface ComponentMap {
+  [key: string]: any;
+}
+
+const componentMap: ComponentMap = {
+  hero: Hero,
+  pageHeader: PageHeader,
+  textWithImage: TextWithImage,
+  faqBlock: FAQBlock,
+  reviews: ReviewsBlock,
+  BlogList: BlogListBlock,
+  cta: CTA,
+  blockquote: BlockQuote,
+  featuresBlock: FeaturesBlock,
+  timeline: Timeline,
+};
+
+const Component = componentMap[block.discriminant];
+---
+
+{Component ? <Component {...block} /> : null}

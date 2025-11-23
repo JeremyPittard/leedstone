@@ -1,0 +1,50 @@
+---
+import type { CTALink, Feature } from "../../types/blocks";
+import Button from "../elements/Button.astro";
+import DynamicImage from "../elements/DynamicImage.astro";
+
+import PageSection from "../objects/PageSection.astro";
+const { title, description, tagline, cta, feature } = Astro.props.value;
+---
+
+<PageSection class="features content-container">
+  <div class={`max-w-3xl mb-12 lg:mb-20 animate fade-in`}>
+    <p class="mb-3 lg:mb-4 font-semibold animate">{tagline}</p>
+    <h2 class="mb-5 lg:mb-6">{title}</h2>
+    <p class="mb-7 lg:mb-8">{description}</p>
+  </div>
+  {
+    feature ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20 animate fade-in">
+        {feature.map((item: Feature) => {
+          const { image, title, description } = item;
+          return (
+            <article>
+              {image ? (
+                <DynamicImage src={`${image}`} alt={""} class="w-full mb-8" />
+              ) : null}
+              <h3 class="h5 mb-6">{title}</h3>
+              <p>{description}</p>
+            </article>
+          );
+        })}
+      </div>
+    ) : null
+  }
+  {
+    cta ? (
+      <div class="flex gap-4">
+        {cta.map((link: CTALink, index: number) => (
+          <Button
+            buttonType="link"
+            href={link.value.link === "home" ? "/" : link.value.link}
+            variant={index === 0 ? "outline" : "ghost"}
+            target={link.discriminant === "external" ? "_blank" : "_self"}
+          >
+            {link.value.linkText}
+          </Button>
+        ))}
+      </div>
+    ) : null
+  }
+</PageSection>

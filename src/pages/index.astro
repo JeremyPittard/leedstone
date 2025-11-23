@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import { type PageBlock } from "../types/blocks";
+import TheComponent from "../components/TheComponent.astro";
+
+const homePage = await getEntry("site-settings", "navigation").then(
+  (entry) => entry.data.homePage
+);
+
+const entry = getEntry("pages", homePage);
+const { data } = await entry;
+
+const blocks: PageBlock[] = data.content;
+---
+
+<Layout title={data.title} richData={data.richData}>
+  {
+    blocks.map((block) => {
+      return <TheComponent block={block} />;
+    })
+  }
+</Layout>

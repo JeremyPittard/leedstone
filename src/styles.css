@@ -1,0 +1,18 @@
+/* tailwind */
+@import "tailwindcss";
+
+/* tailwind plugins go here */
+
+/* extra settings */
+@import "./styles/1-settings/index.css";
+
+/* the inverted triangle */
+/* uncomment if needed tailwind handles most things */
+
+/* @import "./styles/2-tools/index.css"; */
+@import "./styles/3-generic/index.css";
+@import "./styles/4-elements/index.css";
+@import "./styles/5-objects/index.css";
+/* components are handled inside components */
+/* most utils are handled by tailwind */
+@import "./styles/7-utilities/index.css";

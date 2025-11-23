@@ -1,0 +1,65 @@
+---
+import { getEntry } from "astro:content";
+import Button from "../elements/Button.astro";
+
+const banner = await getEntry("site-settings", "site-details").then((entry) => {
+  const banner = {
+    text: entry?.data.sitewideBanner,
+    link: entry?.data.sitewideBannerLink,
+    linkLabel: entry?.data.sitewideBannerLinkLabel,
+    isExternal: entry?.data.isSitewideBannerLinkExternal,
+  };
+  return banner;
+});
+---
+
+<div class="alert-banner px-5 lg:pl-16 lg:pr-0 bg-amber-100 w-full">
+  <div
+    class="content-container flex flex-col gap-4 lg:flex-row px-4 py-3 items-center-safe justify-center w"
+  >
+    {banner.text ? <p class="w-full lg:text-center">{banner.text}</p> : null}
+    <div class="flex gap-4 w-full lg:w-auto">
+      {
+        banner.link ? (
+          <Button
+            variant="primary"
+            buttonType="link"
+            size="small"
+            href={banner.link}
+            target={banner.isExternal ? "_blank" : "_self"}
+          >
+            {banner.linkLabel ? banner.linkLabel : "More"}
+          </Button>
+        ) : null
+      }
+      <Button
+        variant="outline"
+        size="small"
+        buttonType="button"
+        class="close-button"
+      >
+        close
+      </Button>
+    </div>
+  </div>
+</div>
+<script>
+  const setupBanner = () => {
+    const banner = document.querySelector(".alert-banner");
+    const closeButton = document.querySelector(".close-button");
+    const hideBanner = window.sessionStorage.getItem("hideBanner");
+    if (!banner) return;
+    if (hideBanner) {
+      banner?.classList.add("hidden");
+    }
+    closeButton?.addEventListener("click", () => {
+      window.sessionStorage.setItem("hideBanner", "true");
+      banner?.classList.add("hidden");
+    });
+  };
+
+  document.addEventListener("astro:after-swap", (event) => {});
+
+  document.addEventListener("astro:page-load", setupBanner);
+  document.addEventListener("astro:after-swap", setupBanner);
+</script>
