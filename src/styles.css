@@ -3,12 +3,10 @@
 
 /* tailwind plugins go here */
 
-/* extra settings */
-@import "./styles/1-settings/index.css";
-
 /* the inverted triangle */
 /* uncomment if needed tailwind handles most things */
-
+/* extra settings */
+@import "./styles/1-settings/index.css";
 /* @import "./styles/2-tools/index.css"; */
 @import "./styles/3-generic/index.css";
 @import "./styles/4-elements/index.css";

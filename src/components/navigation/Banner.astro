@@ -13,7 +13,9 @@ const banner = await getEntry("site-settings", "site-details").then((entry) => {
 });
 ---
 
-<div class="alert-banner px-5 lg:pl-16 lg:pr-0 bg-amber-100 w-full">
+<div
+  class="alert-banner px-5 lg:pl-16 lg:pr-0 bg-background-alt text-text-alt w-full"
+>
   <div
     class="content-container flex flex-col gap-4 lg:flex-row px-4 py-3 items-center-safe justify-center w"
   >
@@ -22,7 +24,7 @@ const banner = await getEntry("site-settings", "site-details").then((entry) => {
       {
         banner.link ? (
           <Button
-            variant="primary"
+            variant="alt"
             buttonType="link"
             size="small"
             href={banner.link}
@@ -33,7 +35,7 @@ const banner = await getEntry("site-settings", "site-details").then((entry) => {
         ) : null
       }
       <Button
-        variant="outline"
+        variant="ghost-alt"
         size="small"
         buttonType="button"
         class="close-button"
