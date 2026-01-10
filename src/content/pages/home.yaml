@@ -122,7 +122,7 @@ content:
       cta:
         - discriminant: internalLink
           value:
-            link: all-the-things
+            link: contact-us
             linkText: Contact
         - discriminant: externalLink
           value:
