@@ -8,14 +8,10 @@ navigationLinks:
     value:
       link: /posts
       label: Blogs
-  - discriminant: page
-    value:
-      link: contact-us
-      label: Contact
 ctaLinks:
   - discriminant: page
     value:
-      link: about-us
+      link: contact-us
       label: Contact Us
   - discriminant: page
     value:

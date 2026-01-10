@@ -18,7 +18,10 @@ export default config({
     },
   },
   storage: {
-    kind: "local",
+    kind: "cloud",
+  },
+  cloud: {
+    project: "leedstone/leedstone-landscapes",
   },
   collections: {
     posts,

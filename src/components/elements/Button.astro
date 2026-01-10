@@ -39,17 +39,17 @@ const {
 } = props as any;
 
 const bgColorMap = {
-  primary: "bg-brand-1",
-  secondary: "bg-brand-3",
-  ghost: "bg-none",
-  "ghost-alt": "bg-none",
-  more: "bg-none",
-  outline: "bg-none",
-  alt: "bg-background-alt",
+  primary: "bg-brand-1 primary hover:bg-brand-2",
+  secondary: "bg-brand-3 secondary hover:bg-brand-2",
+  ghost: "bg-none ghost",
+  "ghost-alt": "bg-none ghost-alt",
+  more: "bg-none more ghost nav",
+  outline: "bg-none outline hover:bg-brand-2",
+  alt: "bg-background-alt alt",
 };
 
 const textColorMap = {
-  primary: "text-white",
+  primary: "text-white hover:text-text",
   secondary: "text-text",
   ghost: "text-text",
   "ghost-alt": "text-text-alt",
@@ -73,7 +73,7 @@ const buttonSizeMap = {
   regular: "px-6 py-3",
 };
 
-const buttonClasses: string = `${className?.includes("block") ? "" : "inline-block"} ${props.size ? buttonSizeMap[props.size] : props.variant === "more" ? "px-0 py-2" : buttonSizeMap.regular} ${bgColorMap[props.variant]} ${textColorMap[props.variant]} border ${borderColorMap[props.variant]} `;
+const buttonClasses: string = `btn ${className?.includes("block") ? "" : "inline-block"} ${props.size ? buttonSizeMap[props.size] : props.variant === "more" ? "px-0 py-2" : buttonSizeMap.regular} ${bgColorMap[props.variant]} ${textColorMap[props.variant]} border ${borderColorMap[props.variant]} duration-150 `;
 ---
 
 {

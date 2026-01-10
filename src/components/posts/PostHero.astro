@@ -24,6 +24,7 @@ const formattedDate = date ? formatDate(date) : undefined;
       variant="ghost"
       target="_self"
       iconPosition="leading"
+      class="w-fit"
     >
       All posts
     </Button>
@@ -39,7 +40,7 @@ const formattedDate = date ? formatDate(date) : undefined;
   />
   {
     date ? (
-      <div class="flex pt-8 pb-28 justify-between">
+      <div class="flex pt-8 justify-between">
         <div>
           <p class="mb-2">published on</p>
           <p class="font-semibold">{formattedDate}</p>

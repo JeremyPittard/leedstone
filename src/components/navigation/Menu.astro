@@ -46,7 +46,9 @@ const logo: any = await getEntry("site-settings", "site-details").then(
         const { link, label } = navLink.value;
         return (
           <li>
-            <a href={link === "home" ? "/" : link}>{label ? label : link}</a>
+            <a class="btn ghost nav" href={link === "home" ? "/" : link}>
+              {label ? label : link}
+            </a>
           </li>
         );
       })
@@ -95,7 +97,9 @@ const logo: any = await getEntry("site-settings", "site-details").then(
           const { link, label } = navLink.value;
           return (
             <li>
-              <a href={link === "home" ? "/" : link}>{label ? label : link}</a>
+              <a class="btn ghost nav" href={link === "home" ? "/" : link}>
+                {label ? label : link}
+              </a>
             </li>
           );
         })
