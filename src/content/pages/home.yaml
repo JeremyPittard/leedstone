@@ -67,6 +67,17 @@ content:
             A tired garden drags down your property price. We design modern
             alfresco spaces and limestone features that immediately boost curb
             appeal.
+  - discriminant: textWithImage
+    value:
+      image: src/assets/images/home/content/4/value/image.jpg
+      title: Areas Serviced
+      description: We take on jobs in these locations
+      cta:
+        - discriminant: externalLink
+          value:
+            link: https://jpittard.net
+            linkText: Book a call
+      imageSide: right
   - discriminant: timeline
     value:
       title: The Transformation Process
@@ -128,8 +139,6 @@ content:
           value:
             link: https://jpittard.net
             linkText: button
-  - discriminant: fullWidthImage
-    value: src/assets/images/content/home/content/8/value.png
 richData: |-
   <script type="application/ld+json">
   {
