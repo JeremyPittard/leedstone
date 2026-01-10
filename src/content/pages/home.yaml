@@ -139,6 +139,12 @@ content:
           value:
             link: https://jpittard.net
             linkText: button
+  - discriminant: contactBlock
+    value:
+      title: Get in Touch
+      description: Reach out to us through any of these convenient methods
+      tagline: Contact Information
+      cta: []
 richData: |-
   <script type="application/ld+json">
   {
