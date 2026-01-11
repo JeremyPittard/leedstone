@@ -20,7 +20,7 @@ content:
             linkText: See Before & Afters
   - discriminant: textWithImage
     value:
-      image: src/assets/images/home/content/1/value/image.jpg
+      image: src/assets/images/home/content/1/value/image.png
       title: Is your backyard a place you try to hide?
       description: >-
         You love your home, but the garden has gotten away from you. Maybe it’s
