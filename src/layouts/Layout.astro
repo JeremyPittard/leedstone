@@ -49,5 +49,21 @@ const { title, richData, seoTracking, ogImage, pageDescription } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      const setupAnimations = () => {
+        if (!CSS.supports("animation-range", "entry")) {
+          return;
+        }
+
+        const animationElements = document.querySelectorAll(".animate");
+        animationElements.forEach((element) => {
+          element.addEventListener("animationend", () => {
+            element.classList.add("animated");
+          });
+        });
+      };
+
+      document.addEventListener("astro:page-load", setupAnimations);
+    </script>
   </body>
 </html>
