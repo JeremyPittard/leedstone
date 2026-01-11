@@ -36,14 +36,12 @@ const { title, richData, seoTracking, ogImage, pageDescription } = Astro.props;
 
     {ogImage ? <meta property="og:image" content={ogImage} /> : null}
     {seoTracking ? <Fragment set:html={seoTracking} /> : null}
-    <SkipLink />
     <ClientRouter />
     {richData ? <Fragment set:html={richData} /> : null}
     {seoTracking ? <Fragment set:html={seoTracking} /> : null}
-
-    <SkipLink />
   </head>
   <body>
+    <SkipLink />
     <Header />
     <main id="main-content" transition:animate="fade">
       <slot />
