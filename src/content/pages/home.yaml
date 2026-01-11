@@ -69,7 +69,7 @@ content:
             appeal.
   - discriminant: textWithImage
     value:
-      image: src/assets/images/home/content/4/value/image.jpg
+      image: src/assets/images/home/content/4/value/image.png
       title: Areas Serviced
       description: We take on jobs in these locations
       cta:
