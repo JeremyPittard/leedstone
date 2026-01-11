@@ -33,7 +33,7 @@ content:
       imageSide: right
   - discriminant: textWithImage
     value:
-      image: src/assets/images/home/content/2/value/image.jpg
+      image: src/assets/images/home/content/2/value/image.png
       title: Garden transformation specialists who actually show up.
       description: >-
         Leedstone Landscaping was built to handle the jobs others put in the
