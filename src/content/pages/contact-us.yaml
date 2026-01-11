@@ -1,9 +1,6 @@
 title: Contact Us
 description: Get in touch with Leedstone Landscaping
 content:
-  - discriminant: pageHeader
-    value:
-      title: Contact Us
   - discriminant: contactBlock
     value:
       title: Get in Touch
