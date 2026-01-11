@@ -51,17 +51,17 @@ content:
       tagline: 'The Smart Choice. '
       cta: []
       feature:
-        - image: src/assets/images/home/content/3/value/feature/0/image.jpg
+        - image: src/assets/images/home/content/3/value/feature/0/image.png
           title: We turn high-maintenance burdens into assets.
           description: >-
             We replace thirsty, outdated lawns with waterwise native options and
             smart retic that thrive in the heat with minimal effort.
-        - image: src/assets/images/home/content/3/value/feature/1/image.jpg
+        - image: src/assets/images/home/content/3/value/feature/1/image.png
           title: We Handle The Demolition
           description: >-
             Don't worry about hiring skips. We rip out the old roots, remove the
             rubble, and clear the site completely before we start building.
-        - image: src/assets/images/home/content/3/value/feature/2/image.jpg
+        - image: src/assets/images/home/content/3/value/feature/2/image.png
           title: Add Instant Value
           description: >-
             A tired garden drags down your property price. We design modern
