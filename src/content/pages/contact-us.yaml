@@ -1,12 +1,12 @@
 title: Contact Us
 description: Get in touch with Leedstone Landscaping
 content:
-  - discriminant: reviews
-    value:
-      title: sdf
-      description: sdfds
-      reviews:
-        - it-looks-like-a-brand-new-house
   - discriminant: pageHeader
     value:
       title: Contact Us
+  - discriminant: contactBlock
+    value:
+      title: Get in Touch
+      description: Reach out to us through any of these convenient methods
+      tagline: Contact Information
+      cta: []
