@@ -245,6 +245,151 @@ export const pages = collection({
             ),
           }),
         },
+        iconGrid: {
+          label: "Icon Grid",
+          schema: fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+            tagline: fields.text({ label: "Tagline" }),
+            cta: fields.blocks(
+              {
+                internalLink: {
+                  label: "Internal Link",
+                  schema: fields.object({
+                    link: fields.relationship({
+                      label: "Internal Link",
+                      description: "Select a page on this site",
+                      collection: "pages",
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
+                  }),
+                },
+                externalLink: {
+                  label: "External Link",
+                  schema: fields.object({
+                    link: fields.text({
+                      label: "External Link",
+                      description: "Can start with https://, tel:, or mailto:",
+                      validation: {
+                        pattern: {
+                          regex: /^(https:\/\/|tel:|mailto:).+/,
+                          message: "Must start with https://, tel:, or mailto:",
+                        },
+                      },
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
+                  }),
+                },
+              },
+              { label: "CTA", validation: { length: { max: 2 } } },
+            ),
+            items: fields.array(
+              fields.object({
+                title: fields.text({ label: "Title" }),
+                description: fields.text({
+                  label: "Description",
+                  multiline: true,
+                }),
+                image: fields.image({
+                  label: "Icon Image",
+                  directory: "src/assets/images/icons",
+                  publicPath: "src/assets/images/icons",
+                  description: "Upload an icon image (PNG, JPEG, SVG, etc.)",
+                }),
+                link: fields.blocks(
+                  {
+                    internalLink: {
+                      label: "Internal Link",
+                      schema: fields.object({
+                        link: fields.relationship({
+                          label: "Internal Link",
+                          description: "Select a page on this site",
+                          collection: "pages",
+                        }),
+                        linkText: fields.text({ label: "Link Text" }),
+                      }),
+                    },
+                    externalLink: {
+                      label: "External Link",
+                      schema: fields.object({
+                        link: fields.text({
+                          label: "External Link",
+                          description:
+                            "Can start with https://, tel:, or mailto:",
+                          validation: {
+                            pattern: {
+                              regex: /^(https:\/\/|tel:|mailto:).+/,
+                              message:
+                                "Must start with https://, tel:, or mailto:",
+                            },
+                          },
+                        }),
+                        linkText: fields.text({ label: "Link Text" }),
+                      }),
+                    },
+                  },
+                  { label: "Link", validation: { length: { max: 1 } } },
+                ),
+              }),
+              {
+                label: "Icon Grid Items",
+                itemLabel: (props) => props.fields.title.value,
+                validation: { length: { min: 1, max: 8 } },
+              },
+            ),
+          }),
+        },
+        contactBlock: {
+          label: "Contact Block",
+          schema: fields.object({
+            title: fields.text({
+              label: "Title",
+              defaultValue: "Get in Touch",
+            }),
+            description: fields.text({
+              label: "Description",
+              multiline: true,
+              defaultValue:
+                "Reach out to us through any of these convenient methods",
+            }),
+            tagline: fields.text({
+              label: "Tagline",
+              defaultValue: "Contact Information",
+            }),
+            cta: fields.blocks(
+              {
+                internalLink: {
+                  label: "Internal Link",
+                  schema: fields.object({
+                    link: fields.relationship({
+                      label: "Internal Link",
+                      description: "Select a page on this site",
+                      collection: "pages",
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
+                  }),
+                },
+                externalLink: {
+                  label: "External Link",
+                  schema: fields.object({
+                    link: fields.text({
+                      label: "External Link",
+                      description: "Can start with https://, tel:, or mailto:",
+                      validation: {
+                        pattern: {
+                          regex: /^(https:\/\/|tel:|mailto:).+/,
+                          message: "Must start with https://, tel:, or mailto:",
+                        },
+                      },
+                    }),
+                    linkText: fields.text({ label: "Link Text" }),
+                  }),
+                },
+              },
+              { label: "CTA", validation: { length: { max: 2 } } },
+            ),
+          }),
+        },
         faqBlock: {
           label: "FAQ's",
           schema: fields.object({
@@ -326,10 +471,6 @@ export const pages = collection({
             ),
           }),
         },
-        // BlogList: {
-        //   label: "Recent Blog Posts",
-        //   schema: fields.text({ label: "Title" }),
-        // },
         cta: {
           label: "CTA",
           schema: fields.object({
@@ -377,13 +518,31 @@ export const pages = collection({
             publicPath: "src/assets/images/content",
           }),
         },
-        // blockquote: {
-        //   label: "Blockquote",
-        //   schema: fields.object({
-        //     quote: fields.text({ label: "quote" }),
-        //     cite: fields.text({ label: "cite" }),
-        //   }),
-        // },
+        recentPosts: {
+          label: "Recent Posts",
+          schema: fields.object({
+            title: fields.text({
+              label: "Section Title",
+              defaultValue: "Recent Posts",
+            }),
+            postCount: fields.number({
+              label: "Number of Posts to Show",
+              defaultValue: 3,
+              validation: {
+                min: 1,
+                max: 12,
+              },
+            }),
+            showViewAll: fields.checkbox({
+              label: "Show View All Posts Link",
+              defaultValue: true,
+            }),
+            viewAllText: fields.text({
+              label: "View All Link Text",
+              defaultValue: "View All Posts",
+            }),
+          }),
+        },
       },
       { label: "Content" },
     ),

@@ -21,7 +21,11 @@ const { title, description, tagline, cta, feature } = Astro.props.value;
           return (
             <article>
               {image ? (
-                <DynamicImage src={`${image}`} alt={""} class="w-full mb-8" />
+                <DynamicImage
+                  src={`${image}`}
+                  alt={""}
+                  class="w-full mb-8 h-[221px] max-h-[221px] object-contain"
+                />
               ) : null}
               <h3 class="h5 mb-6">{title}</h3>
               <p>{description}</p>

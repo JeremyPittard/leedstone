@@ -4,11 +4,13 @@ import PageHeader from "./blocks/PageHeader.astro";
 import TextWithImage from "./blocks/TextWithImage.astro";
 import FAQBlock from "./blocks/Faqs.astro";
 import ReviewsBlock from "./blocks/Reviews.astro";
-import BlogListBlock from "./blocks/BlogList.astro";
+import RecentPosts from "./blocks/RecentPosts.astro";
 import CTA from "./blocks/CTA.astro";
 import BlockQuote from "./blocks/BlockQuote.astro";
 import FeaturesBlock from "./blocks/FeaturesBlock.astro";
 import Timeline from "./blocks/Timeline.astro";
+import IconGrid from "./blocks/IconGrid.astro";
+import ContactBlock from "./blocks/ContactBlock.astro";
 import FullWidthImage from "./blocks/FullWidthImage.astro";
 
 export interface Props {
@@ -30,11 +32,13 @@ const componentMap: ComponentMap = {
   textWithImage: TextWithImage,
   faqBlock: FAQBlock,
   reviews: ReviewsBlock,
-  BlogList: BlogListBlock,
+  recentPosts: RecentPosts,
   cta: CTA,
   blockquote: BlockQuote,
   featuresBlock: FeaturesBlock,
   timeline: Timeline,
+  iconGrid: IconGrid,
+  contactBlock: ContactBlock,
   fullWidthImage: FullWidthImage,
 };
 

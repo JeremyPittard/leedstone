@@ -5,6 +5,7 @@ import keystatic from "@keystatic/astro";
 import tailwindcss from "@tailwindcss/vite";
 
 import icon from "astro-icon";
+import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -30,22 +31,29 @@ export default defineConfig({
           "star-half",
           "instagram",
           "share",
+          "phone",
+          "map",
+          "email",
         ],
         tabler: ["brand-threads"],
         ri: ["twitter-x-line", "bluesky-fill"],
       },
     }),
   ],
+
   legacy: {
     collections: true,
   },
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   image: {
     responsiveStyles: true,
     layout: "constrained",
   },
+
   experimental: {
     fonts: [
       {
@@ -55,4 +63,8 @@ export default defineConfig({
       },
     ],
   },
+
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
 });

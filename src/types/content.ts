@@ -60,7 +60,12 @@ const BlockQuote = z.object({
 // Placeholder schemas for TODO items
 const FAQBlock = z.any();
 const ReviewsBlock = z.any();
-const BlogListBlock = z.any();
+const RecentPosts = z.object({
+  title: z.string(),
+  postCount: z.number(),
+  showViewAll: z.boolean(),
+  viewAllText: z.string(),
+});
 const RichText = z.any();
 
 export const PageBlock = z.object({
@@ -74,7 +79,7 @@ export const PageBlock = z.object({
     z.array(ImageGrid),
     FAQBlock,
     ReviewsBlock,
-    BlogListBlock,
+    RecentPosts,
     CTA,
     Breakout,
   ]),

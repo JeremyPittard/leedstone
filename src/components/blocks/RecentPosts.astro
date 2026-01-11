@@ -1,0 +1,84 @@
+---
+import Button from "../elements/Button.astro";
+import DynamicImage from "../elements/DynamicImage.astro";
+import PageSection from "../objects/PageSection.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "src/utils/formatDate";
+import { shortenText } from "src/utils/shortenText";
+
+interface Props {
+  title: string;
+  postCount: number;
+  showViewAll: boolean;
+  viewAllText: string;
+}
+
+const { title, postCount, showViewAll, viewAllText } = Astro.props;
+
+// Fetch all posts and sort by publish date (newest first)
+const allPosts = await getCollection("posts");
+const sortedPosts = allPosts.toSorted((a, b) => {
+  const dateA = new Date(a.data.publishDate).getTime();
+  const dateB = new Date(b.data.publishDate).getTime();
+  return dateB - dateA;
+});
+
+// Limit to the requested number of posts
+const posts = sortedPosts.slice(0, postCount);
+---
+
+<PageSection class="text-with-image content-container">
+  {title ? <h2 class="text-left mb-12 lg:mb-20">{title}</h2> : null}
+
+  {
+    posts && posts.length > 0 ? (
+      <>
+        {posts ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
+            {posts.map((post) => {
+              const { image, title, description } = post.data;
+              return (
+                <article>
+                  {image ? (
+                    <DynamicImage
+                      src={`${image}`}
+                      alt={title || ""}
+                      class="w-full mb-8"
+                      width={405}
+                      height={240}
+                    />
+                  ) : null}
+                  <h3 class="h5 mb-6">{title}</h3>
+                  {description ? <p>{shortenText(description, 144)}</p> : null}
+                  <Button
+                    buttonType="link"
+                    href={`/posts/${post.slug}`}
+                    variant="more"
+                    target="_self"
+                  >
+                    read more
+                  </Button>
+                </article>
+              );
+            })}
+          </div>
+        ) : null}
+      </>
+    ) : null
+  }
+
+  {
+    showViewAll && (
+      <div class="text-center">
+        <Button
+          buttonType="link"
+          href="/posts"
+          variant="outline"
+          target="_self"
+        >
+          {viewAllText ?? "See all posts"}
+        </Button>
+      </div>
+    )
+  }
+</PageSection>

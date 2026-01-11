@@ -24,6 +24,25 @@ export type TimelineItem = {
   description: string;
 };
 
+export type IconGridItem = {
+  title: string;
+  image?: string;
+  description: string;
+  link?: Array<{
+    discriminant: string;
+    value: {
+      link: string;
+    };
+  }>;
+};
+
+export type ContactBlockItem = {
+  title: string;
+  image?: string;
+  description: string;
+  type: string;
+};
+
 type ImageGrid = {
   image?: string;
   title?: string;
@@ -68,12 +87,18 @@ export type Review = {
 export type ImageGridProps = ImageGrid[];
 export type FAQBlockProps = any; //TODO ammend this when I know what the object is
 export type ReviewsBlockProps = any; //TODO ammend this when I know what the object is
-export type BlogListBlockProps = any; //TODO ammend this when I know what the object is
 
 export type CTAProps = {
   title: string;
   description: string;
   cta?: (InternalLink | ExternalLink)[];
+};
+
+export type RecentPostsProps = {
+  title: string;
+  postCount: number;
+  showViewAll: boolean;
+  viewAllText: string;
 };
 
 export type BreakoutProps = {
@@ -97,7 +122,7 @@ export type PageBlockValues =
   | ImageGridProps
   | FAQBlockProps
   | ReviewsBlockProps
-  | BlogListBlockProps
+  | RecentPostsProps
   | CTAProps
   | BreakoutProps;
 

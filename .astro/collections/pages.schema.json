@@ -169,7 +169,30 @@
                   },
                   {},
                   {},
-                  {},
+                  {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "postCount": {
+                        "type": "number"
+                      },
+                      "showViewAll": {
+                        "type": "boolean"
+                      },
+                      "viewAllText": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "postCount",
+                      "showViewAll",
+                      "viewAllText"
+                    ],
+                    "additionalProperties": false
+                  },
                   {
                     "type": "object",
                     "properties": {

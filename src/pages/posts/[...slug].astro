@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import PostHero from "src/components/posts/PostHero.astro";
+import RecentPosts from "src/components/blocks/RecentPosts.astro";
 
 const { slug } = Astro.params;
 if (!slug) throw new Error("Slug not found");
@@ -32,4 +33,5 @@ export async function getStaticPaths() {
   >
     <Content />
   </section>
+  <RecentPosts title="More Posts" postCount={3} showViewAll={true} />
 </Layout>
