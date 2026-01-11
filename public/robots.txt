@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Prevent indexing of demo site
+# This file tells all search engines not to crawl any pages
