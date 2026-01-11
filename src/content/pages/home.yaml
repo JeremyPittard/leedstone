@@ -145,12 +145,6 @@ content:
       description: Reach out to us through any of these convenient methods
       tagline: Contact Information
       cta: []
-  - discriminant: recentPosts
-    value:
-      title: Recent Posts
-      postCount: 3
-      showViewAll: true
-      viewAllText: View All Posts
 richData: |-
   <script type="application/ld+json">
   {
