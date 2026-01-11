@@ -1,6 +1,6 @@
 {
   "main": "dist/_worker.js/index.js",
-  "name": "leedstone-landscapes",
+  "name": "leedstone",
   "compatibility_date": "2026-01-11",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
