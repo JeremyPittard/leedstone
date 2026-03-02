@@ -1,5 +1,5 @@
 title: Home
-description: this is about us woop
+description: Leedstone landscapes
 content:
   - discriminant: hero
     value:
@@ -48,7 +48,7 @@ content:
     value:
       title: Give your outdoor space a new lease on life
       description: We turn high-maintenance burdens into assets.
-      tagline: 'The Smart Choice. '
+      tagline: "The Smart Choice. "
       cta: []
       feature:
         - image: src/assets/images/home/content/3/value/feature/0/image.png
@@ -91,7 +91,7 @@ content:
         - discriminant: externalLink
           value:
             link: https://jpittard.net
-            linkText: 'See our work. '
+            linkText: "See our work. "
       items:
         - title: The Assessment
           description: >-
