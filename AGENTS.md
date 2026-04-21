@@ -50,10 +50,15 @@ Current package manager: pnpm 9.15.4
 
 ### Critical Files
 
-- `src/keystatic-collections/pages.ts` - Main page schema with 13 block types
+- `src/keystatic-collections/pages.ts` - Main page schema with 12 block types
 - `src/components/TheComponent.astro` - Component mapper for blocks
 - `src/content/config.ts` - Keystatic configuration
-- `astro.config.mjs` - Astro configuration
+- `astro.config.mjs` - Astro configuration (includes `/admin` → `/keystatic` redirect)
+
+### Block Types
+
+12 blocks defined in schema: hero, pageHeader, textWithImage, featuresBlock, timeline, iconGrid, contactBlock, faqBlock, reviews, cta, fullWidthImage, recentPosts
+Note: `blockquote` component exists in TheComponent.astro but is not in the schema.
 
 ## Adding New Blocks
 
@@ -81,7 +86,7 @@ Current package manager: pnpm 9.15.4
 
 ### Block Types Available
 
-- Hero, PageHeader, TextWithImage, FeaturesBlock, Timeline, IconGrid, ContactBlock, FAQ Block, Reviews, CTA, FullWidthImage
+- Hero, PageHeader, TextWithImage, FeaturesBlock, Timeline, IconGrid, ContactBlock, FAQ Block, Reviews, CTA, FullWidthImage, RecentPosts
 
 ## Code Style
 
@@ -90,9 +95,19 @@ Current package manager: pnpm 9.15.4
 - **Imports**: Organize imports by type (framework, components, utilities)
 - **Naming**: PascalCase for components, camelCase for functions/variables
 
+## Compound Engineering Workflow
+
+Use these OpenCode skills for proper workflow:
+
+- **Planning**: Use `ce:plan` before implementing features to create structured implementation plans
+- **Review**: Use `ce:review` before creating PRs for structured code review
+- **Work execution**: Use `ce:work` for feature implementation with built-in review cycles
+- **Ideation**: Use `ce:ideate` for generating improvement ideas
+- **Documentation**: Use `ce:compound` to document solved problems for team knowledge
+
 ## Testing & Quality
 
-- **Linting**: Not explicitly configured (consider adding)
+- **Formatting**: Prettier with Tailwind plugin (`pnpm prettier --write`)
 - **Type Checking**: TypeScript strict mode enabled
 - **Build Verification**: Always run `pnpm build` before commits
 
