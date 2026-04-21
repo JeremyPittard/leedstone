@@ -1,1 +1,29 @@
-<blockquote>It's A blockquote</blockquote>
+---
+import PageSection from "../objects/PageSection.astro";
+
+interface BlockQuoteValue {
+  quote: string;
+  author?: string;
+  citation?: string;
+}
+
+const { quote, author, citation } =
+  (Astro.props.value as BlockQuoteValue) || {};
+---
+
+<PageSection class="content-container">
+  <blockquote class="mx-auto max-w-4xl">
+    <p class="text-theme-text mb-4 text-2xl leading-relaxed font-medium italic">
+      "{quote}"
+    </p>
+    {
+      author && (
+        <footer class="text-theme-text flex items-center gap-2">
+          <span>—</span>
+          <cite class="font-medium not-italic">{author}</cite>
+          {citation && <span class="text-theme-muted">({citation})</span>}
+        </footer>
+      )
+    }
+  </blockquote>
+</PageSection>

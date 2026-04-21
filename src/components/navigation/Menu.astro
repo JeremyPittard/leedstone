@@ -16,16 +16,16 @@ interface NavigationLink {
 
 const navigationLinks: NavigationLink[] = await getEntry(
   "site-settings",
-  "navigation"
+  "navigation",
 ).then((entry) => entry.data.navigationLinks);
 
 const ctaLinks: NavigationLink[] = await getEntry(
   "site-settings",
-  "navigation"
+  "navigation",
 ).then((entry) => entry.data.ctaLinks);
 
 const logo: any = await getEntry("site-settings", "site-details").then(
-  (entry) => entry.data.logo
+  (entry) => entry.data.logo,
 );
 ---
 
@@ -75,7 +75,7 @@ const logo: any = await getEntry("site-settings", "site-details").then(
 </nav>
 
 <!-- mobile -->
-<div class="mobile-menu lg:hidden flex justify-between items-center">
+<div class="mobile-menu flex items-center justify-between lg:hidden">
   <a href="/">
     <Image
       src={`/images/logo/${logo}`}
@@ -91,7 +91,7 @@ const logo: any = await getEntry("site-settings", "site-details").then(
     <span class="sr-only">menu</span>
   </button>
   <nav popover id="mobile-menu" class="mobile-menu w-full">
-    <ul class="flex items-baseline gap-8 flex-col w-full py-4 px-5">
+    <ul class="flex w-full flex-col items-baseline gap-8 px-5 py-4">
       {
         navigationLinks.map((navLink) => {
           const { link, label } = navLink.value;

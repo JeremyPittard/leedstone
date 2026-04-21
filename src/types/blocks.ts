@@ -85,8 +85,21 @@ export type Review = {
 };
 
 export type ImageGridProps = ImageGrid[];
-export type FAQBlockProps = any; //TODO ammend this when I know what the object is
-export type ReviewsBlockProps = any; //TODO ammend this when I know what the object is
+
+export type FAQBlockProps = {
+  title: string;
+  description: string;
+  faqs: string[];
+  followUpTitle?: string;
+  followUpDescription?: string;
+  cta?: CTALink[];
+};
+
+export type ReviewsBlockProps = {
+  title: string;
+  description: string;
+  reviews: string[];
+};
 
 export type CTAProps = {
   title: string;
@@ -108,14 +121,18 @@ export type BreakoutProps = {
 };
 
 export type BlockQuoteProps = {
-  blockquote: string;
+  quote: string;
+  author?: string;
+  citation?: string;
 };
 
-export type RichTextPros = any; //TODO ammend this when I know what the object is
+export type RichTextProps = {
+  content: string;
+};
 
 export type PageBlockValues =
   | BlockQuoteProps
-  | RichTextPros
+  | RichTextProps
   | HeroProps
   | pageHeader
   | TextWithImageProps

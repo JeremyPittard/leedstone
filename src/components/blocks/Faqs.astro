@@ -41,8 +41,8 @@ const faqRichData = {
 ---
 
 <PageSection class="Faqs content-container">
-  <div class="max-w-3xl mb-20">
-    <h2 class="mb-6 animate fade-in">
+  <div class="mb-20 max-w-3xl">
+    <h2 class="animate fade-in mb-6">
       {title}
     </h2>
     <p class="animate fade-in">{description}</p>
@@ -52,9 +52,9 @@ const faqRichData = {
       selectedFaqs.map((singleFAQ: faq) => {
         const { question, answer } = singleFAQ.data;
         return (
-          <li class="border-t border-neutral-darkest pt-6 pb-12 flex flex-wrap lg:flex-nowrap gap-16 justify-between animate fade-in">
-            <h3 class="text-medium font-bold w-full">{question}</h3>
-            <p class="text-medium w-full">{answer}</p>
+          <li class="animate fade-in flex flex-wrap justify-between gap-16 border-t border-neutral-darkest pt-6 pb-12 lg:flex-nowrap">
+            <h3 class="w-full text-medium font-bold">{question}</h3>
+            <p class="w-full text-medium">{answer}</p>
           </li>
         );
       })
@@ -62,15 +62,15 @@ const faqRichData = {
   </ul>
   {
     followUpTitle || followUpDescription ? (
-      <div class="max-w-3xl mt-20 animate fade-in">
-        <h3 class="mb-4 h4">{followUpTitle}</h3>
+      <div class="animate fade-in mt-20 max-w-3xl">
+        <h3 class="h4 mb-4">{followUpTitle}</h3>
         <p>{followUpDescription}</p>
       </div>
     ) : null
   }
   {
     cta ? (
-      <div class="flex gap-4 animate fade-in">
+      <div class="animate fade-in flex gap-4">
         {cta.map((link: CTALink, index: number) => (
           <Button
             buttonType="link"
