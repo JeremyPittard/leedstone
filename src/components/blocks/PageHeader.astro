@@ -3,10 +3,10 @@ import PageSection from "../objects/PageSection.astro";
 
 const { value } = Astro.props;
 
-const { image, title, description } = value;
+const { title, description } = value;
 ---
 
 <PageSection class="page-header content-container">
-  <h1 class="max-w-[768px] mb-6">{title}</h1>
-  <p class="text-medium max-w-[768px]">{description}</p>
+  <h1 class="mb-6 max-w-[768px]">{title}</h1>
+  <p class="max-w-[768px] text-medium">{description}</p>
 </PageSection>

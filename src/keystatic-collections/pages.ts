@@ -543,6 +543,23 @@ export const pages = collection({
             }),
           }),
         },
+        blockquote: {
+          label: "Block Quote",
+          schema: fields.object({
+            quote: fields.text({
+              label: "Quote",
+              multiline: true,
+              validation: { isRequired: true },
+            }),
+            author: fields.text({
+              label: "Author",
+            }),
+            citation: fields.text({
+              label: "Citation",
+              description: "Optional source or title",
+            }),
+          }),
+        },
       },
       { label: "Content" },
     ),
