@@ -17,14 +17,14 @@ const formattedDate = date ? formatDate(date) : undefined;
 ---
 
 <PageSection class="post-hero content-container">
-  <div class="flex flex-col lg:space-between gap-5 lg:gap-20 mb-12 lg:mb-20">
+  <div class="lg:space-between mb-12 flex flex-col gap-5 lg:mb-20 lg:gap-20">
     <Button
       buttonType="link"
       href={`/posts`}
       variant="ghost"
       target="_self"
       iconPosition="leading"
-      class="w-fit -ml-8"
+      class="-ml-8 w-fit"
     >
       All posts
     </Button>
@@ -40,7 +40,7 @@ const formattedDate = date ? formatDate(date) : undefined;
   />
   {
     date ? (
-      <div class="flex pt-8 justify-between">
+      <div class="flex justify-between pt-8">
         <div>
           <p class="mb-2">published on</p>
           <p class="font-semibold">{formattedDate}</p>

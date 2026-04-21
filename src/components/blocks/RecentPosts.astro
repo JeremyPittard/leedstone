@@ -28,13 +28,13 @@ const posts = sortedPosts.slice(0, postCount);
 ---
 
 <PageSection class="text-with-image content-container">
-  {title ? <h2 class="text-left mb-12 lg:mb-20">{title}</h2> : null}
+  {title ? <h2 class="mb-12 text-left lg:mb-20">{title}</h2> : null}
 
   {
     posts && posts.length > 0 ? (
       <>
         {posts ? (
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
+          <div class="mb-20 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => {
               const { image, title, description } = post.data;
               return (
@@ -43,7 +43,7 @@ const posts = sortedPosts.slice(0, postCount);
                     <DynamicImage
                       src={`${image}`}
                       alt={title || ""}
-                      class="w-full mb-8"
+                      class="mb-8 w-full"
                       width={405}
                       height={240}
                     />

@@ -16,14 +16,14 @@ interface Props extends HTMLAttributes<"img"> {
 
 const { src, alt, height, width, isHero } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "../../assets/images/**/**/*.{jpeg,jpg,png,gif}"
+  "../../assets/images/**/**/*.{jpeg,jpg,png,gif}",
 );
 
 const imageSrc = src.replace("src/assets", "../../assets");
 
 if (!images[imageSrc])
   throw new Error(
-    `Image "${src}" not found. Resolved path: "${imageSrc}". Available images: ${Object.keys(images).join(", ")}`
+    `Image "${src}" not found. Resolved path: "${imageSrc}". Available images: ${Object.keys(images).join(", ")}`,
   );
 ---
 

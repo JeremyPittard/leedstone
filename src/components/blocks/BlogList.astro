@@ -22,7 +22,7 @@ const posts = data;
     class={`flex flex-col lg:flex-row-reverse lg:space-between gap-5 lg:gap-20 mb-12 lg:mb-20 items-center`}
   >
     <div class="flex-1">
-      <p class="mb-3 lg:mb-2 font-semibold">
+      <p class="mb-3 font-semibold lg:mb-2">
         Latest Post: {
           latestPost.data.publishDate
             ? formatDate(latestPost.data.publishDate)
@@ -57,7 +57,7 @@ const posts = data;
 
   {
     posts ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
+      <div class="mb-20 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => {
           const { image, title, description } = post.data;
           return (
@@ -66,7 +66,7 @@ const posts = data;
                 <DynamicImage
                   src={`${image}`}
                   alt={""}
-                  class="w-full mb-8"
+                  class="mb-8 w-full"
                   width={405}
                   height={240}
                 />
@@ -89,7 +89,7 @@ const posts = data;
   }
   {
     page.lastPage > 1 && (
-      <nav class="flex gap-4 items-center">
+      <nav class="flex items-center gap-4">
         {page.currentPage > 1 && (
           <Button
             buttonType="link"

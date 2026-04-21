@@ -9,13 +9,13 @@ const { title, description, tagline, cta, feature } = Astro.props.value;
 
 <PageSection class="features content-container">
   <div class={`max-w-3xl mb-12 lg:mb-20 animate fade-in`}>
-    <p class="mb-3 lg:mb-4 font-semibold animate">{tagline}</p>
+    <p class="animate mb-3 font-semibold lg:mb-4">{tagline}</p>
     <h2 class="mb-5 lg:mb-6">{title}</h2>
     <p class="mb-7 lg:mb-8">{description}</p>
   </div>
   {
     feature ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20 animate fade-in">
+      <div class="animate fade-in mb-20 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         {feature.map((item: Feature) => {
           const { image, title, description } = item;
           return (
@@ -24,7 +24,7 @@ const { title, description, tagline, cta, feature } = Astro.props.value;
                 <DynamicImage
                   src={`${image}`}
                   alt={""}
-                  class="w-full mb-8 h-[221px] max-h-[221px] object-contain"
+                  class="mb-8 h-[221px] max-h-[221px] w-full object-contain"
                 />
               ) : null}
               <h3 class="h5 mb-6">{title}</h3>

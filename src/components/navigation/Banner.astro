@@ -14,13 +14,13 @@ const banner = await getEntry("site-settings", "site-details").then((entry) => {
 ---
 
 <div
-  class="alert-banner px-5 lg:pl-16 lg:pr-0 bg-background-alt text-text-alt w-full"
+  class="alert-banner w-full bg-background-alt px-5 text-text-alt lg:pr-0 lg:pl-16"
 >
   <div
-    class="content-container flex flex-col gap-4 lg:flex-row px-4 py-3 items-center-safe justify-center w"
+    class="content-container w flex flex-col items-center-safe justify-center gap-4 px-4 py-3 lg:flex-row"
   >
     {banner.text ? <p class="w-full lg:text-center">{banner.text}</p> : null}
-    <div class="flex gap-4 w-full lg:w-auto">
+    <div class="flex w-full gap-4 lg:w-auto">
       {
         banner.link ? (
           <Button

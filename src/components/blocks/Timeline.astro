@@ -7,12 +7,12 @@ const { tagline, title, description, cta, items } = Astro.props.value;
 ---
 
 <PageSection class="timeline content-container animate fade-in">
-  <p class="text-center mb-3 lg:mb-4 font-semibold">{tagline}</p>
-  <h2 class="text-center mb-5 lg:mb-6">{title}</h2>
-  <p class="text-center mb-7 lg:mb-8">{description}</p>
+  <p class="mb-3 text-center font-semibold lg:mb-4">{tagline}</p>
+  <h2 class="mb-5 text-center lg:mb-6">{title}</h2>
+  <p class="mb-7 text-center lg:mb-8">{description}</p>
   {
     cta ? (
-      <div class="flex gap-4 justify-center">
+      <div class="flex justify-center gap-4">
         {cta.map((link: CTALink, index: number) => (
           <Button
             buttonType="link"
@@ -28,7 +28,7 @@ const { tagline, title, description, cta, items } = Astro.props.value;
   }
   {
     items ? (
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 mt-20">
+      <div class="mt-20 grid grid-cols-1 gap-0 lg:grid-cols-3">
         {items.map((step: TimelineItem, index: number) => {
           const { title, description, image } = step;
           return (
@@ -38,12 +38,12 @@ const { tagline, title, description, cta, items } = Astro.props.value;
                   <DynamicImage
                     src={`${image}`}
                     alt={""}
-                    class="mb-8 mx-auto"
+                    class="mx-auto mb-8"
                     height={256}
                     width={256}
                   />
                 ) : (
-                  <p class="text-8xl text-center">{index + 1}</p>
+                  <p class="text-center text-8xl">{index + 1}</p>
                 )}
               </div>
               <div class="px-8 text-center">
